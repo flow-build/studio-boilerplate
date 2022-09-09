@@ -3,7 +3,7 @@ import jwtDecode from "jwt-decode";
 
 const getLocalJwtToken = (): string | null => localStorage.getItem(TOKEN_KEY);
 
-const storeLocalJwtToken = (token: string | null): void => localStorage.setItem(TOKEN_KEY, token);
+const storeLocalJwtToken = (token: string): void => localStorage.setItem(TOKEN_KEY, token);
 
 const clearLocalJwtToken = (): void => localStorage.removeItem(TOKEN_KEY);
 

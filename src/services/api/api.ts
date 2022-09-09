@@ -25,7 +25,7 @@ const interceptorResponseError = async (error: any) => {
     window.location.href = "/login";
   }
 
-  let token: string | null = getLocalJwtToken();
+  let token: any = getLocalJwtToken();
 
   if (token && expiredJwtToken(token)) {
     token = await getRemoteJwtToken(api);
