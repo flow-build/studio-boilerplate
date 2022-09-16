@@ -1,12 +1,16 @@
 import { AxiosInstance } from "axios";
 
 const getRemoteJwtToken = async (apiService: AxiosInstance) => {
-  try {
-    const response = await apiService.post("/token", {});
-    return response.data.jwtToken || response.data.token;
-  } catch (e: any) {
-    throw new Error(`getRemoteToken -> ${e.error}: ${e.message}`);
-  }
+  const token = await apiService
+    .post("/token", {})
+    .then(response => {
+      return response.data.jwtToken || response.data.token;
+    })
+    .catch(e => {
+      console.error(e);
+      throw new Error(`getRemoteToken -> ${e.error}: ${e.message}`);
+    });
+  return token;
 };
 
 export { getRemoteJwtToken };

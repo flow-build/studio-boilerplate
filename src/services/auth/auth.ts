@@ -1,4 +1,4 @@
-import { TOKEN_KEY } from "../../cofig/constants";
+import { TOKEN_KEY } from "../../config/constants";
 import jwtDecode from "jwt-decode";
 
 const getLocalJwtToken = (): string | null => localStorage.getItem(TOKEN_KEY);
