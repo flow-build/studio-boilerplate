@@ -1,5 +1,5 @@
 {
-  "name": "studio-boilerplate",
+  "name": "next-test",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -15,9 +15,7 @@
     "build-storybook": "storybook build"
   },
   "lint-staged": {
-    "src/**/*.{ts,tsx}": [
-      "yarn lint:fix"
-    ]
+    "src/**/*.{ts,tsx}": ["yarn lint:fix"]
   },
   "dependencies": {
     "@elastic/react-search-ui": "^1.20.2",
