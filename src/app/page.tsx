@@ -1,5 +1,5 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+import Image from 'next/image';
+import styles from './page.module.css';
 
 export default function Home() {
   return (
@@ -85,11 +85,9 @@ export default function Home() {
           <h2>
             Deploy <span>-&gt;</span>
           </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
+          <p>Instantly deploy your Next.js site to a shareable URL with Vercel.</p>
         </a>
       </div>
     </main>
-  )
+  );
 }

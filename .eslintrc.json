@@ -1,3 +1,40 @@
 {
-  "extends": "next/core-web-vitals"
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:react/recommended",
+    "standard-with-typescript",
+    "prettier"
+  ],
+  "overrides": [],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "project": "tsconfig.json"
+  },
+  "plugins": ["react"],
+  "rules": {
+    "react/require-default-props": "off",
+    "react/react-in-jsx-scope": "off",
+    "@typescript-eslint/consistent-type-imports": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "eslint-disable import/no-anonymous-default-export": "off",
+    "import/export": "off",
+    "max-len": [
+      "warn",
+      {
+        "code": 100,
+        "comments": 100,
+        "ignoreStrings": true,
+        "ignoreComments": true
+      }
+    ]
+  }
 }
