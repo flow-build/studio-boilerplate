@@ -19,7 +19,7 @@ export default meta;
 
 type Story = StoryObj<typeof InputText>;
 
-const Standart = (args: any) => {
+const Standard = (args: any) => {
   const [value, setValue] = React.useState('');
   return (
     <InputText
@@ -33,21 +33,21 @@ const Standart = (args: any) => {
 };
 
 export const Primary: Story = {
-  render: (args) => <Standart {...args} />
+  render: (args) => <Standard {...args} />
 };
 
 export const Password: Story = {
-  render: (args) => <Standart {...args} type="password" label="Senha" />
+  render: (args) => <Standard {...args} type="password" label="Senha" />
 };
 
 export const Mask: Story = {
-  render: (args) => <Standart {...args} type="text" label="Telefone" maskType="phone" />
+  render: (args) => <Standard {...args} type="text" label="Telefone" maskType="phone" />
 };
 
 export const IconStart: Story = {
-  render: (args) => <Standart {...args} type="text" label="nome" position="start" />
+  render: (args) => <Standard {...args} type="text" label="nome" position="start" />
 };
 
 export const IconEnd: Story = {
-  render: (args) => <Standart {...args} type="text" label="nome" position="end" />
+  render: (args) => <Standard {...args} type="text" label="nome" position="end" />
 };
