@@ -13,6 +13,7 @@
     "plugin:react/recommended",
     "plugin:prettier/recommended",
     "standard-with-typescript",
+    "next",
     "prettier"
   ],
   "overrides": [],
@@ -46,6 +47,17 @@
     "@typescript-eslint/explicit-function-return-type": "off",
     "eslint-disable import/no-anonymous-default-export": "off",
     "import/export": "off",
+    "jsx-a11y/anchor-is-valid": "off",
+    "react-perf/jsx-no-new-function-as-prop": "off",
+    "react/function-component-definition": "off",
+    "react-perf/jsx-no-new-object-as-prop": "off",
+    "perf/jsx-no-new-array-as-prop": "off",
+    "react/state-in-constructor": "off",
+    "react/static-property-placement": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/prop-types": "off",
+    "react/no-array-index-key": "off",
+    "react/jsx-uses-react": "off",
     "max-len": [
       "warn",
       {
