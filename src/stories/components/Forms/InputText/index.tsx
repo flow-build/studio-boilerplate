@@ -34,7 +34,9 @@ export const InputText: FC<TextFieldProps & InputProps> = ({
   ...props
 }): JSX.Element => {
   const [showPassword, setShowPassword] = useState(false);
-  const handleClickShowPassword = () => setShowPassword((show) => !show);
+  const handleClickShowPassword = () => {
+    setShowPassword((show) => !show);
+  };
 
   const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
@@ -55,7 +57,9 @@ export const InputText: FC<TextFieldProps & InputProps> = ({
               '#': /[0-9]/
             }}
             inputRef={() => ref}
-            onAccept={(value: unknown) => onChange({ target: { name: props.name, value } })}
+            onAccept={(value: unknown) => {
+              onChange({ target: { name: props.name, value } });
+            }}
             overwrite
           />
         );

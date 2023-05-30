@@ -21,7 +21,15 @@ type Story = StoryObj<typeof InputText>;
 
 const Standart = (args) => {
   const [value, setValue] = React.useState('');
-  return <InputText value={value} onChange={(event) => setValue(event.target.value)} {...args} />;
+  return (
+    <InputText
+      value={value}
+      onChange={(event) => {
+        setValue(event.target.value);
+      }}
+      {...args}
+    />
+  );
 };
 
 export const Primary: Story = {
