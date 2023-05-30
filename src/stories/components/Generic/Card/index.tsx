@@ -2,12 +2,11 @@
 import React from 'react';
 
 import CardContent from '@mui/material/CardContent';
-
 import Typography from '@mui/material/Typography';
+import Link from 'next/link';
 
 import * as S from './styles';
 import { CardProps } from './types';
-import Link from 'next/link';
 
 export const Card = ({
   title,
