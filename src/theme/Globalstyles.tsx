@@ -4,6 +4,9 @@ import React from 'react';
 import MUIGlobalStyles, { GlobalStylesProps } from '@mui/material/GlobalStyles';
 
 const STYLES: GlobalStylesProps['styles'] = {
+  html: {
+    fontSize: '16px'
+  },
   '*': {
     fontFamily: 'Open Sans, sans-serif',
     margin: '0',
