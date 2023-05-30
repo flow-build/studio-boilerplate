@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useCallback, useMemo, useState } from 'react';
+import React, { FC, ReactElement, ReactNode, useCallback, useMemo, useState } from 'react';
 
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
@@ -31,7 +31,7 @@ export const InputText: FC<TextFieldProps & InputProps> = ({
   placeholder,
   position,
   ...props
-}): JSX.Element => {
+}): ReactElement => {
   const [showPassword, setShowPassword] = useState(false);
   const handleClickShowPassword = () => {
     setShowPassword((show) => !show);
