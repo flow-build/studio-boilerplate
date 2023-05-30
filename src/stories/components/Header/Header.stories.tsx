@@ -25,6 +25,8 @@ Default.args = {
       height={30}
     />
   ),
+  loggedIn: true,
+  username: 'Haramura',
   links: [
     { name: '[Início]', url: '/' },
     { name: '[Sobre]', url: '/sobre' },

@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useMemo } from 'react';
+import React, { FC, ReactElement, useCallback, useMemo } from 'react';
 import { useRouter } from 'next/router';
 import BrokenImageIcon from '@mui/icons-material/BrokenImage';
 import * as S from './styles';
@@ -12,7 +12,7 @@ export const ImageComponent: FC<ImageProps> = ({
   height,
   width,
   redirectLink
-}): JSX.Element => {
+}): ReactElement => {
   const [isImageBroken, setIsImageBroken] = React.useState(false);
   const router = useRouter();
 
