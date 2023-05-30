@@ -59,10 +59,6 @@ export function validateCPF(cpf: string): boolean {
     rest = 0;
   }
 
-  /* Check if it's different from the second checker digit */
-  if (rest !== parseInt(cpf.substring(10, 11))) {
-    return false;
-  }
-
-  return true;
+  /* Verify if it equals the second checker digit */
+  return rest === parseInt(cpf.substring(10, 11));
 }
