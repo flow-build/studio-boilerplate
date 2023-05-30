@@ -1,5 +1,6 @@
+import { ReactNode } from 'react';
+
 type MaskType = 'register' | 'date' | 'phone' | 'zipcode' | 'onlyNumbers';
-type Position = 'end' | 'start';
 
 export interface MaskProps {
   onChange: (event: { target: { name: string; value: unknown } }) => void;
@@ -10,8 +11,7 @@ export interface MaskProps {
 
 export interface InputProps {
   maskType?: MaskType;
-  testId?: string;
-  iconName?: string;
-  colorIcon?: string;
-  position?: Position;
+  leftIcon?: boolean;
+  rigthIcon?: boolean;
+  icon?: ReactNode;
 }
