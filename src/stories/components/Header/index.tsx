@@ -1,36 +1,28 @@
 'use client';
 import React from 'react';
 import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import Link from 'next/link';
 import { HeaderProps } from './types';
-import { Container } from '@mui/material';
+
+import * as S from './styles';
 
 export const Header: React.FC<HeaderProps> = ({ logo, links, button }) => {
   return (
     <AppBar position="static" color="default">
-      <Toolbar style={{ display: 'flex', justifyContent: 'space-between' }}>
-        <Container>{logo}</Container>
-        <Container style={{ display: 'flex', justifyContent: 'space-evenly' }}>
+      <S.ToolbarHeader>
+        {logo}
+        <S.ContainerHeader>
           {links.map((link, index) => (
             <Typography variant="h6" key={link.name}>
-              <Link legacyBehavior href={link.url}>
-                <a style={{ color: 'black', textDecoration: 'none' }}>{link.name}</a>
-              </Link>
+              <S.LinkHeader href={link.url}>{link.name}</S.LinkHeader>
             </Typography>
           ))}
-        </Container>
-        <Button
-          color="primary"
-          variant="outlined"
-          style={{ paddingLeft: 50, paddingRight: 50, textTransform: 'capitalize' }}
-          onClick={button.onClick}
-        >
+        </S.ContainerHeader>
+        <S.ButtonHeader color="inherit" variant="outlined" size="large" onClick={button.onClick}>
           {button.name}
-        </Button>
-      </Toolbar>
+        </S.ButtonHeader>
+      </S.ToolbarHeader>
     </AppBar>
   );
 };

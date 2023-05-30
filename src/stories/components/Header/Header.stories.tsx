@@ -3,8 +3,7 @@ import { Meta, StoryFn } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { Header } from './index';
 import { HeaderProps } from './types';
-
-const Logo = () => <div>@[Nome]</div>;
+import { ImageComponent } from '../Image/Image';
 
 const header: Meta<typeof Header> = {
   title: 'Component/Header',
@@ -18,12 +17,19 @@ const Template: StoryFn<HeaderProps> = (args) => <Header {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  logo: <Logo />,
+  logo: (
+    <ImageComponent
+      src="https://seeklogo.com/images/N/next-js-logo-60FB9B8D2B-seeklogo.com.png"
+      alt={'Logo'}
+      width={150}
+      height={30}
+    />
+  ),
   links: [
-    { name: 'Início', url: '/' },
-    { name: 'Sobre', url: '/sobre' },
-    { name: 'Início', url: '/' },
-    { name: 'Sobre', url: '/sobre' }
+    { name: '[Início]', url: '/' },
+    { name: '[Sobre]', url: '/sobre' },
+    { name: '[Contato]', url: '/sobre' },
+    { name: '[FAQ]', url: '/faq' }
   ],
   button: {
     name: 'Entrar',
