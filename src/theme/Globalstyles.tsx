@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 
 import MUIGlobalStyles, { GlobalStylesProps } from '@mui/material/GlobalStyles';
@@ -12,6 +13,10 @@ const STYLES: GlobalStylesProps['styles'] = {
   },
   'ol, ul': {
     listStyle: 'none'
+  },
+  a: {
+    color: 'inherit',
+    textDecoration: 'inherit'
   }
 };
 
