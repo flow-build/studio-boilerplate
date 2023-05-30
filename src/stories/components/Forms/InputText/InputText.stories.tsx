@@ -19,7 +19,7 @@ export default meta;
 
 type Story = StoryObj<typeof InputText>;
 
-const Standart = (args) => {
+const Standart = (args: any) => {
   const [value, setValue] = React.useState('');
   return (
     <InputText

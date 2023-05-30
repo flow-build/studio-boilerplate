@@ -1,5 +1,4 @@
-import React, { FC, ReactNode, forwardRef, useCallback, useMemo, useState } from 'react';
-import { IMaskInput } from 'react-imask';
+import React, { FC, ReactNode, useCallback, useMemo, useState } from 'react';
 
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
@@ -9,7 +8,7 @@ import InputAdornment from '@mui/material/InputAdornment';
 import { TextFieldProps } from '@mui/material/TextField';
 
 import * as S from './styles';
-import { MaskProps, InputProps } from './types';
+import { InputProps } from './types';
 import { SvgIcon } from '@mui/material';
 
 export const InputText: FC<TextFieldProps & InputProps> = ({
@@ -41,31 +40,6 @@ export const InputText: FC<TextFieldProps & InputProps> = ({
   const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
   };
-
-  const TextMaskCustom = useMemo(
-    () =>
-      forwardRef<HTMLElement, MaskProps>((props, ref) => {
-        const { onChange, ...other } = props;
-
-        const mask = maskType ? Mask[maskType](props.value) : '';
-
-        return (
-          <IMaskInput
-            {...other}
-            mask={mask as string}
-            definitions={{
-              '#': /[0-9]/
-            }}
-            inputRef={() => ref}
-            onAccept={(value: unknown) => {
-              onChange({ target: { name: props.name, value } });
-            }}
-            overwrite
-          />
-        );
-      }),
-    [maskType]
-  );
 
   const TypesInput = useCallback(() => {
     if (type === 'password') {
@@ -135,7 +109,6 @@ export const InputText: FC<TextFieldProps & InputProps> = ({
       onFocus={onFocus}
       disabled={disabled}
       InputProps={{
-        inputComponent: maskType && (TextMaskCustom as never),
         endAdornment: (IconInputButton as ReactNode) ?? IconInputEnd,
         startAdornment: IconInputStart
       }}
