@@ -1,8 +1,12 @@
+'use client';
 import React from 'react';
 
 import MUIGlobalStyles, { GlobalStylesProps } from '@mui/material/GlobalStyles';
 
 const STYLES: GlobalStylesProps['styles'] = {
+  html: {
+    fontSize: '16px'
+  },
   '*': {
     fontFamily: 'Open Sans, sans-serif',
     margin: '0',
@@ -12,6 +16,10 @@ const STYLES: GlobalStylesProps['styles'] = {
   },
   'ol, ul': {
     listStyle: 'none'
+  },
+  a: {
+    color: 'inherit',
+    textDecoration: 'inherit'
   }
 };
 
