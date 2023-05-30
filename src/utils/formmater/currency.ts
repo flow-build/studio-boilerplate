@@ -19,6 +19,5 @@ export function getCurrencyDecimalPart(value: number): string {
     return '00';
   }
 
-  const decimalStr = value.toString().split('.')[1];
-  return decimalStr;
+  return value.toString().split('.')[1];
 }
