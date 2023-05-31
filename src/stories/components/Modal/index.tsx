@@ -1,5 +1,7 @@
 import { ModalProps } from './types';
 
+import CloseIcon from '@mui/icons-material/Close';
+
 import * as S from './styles';
 
 export const Modal = ({ children, closeModal, title, ...props }: ModalProps) => {
@@ -10,7 +12,7 @@ export const Modal = ({ children, closeModal, title, ...props }: ModalProps) => 
           <S.DialogTitle>
             {title}
             <S.IconButton aria-label="close" onClick={closeModal}>
-              <S.CloseIcon />
+              <CloseIcon />
             </S.IconButton>
           </S.DialogTitle>
         )}
