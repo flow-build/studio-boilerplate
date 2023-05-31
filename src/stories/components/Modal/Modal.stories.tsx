@@ -4,8 +4,6 @@ import { Modal } from './';
 import { useState } from 'react';
 import { CloseReason } from '@mui/material';
 
-import * as S from './styles';
-
 const meta: Meta<typeof Modal> = {
   title: 'Modal',
   component: Modal,
@@ -27,9 +25,9 @@ const ModalDemo = (args: any) => {
 
   return (
     <div>
-      <S.Button type="button" variant="outlined" onClick={handleOpenModal}>
+      <button type="button" onClick={handleOpenModal}>
         Open Modal
-      </S.Button>
+      </button>
       <Modal title="Title" closeModal={handleCloseModal} open={open} {...args}>
         Teste
       </Modal>
