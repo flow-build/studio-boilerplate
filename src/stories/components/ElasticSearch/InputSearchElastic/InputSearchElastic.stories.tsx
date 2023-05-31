@@ -14,10 +14,10 @@ type Story = StoryObj<typeof InputSearchElastic>;
 
 export const Primary: Story = {
   args: {
-    placeholder: 'Buscar',
-    searchKey: 'search-nawi3j3vgrr292hkfs83iuai',
-    engineName: 'develop-listing-engine',
-    endpointBase: 'https://pdef.ent.us-east-1.aws.found.io',
+    placeholder: 'Buscar por jogo: Final fantasy',
+    searchKey: 'search-feodmjyfmqinygyb4u1y254k',
+    engineName: 'video-games',
+    endpointBase: 'https://host-2376rb.api.swiftype.com',
     onChange: Logger.info
   }
 };
