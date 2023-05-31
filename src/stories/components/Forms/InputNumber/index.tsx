@@ -6,16 +6,16 @@ import { InputNumberProps } from './types';
 export function InputNumber({ defaultValue = 0, onChange, isInt = false }: InputNumberProps) {
   const [value, setValue] = useState(defaultValue);
 
-  const getValueMinus = useCallback((currentValue: number) => {
-    return isInt ? Math.max(currentValue - 1, 0) : currentValue - 1;
-  }, []);
-
-  const getValueMore = useCallback(
+  const getValueMinus = useCallback(
     (currentValue: number) => {
-      return currentValue + 1;
+      return isInt ? Math.max(currentValue - 1, 0) : currentValue - 1;
     },
     [isInt]
   );
+
+  const getValueMore = useCallback((currentValue: number) => {
+    return currentValue + 1;
+  }, []);
 
   const handleChange = useCallback(
     (action: '+' | '-') => {
@@ -36,7 +36,7 @@ export function InputNumber({ defaultValue = 0, onChange, isInt = false }: Input
         }
       }
     },
-    [value, onChange]
+    [value, onChange, isInt]
   );
 
   return (
