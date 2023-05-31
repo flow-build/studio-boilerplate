@@ -1,16 +1,16 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Logger } from 'utils';
 
-import { InputSuggestions } from './';
+import { InputSearchElastic } from '.';
 
-const meta: Meta<typeof InputSuggestions> = {
-  title: 'Form/InputSuggestions',
-  component: InputSuggestions,
+const meta: Meta<typeof InputSearchElastic> = {
+  title: 'Elastic/InputSearchElastic',
+  component: InputSearchElastic,
   tags: ['autodocs']
 };
 
 export default meta;
-type Story = StoryObj<typeof InputSuggestions>;
+type Story = StoryObj<typeof InputSearchElastic>;
 
 export const Primary: Story = {
   args: {

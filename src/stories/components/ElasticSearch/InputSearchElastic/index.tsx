@@ -3,28 +3,28 @@ import { useState, useCallback } from 'react';
 
 import { debounce } from 'lodash';
 
-import api from '../../../../services/httpClient';
 import { InputSearchAutocomplete } from '../../Forms/InputSearchSuggestions';
 import { Suggestions } from '../../Forms/InputSearchSuggestions/types';
-import { ResultSuggestions } from '../types';
-import { InputSuggestionsProps } from './types';
+import { InputSearchElasticProps } from './types';
+import { useInputSearchElastic } from './useInputSearchElastic';
 
-export const InputSuggestions = ({
+export const InputSearchElastic = ({
   placeholder,
   searchKey,
   engineName,
   endpointBase,
   onChange
-}: InputSuggestionsProps) => {
+}: InputSearchElasticProps) => {
   const [suggestions, setSuggestions] = useState<Suggestions[]>([]);
   const [isLoading, setIsLoading] = useState(false);
 
+  const { getData } = useInputSearchElastic({ searchKey, engineName, endpointBase });
+
   const onInputChange = useCallback(
     (_: unknown, value: string) => {
-      console.log({ value });
       if (value.length >= 3) {
         setIsLoading(true);
-        getData(value, searchKey, engineName, endpointBase)
+        getData(value)
           .then((result: Suggestions[]) => {
             setSuggestions(result);
           })
@@ -35,7 +35,7 @@ export const InputSuggestions = ({
         setSuggestions([]);
       }
     },
-    [searchKey, engineName, endpointBase]
+    [getData]
   );
 
   return (
@@ -48,31 +48,3 @@ export const InputSuggestions = ({
     />
   );
 };
-
-async function getData(
-  term: string,
-  searchKey: string,
-  engineName: string,
-  endpointBase: string
-): Promise<Suggestions[]> {
-  api.setBaseUrl(endpointBase);
-  api.setHeader({
-    'Content-Type': 'application/json',
-    Authorization: `Bearer ${searchKey}`
-  });
-
-  const body = {
-    query: term,
-    size: 3
-  };
-
-  const data = await api.post<ResultSuggestions>(
-    `/api/as/v1/engines/${engineName}/query_suggestion`,
-    body
-  );
-
-  return (data as ResultSuggestions).results.documents.map((item: { suggestion: string }) => ({
-    text: item.suggestion,
-    value: item.suggestion
-  }));
-}
