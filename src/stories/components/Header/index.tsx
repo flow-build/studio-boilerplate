@@ -13,7 +13,7 @@ export const Header: React.FC<HeaderProps> = ({ logo, links, button, loggedIn, u
       <S.ToolbarHeader>
         {logo}
         <S.ContainerHeader loggedIn={loggedIn ?? false}>
-          {links?.map((link, index) => (
+          {links?.map((link) => (
             <S.DividedLink loggedIn={loggedIn ?? false} key={link.name}>
               <S.LinkHeader href={link.url}>{link.name}</S.LinkHeader>
             </S.DividedLink>

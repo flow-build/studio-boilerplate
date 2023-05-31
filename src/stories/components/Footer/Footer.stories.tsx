@@ -19,6 +19,7 @@ export const Standard: StoryFn<typeof Footer> = (args) => (
   <Footer {...args}>
     <LinkGroup.Standard
       title="Lorem Ipsum"
+      // eslint-disable-next-line react-perf/jsx-no-new-array-as-prop
       links={[
         {
           id: '1',
@@ -44,6 +45,7 @@ export const Standard: StoryFn<typeof Footer> = (args) => (
     />
     <LinkGroup.Standard
       title="Lorem Ipsum"
+      // eslint-disable-next-line react-perf/jsx-no-new-array-as-prop
       links={[
         {
           id: '1',
@@ -69,6 +71,7 @@ export const Standard: StoryFn<typeof Footer> = (args) => (
     />
     <SocialNetworks.Standard
       title="Lorem Ipsum"
+      // eslint-disable-next-line react-perf/jsx-no-new-array-as-prop
       icons={[
         {
           id: '1',

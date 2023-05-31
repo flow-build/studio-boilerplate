@@ -12,7 +12,6 @@ export const InputText: FC<TextFieldProps & InputProps> = ({
   id,
   label,
   onChange,
-  type,
   error,
   helperText,
   onBlur,
@@ -21,15 +20,15 @@ export const InputText: FC<TextFieldProps & InputProps> = ({
   disabled,
   placeholder,
   leftIcon,
-  rigthIcon,
+  rightIcon,
   ...props
 }): ReactElement => {
   const IconInputRight = useMemo(() => {
-    if (rigthIcon !== undefined) {
-      return <InputAdornment position="end">{rigthIcon}</InputAdornment>;
+    if (rightIcon !== undefined) {
+      return <InputAdornment position="end">{rightIcon}</InputAdornment>;
     }
     return null;
-  }, [rigthIcon]);
+  }, [rightIcon]);
 
   const IconInputLeft = useMemo(() => {
     if (leftIcon !== undefined) {
