@@ -22,7 +22,6 @@ export const ActionBox = styled(IconButton)`
 export const Input = styled(InputBase)`
   display: flex;
 
-  font-family: 'Inter';
   font-style: normal;
   font-weight: 400;
   font-size: 1.5rem;
