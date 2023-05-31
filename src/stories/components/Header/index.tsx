@@ -4,7 +4,7 @@ import AppBar from '@mui/material/AppBar';
 import Typography from '@mui/material/Typography';
 import * as S from './styles';
 import { HeaderProps } from './types';
-import { Button } from '../Button/Button';
+import { Button } from '@mui/material';
 
 export const Header: React.FC<HeaderProps> = ({ logo, links, button, loggedIn, username }) => {
   if (loggedIn ?? false) {
