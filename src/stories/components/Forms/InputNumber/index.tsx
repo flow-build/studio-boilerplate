@@ -36,7 +36,7 @@ export function InputNumber({ defaultValue = 0, onChange, isInt = false }: Input
         }
       }
     },
-    [value, onChange, isInt, getValueMore, getValueMinus]
+    [value, onChange, getValueMore, getValueMinus]
   );
 
   return (
