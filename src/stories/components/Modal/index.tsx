@@ -1,5 +1,6 @@
 import { ModalProps } from './types';
 
+import { Dialog, DialogContent } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 
 import * as S from './styles';
@@ -7,7 +8,7 @@ import * as S from './styles';
 export const Modal = ({ children, closeModal, title, ...props }: ModalProps) => {
   return (
     <S.Wrapper>
-      <S.Dialog {...props} maxWidth={false} onClose={closeModal} fullWidth>
+      <Dialog {...props} maxWidth={false} onClose={closeModal} fullWidth>
         {title !== null && (
           <S.DialogTitle>
             {title}
@@ -17,8 +18,8 @@ export const Modal = ({ children, closeModal, title, ...props }: ModalProps) => 
           </S.DialogTitle>
         )}
 
-        <S.DialogContent>{children}</S.DialogContent>
-      </S.Dialog>
+        <DialogContent>{children}</DialogContent>
+      </Dialog>
     </S.Wrapper>
   );
 };
