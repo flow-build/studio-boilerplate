@@ -2,7 +2,7 @@ const CELLPHONE_LENGTH = 11;
 
 export const maskPhoneNumber = (value: string): string => {
   if (value === '') {
-    return value;
+    return '';
   }
 
   value = value.replace(/\D/g, '');

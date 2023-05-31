@@ -14,10 +14,6 @@ const INVALID_CPFS = [
 ];
 
 export function validateCPF(cpf: string): boolean {
-  if (typeof cpf !== 'string') {
-    return false;
-  }
-
   /* Replace space, dots and hyfens to a empty string */
   cpf = cpf.replace(/[\s.-]*/gim, '');
 
