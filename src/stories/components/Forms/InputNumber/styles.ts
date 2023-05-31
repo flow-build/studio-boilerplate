@@ -10,13 +10,13 @@ export const InputContainer = styled(Box)`
 
 export const ActionBox = styled(IconButton)`
   display: flex;
-  width: 48px;
-  height: 48px;
+  width: 3rem;
+  height: 3rem;
 
   justify-content: center;
   align-items: center;
   align-content: center;
-  border: 1px solid #d3d9e6;
+  border: 0.0625rem solid #d3d9e6;
 `;
 
 export const Input = styled(InputBase)`
@@ -25,8 +25,8 @@ export const Input = styled(InputBase)`
   font-family: 'Inter';
   font-style: normal;
   font-weight: 400;
-  font-size: 24px;
-  line-height: 32px;
+  font-size: 1.5rem;
+  line-height: 2rem;
   justify-content: center;
   align-items: center;
   align-content: center;
