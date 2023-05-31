@@ -25,14 +25,14 @@ export const InputText: FC<TextFieldProps & InputProps> = ({
   ...props
 }): ReactElement => {
   const IconInputRight = useMemo(() => {
-    if (rigthIcon) {
+    if (rigthIcon !== undefined) {
       return <InputAdornment position="end">{rigthIcon}</InputAdornment>;
     }
     return null;
   }, [rigthIcon]);
 
   const IconInputLeft = useMemo(() => {
-    if (leftIcon) {
+    if (leftIcon !== undefined) {
       return <InputAdornment position="start">{leftIcon}</InputAdornment>;
     }
     return null;
