@@ -2,7 +2,7 @@ import { css } from '@emotion/react';
 import ButtonMui from '@mui/material/Button';
 import { Theme, styled } from '@mui/material/styles';
 
-const selectColor = (theme: Theme, color = 'inherit', customColor = '') => {
+const selectColor = (theme: Theme, color = '', customColor = '') => {
   if (customColor != null) {
     return customColor;
   } else {
@@ -35,7 +35,7 @@ export const ButtonContainer = styled(ButtonMui, {
     background-color: ${customColor.length > 0 ||
     (color.length > 0 &&
     color !== 'inherit' &&
-    ['primary', 'secondary', 'success', 'error', 'info', 'warning'].includes(color)
+    ['primary', 'secondary', 'success', 'error', 'info', 'warning', ''].includes(color)
       ? theme.palette[color].main
       : '')};
     color: ${variant === 'contained' && !['primary', 'secondary'].includes(color)
