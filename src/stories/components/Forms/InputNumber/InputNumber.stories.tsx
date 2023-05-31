@@ -1,21 +1,21 @@
 import React from 'react';
+import { Meta, StoryObj } from '@storybook/react';
 
 import { InputNumber } from './index';
 
-export default {
+const meta: Meta<typeof InputNumber> = {
   title: 'Form/InputNumber',
-  component: InputNumber
+  component: InputNumber,
+  args: {
+    isInt: false,
+    defaultValue: 0
+  },
+  tags: ['autodocs']
 };
+export default meta;
 
-const Template = (args: any) => <InputNumber {...args} />;
+type Story = StoryObj<typeof InputNumber>;
 
-export const Default = Template.bind({});
-Default.args = {
-  id: 'input-number',
-  isInt: false,
-  disabledMinus: false,
-  disabledPlus: false,
-  disabledInput: false,
-  eventEmit: () => null,
-  eventName: ''
+export const Template: Story = {
+  render: (args) => <InputNumber {...args} />
 };
