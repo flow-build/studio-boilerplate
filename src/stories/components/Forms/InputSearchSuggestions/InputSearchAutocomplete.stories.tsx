@@ -27,7 +27,6 @@ export const Primary: Story = {
 function WrapperSuggestions(args: InputSearchAutocompleteProps) {
   const [suggestions, setSuggestions] = React.useState<Suggestions[]>([]);
   const [isLoading, setIsLoading] = React.useState(false);
-  const [isOpen, setOpen] = React.useState(false);
 
   const getData = async (term: string) => {
     const result = await getMockData(term);
@@ -35,26 +34,18 @@ function WrapperSuggestions(args: InputSearchAutocompleteProps) {
     setIsLoading(false);
   };
 
-  const onInputChange = React.useCallback(
-    async (_: unknown, newValue: string) => {
-      if (newValue.length >= 3 && !isOpen) {
-        setOpen(true);
-        setIsLoading(true);
-        await getData(newValue);
-      } else {
-        if (!isOpen) {
-          setSuggestions([]);
-        }
-      }
-    },
-    [isOpen]
-  );
+  const onInputChange = React.useCallback(async (_: unknown, newValue: string) => {
+    if (newValue.length >= 3) {
+      setIsLoading(true);
+      await getData(newValue);
+    } else {
+      setSuggestions([]);
+    }
+  }, []);
 
   return (
     <InputSearchAutocomplete
       {...args}
-      setOpen={setOpen}
-      isOpen={isOpen}
       isLoading={isLoading}
       suggestions={suggestions}
       onInputChange={onInputChange}
