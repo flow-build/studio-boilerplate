@@ -1,0 +1,24 @@
+import { List } from '@mui/material';
+import Grid from '@mui/material/Grid';
+import { styled } from '@mui/material/styles';
+import { fontSizes } from 'theme/fontSizes.theme';
+
+export const Container = styled(Grid)`
+  padding-bottom: 1rem;
+
+  padding-left: 0;
+  padding-right: 0;
+
+  color: ${({ theme }) => theme.palette.text.primary};
+  font-size: ${fontSizes.F14};
+  font-weight: ${({ theme }) => theme.typography.fontWeightLight};
+  text-transform: none;
+
+  &:hover {
+    background: none;
+  }
+`;
+
+export const ListLinks = styled(List)`
+  color: ${({ theme }) => theme.palette.grey[700]};
+`;
