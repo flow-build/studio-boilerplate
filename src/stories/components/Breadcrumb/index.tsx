@@ -27,12 +27,8 @@ export const Breadcrumbs: FC<BreadcrumbsProps> = ({ allLinks = false, items }) =
   }, [items, allLinks]);
 
   return (
-    <Grid item xs={12}>
-      <Stack spacing={2}>
-        <S.Breadcrumbs separator="›" aria-label="breadcrumb">
-          {breadcrumbs}
-        </S.Breadcrumbs>
-      </Stack>
-    </Grid>
+    <S.Breadcrumbs separator="›" aria-label="breadcrumb">
+      {breadcrumbs}
+    </S.Breadcrumbs>
   );
 };
