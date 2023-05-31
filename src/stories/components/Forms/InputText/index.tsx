@@ -22,21 +22,18 @@ export const InputText: FC<TextFieldProps & InputProps> = ({
   placeholder,
   leftIcon,
   rigthIcon,
-  icon,
   ...props
 }): ReactElement => {
   const IconInputRight = useMemo(() => {
-    rigthIcon ??= false;
     if (rigthIcon) {
-      return <InputAdornment position="end">{icon}</InputAdornment>;
+      return <InputAdornment position="end">{rigthIcon}</InputAdornment>;
     }
     return null;
   }, [rigthIcon]);
 
   const IconInputLeft = useMemo(() => {
-    leftIcon ??= false;
     if (leftIcon) {
-      return <InputAdornment position="start">{icon}</InputAdornment>;
+      return <InputAdornment position="start">{leftIcon}</InputAdornment>;
     }
     return null;
   }, [leftIcon]);
