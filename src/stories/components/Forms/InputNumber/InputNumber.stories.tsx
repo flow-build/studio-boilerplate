@@ -7,7 +7,7 @@ export default {
   component: InputNumber
 };
 
-const Template = (args) => <InputNumber {...args} />;
+const Template = (args: any) => <InputNumber {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
