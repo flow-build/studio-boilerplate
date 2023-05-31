@@ -34,7 +34,3 @@ const Standard = (args: any) => {
 export const Primary: Story = {
   render: (args) => <Standard {...args} />
 };
-
-export const Mask: Story = {
-  render: (args) => <Standard {...args} type="text" label="Telefone" maskType="phone" />
-};
