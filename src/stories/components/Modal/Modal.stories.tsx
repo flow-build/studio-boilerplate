@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
-import { CloseReason } from '@mui/material';
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { Modal } from './';
+import { ModalProps } from './types';
 
 const meta: Meta<typeof Modal> = {
   title: 'Modal',
@@ -14,13 +14,13 @@ const meta: Meta<typeof Modal> = {
 export default meta;
 type Story = StoryObj<typeof Modal>;
 
-const ModalDemo = (args: any) => {
+const ModalDemo = (args: ModalProps) => {
   const [open, setOpen] = useState(false);
 
   const handleOpenModal = () => {
     setOpen(true);
   };
-  const handleCloseModal = (value: CloseReason) => {
+  const handleCloseModal = () => {
     setOpen(false);
   };
 
@@ -29,7 +29,7 @@ const ModalDemo = (args: any) => {
       <button type="button" onClick={handleOpenModal}>
         Open Modal
       </button>
-      <Modal title="Title" closeModal={handleCloseModal} open={open} {...args}>
+      <Modal title="Title" {...args} closeModal={handleCloseModal} open={open}>
         Teste
       </Modal>
     </div>

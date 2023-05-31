@@ -13,5 +13,5 @@ export interface InputSearchAutocompleteProps {
 
 export interface Suggestions {
   text: string;
-  value: Record<string, any> | string | number;
+  value: Record<string, unknown> | string | number;
 }
