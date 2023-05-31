@@ -1,9 +1,8 @@
-import { ModalProps } from './types';
-
-import { Dialog, DialogContent } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
+import { Dialog, DialogContent } from '@mui/material';
 
 import * as S from './styles';
+import { ModalProps } from './types';
 
 export const Modal = ({ children, closeModal, title, ...props }: ModalProps) => {
   return (
