@@ -15,7 +15,7 @@ export const ToolbarHeader = styled(Toolbar)`
 
 export const ContainerHeader = styled(Container)<Props>(({ loggedIn }) => ({
   display: 'flex',
-  justifyContent: loggedIn ?? true ? 'center' : 'flex-end',
+  justifyContent: loggedIn ?? false ? 'center' : 'flex-end',
   gap: loggedIn ?? false ? 'initial' : `${spacing.S16}`
 }));
 
@@ -23,12 +23,6 @@ export const ContainerHeaderAvatar = styled(Container)`
   display: flex;
   justify-content: flex-end;
   gap: ${spacing.S16};
-`;
-
-export const ContainerHeaderLogged = styled(Container)`
-  display: flex;
-  justify-content: center;
-  align-items: center;
 `;
 
 export const DividedLink = styled(Typography)<Props>(({ loggedIn }) => ({

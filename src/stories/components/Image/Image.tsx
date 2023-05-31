@@ -1,10 +1,8 @@
 import React, { FC, ReactElement, useCallback, useMemo } from 'react';
-import { useRouter } from 'next/router';
 import BrokenImageIcon from '@mui/icons-material/BrokenImage';
-import * as S from './styles';
 import { ImageProps } from './types';
-import { Logger } from 'utils';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export const ImageComponent: FC<ImageProps> = ({
   alt,
@@ -14,7 +12,6 @@ export const ImageComponent: FC<ImageProps> = ({
   redirectLink
 }): ReactElement => {
   const [isImageBroken, setIsImageBroken] = React.useState(false);
-  const router = useRouter();
 
   const realWidth = useMemo(() => {
     if (typeof width === 'number') return width;
@@ -29,27 +26,6 @@ export const ImageComponent: FC<ImageProps> = ({
   const onError = useCallback(() => {
     setIsImageBroken(true);
   }, []);
-
-  const handleRedirect = useCallback(
-    async (link: string) => {
-      if (link !== undefined) {
-        try {
-          await router.push(link);
-        } catch (error) {
-          Logger.error('Erro ao redirecionar para a página:', error);
-        }
-      }
-    },
-    [router]
-  );
-
-  const handleButtonClick = useCallback(() => {
-    if (redirectLink !== undefined) {
-      handleRedirect(redirectLink).catch((error) => {
-        Logger.error('Erro ao redirecionar para a página:', error);
-      });
-    }
-  }, [handleRedirect, redirectLink]);
 
   const ImageShow = useMemo(() => {
     return isImageBroken ? (
@@ -67,12 +43,8 @@ export const ImageComponent: FC<ImageProps> = ({
   }, [isImageBroken, src, alt, realWidth, realHeight, onError]);
 
   const ImageContainer = useMemo(() => {
-    return redirectLink != null ? (
-      <S.ButtonLink onClick={handleButtonClick}>{ImageShow}</S.ButtonLink>
-    ) : (
-      ImageShow
-    );
-  }, [ImageShow, handleButtonClick, redirectLink]);
+    return redirectLink != null ? <Link href={redirectLink}>{ImageShow}</Link> : ImageShow;
+  }, [ImageShow, redirectLink]);
 
   return <React.Fragment>{ImageContainer}</React.Fragment>;
 };
