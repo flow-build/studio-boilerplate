@@ -4,19 +4,17 @@ import Link from 'next/link';
 import { fontSizes } from 'theme/fontSizes.theme';
 import { spacing } from 'theme/spacing';
 
-interface Props {
-  loggedIn: boolean;
-}
-
 export const ToolbarHeader = styled(Toolbar)`
   display: flex;
   justify-content: space-between;
 `;
 
-export const ContainerHeader = styled(Container)<Props>(({ loggedIn }) => ({
+export const ContainerHeader = styled(Container, {
+  shouldForwardProp: (prop) => prop !== 'loggedIn'
+})<{ loggedIn: boolean }>(({ loggedIn }) => ({
   display: 'flex',
-  justifyContent: loggedIn ?? false ? 'center' : 'flex-end',
-  gap: loggedIn ?? false ? 'initial' : `${spacing.S16}`
+  justifyContent: loggedIn ? 'center' : 'flex-end',
+  gap: loggedIn ? 'initial' : `${spacing.S16}`
 }));
 
 export const ContainerHeaderAvatar = styled(Container)`
@@ -25,13 +23,15 @@ export const ContainerHeaderAvatar = styled(Container)`
   gap: ${spacing.S16};
 `;
 
-export const DividedLink = styled(Typography)<Props>(({ loggedIn }) => ({
+export const DividedLink = styled(Typography, {
+  shouldForwardProp: (prop) => prop !== 'loggedIn'
+})<{ loggedIn: boolean }>(({ loggedIn }) => ({
   '::after': {
-    content: loggedIn ?? false ? '"|"' : 'none',
-    margin: loggedIn ?? false ? `${spacing.S10}` : '0'
+    content: loggedIn ? '"|"' : 'none',
+    margin: loggedIn ? `${spacing.S10}` : '0'
   },
   ':last-child::after': {
-    content: loggedIn ?? false ? '""' : 'none'
+    content: loggedIn ? '""' : 'none'
   }
 }));
 
