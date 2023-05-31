@@ -1,9 +1,11 @@
 'use client';
 import React from 'react';
+
+import { Button } from '@mui/material';
 import AppBar from '@mui/material/AppBar';
+
 import * as S from './styles';
 import { HeaderProps } from './types';
-import { Button } from '@mui/material';
 
 export const Header: React.FC<HeaderProps> = ({ logo, links, button, loggedIn, username }) => {
   return (

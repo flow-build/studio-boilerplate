@@ -1,9 +1,11 @@
 import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
+
 import { action } from '@storybook/addon-actions';
+import { Meta, StoryFn } from '@storybook/react';
+
+import { ImageComponent } from '../Image/Image';
 import { Header } from './index';
 import { HeaderProps } from './types';
-import { ImageComponent } from '../Image/Image';
 
 const header: Meta<typeof Header> = {
   title: 'Component/Header',

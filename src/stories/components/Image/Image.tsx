@@ -1,8 +1,10 @@
 import React, { FC, ReactElement, useCallback, useMemo } from 'react';
+
 import BrokenImageIcon from '@mui/icons-material/BrokenImage';
-import { ImageProps } from './types';
 import Image from 'next/image';
 import Link from 'next/link';
+
+import { ImageProps } from './types';
 
 export const ImageComponent: FC<ImageProps> = ({
   alt,

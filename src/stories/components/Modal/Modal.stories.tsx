@@ -1,8 +1,9 @@
+import { useState } from 'react';
+
+import { CloseReason } from '@mui/material';
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { Modal } from './';
-import { useState } from 'react';
-import { CloseReason } from '@mui/material';
 
 const meta: Meta<typeof Modal> = {
   title: 'Modal',
