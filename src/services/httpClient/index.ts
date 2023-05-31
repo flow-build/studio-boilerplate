@@ -6,7 +6,7 @@ interface Error {
 }
 
 function API() {
-  let BASE_URL: string = '';
+  let BASE_URL = '';
 
   return {
     setBaseUrl(baseUrl: string) {

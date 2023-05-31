@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import { getCurrencyIntegerValue } from 'utils/formmater';
 
 import { Card } from './';
-import { getCurrencyIntegerValue } from 'utils/formmater';
 
 const meta: Meta<typeof Card> = {
   title: 'Generic/Card',

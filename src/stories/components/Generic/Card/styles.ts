@@ -1,6 +1,6 @@
-import { styled } from '@mui/material/styles';
 import CardMUI from '@mui/material/Card';
 import CardMediaMUI from '@mui/material/CardMedia';
+import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import { spacing } from 'theme/spacing';
 

@@ -5,10 +5,13 @@
     "node": true
   },
   "extends": [
+    "eslint:recommended",
     "next/core-web-vitals",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/recommended",
+    "plugin:import/typescript",
     "plugin:react/recommended",
-    "plugin:react-hooks/recommended",
-    "plugin:react-perf/recommended",
+    "plugin:prettier/recommended",
     "standard-with-typescript",
     "next",
     "prettier"
@@ -22,8 +25,22 @@
     "sourceType": "module",
     "project": "tsconfig.json"
   },
-  "plugins": ["react"],
+  "plugins": [
+    "@typescript-eslint",
+    "react",
+    "prettier",
+    "eslint-plugin-import-helpers",
+    "import"
+  ],
   "rules": {
+    "import-helpers/order-imports": [
+      "warn",
+      {
+        "newlinesBetween": "always",
+        "groups": ["/^react/", "module", ["parent", "sibling", "index"]],
+        "alphabetize": { "order": "asc", "ignoreCase": true }
+      }
+    ],
     "react/require-default-props": "off",
     "react/react-in-jsx-scope": "off",
     "@typescript-eslint/consistent-type-imports": "off",
