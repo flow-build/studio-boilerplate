@@ -16,13 +16,13 @@ export const ImageComponent: FC<ImageProps> = ({
   const [isImageBroken, setIsImageBroken] = React.useState(false);
 
   const realWidth = useMemo(() => {
-    if (typeof width === 'number') return width;
-    return undefined;
+    if (typeof width !== 'number') return;
+    return width;
   }, [width]);
 
   const realHeight = useMemo(() => {
-    if (typeof height === 'number') return height;
-    return undefined;
+    if (typeof height !== 'number') return;
+    return height;
   }, [height]);
 
   const onError = useCallback(() => {

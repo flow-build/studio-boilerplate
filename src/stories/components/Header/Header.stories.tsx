@@ -3,7 +3,7 @@ import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { Meta, StoryFn } from '@storybook/react';
 
-import { ImageComponent } from '../Image/Image';
+import { ImageComponent } from '../Image';
 import { Header } from './index';
 import { HeaderProps } from './types';
 

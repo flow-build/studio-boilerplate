@@ -3,8 +3,8 @@ import React from 'react';
 
 import { Meta, StoryFn } from '@storybook/react';
 
-import { ImageComponent } from './Image';
 import { ImageProps } from './types';
+import { ImageComponent } from '.';
 
 const image: Meta<typeof Image> = {
   title: 'Header/Image',
