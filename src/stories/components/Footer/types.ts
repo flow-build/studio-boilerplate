@@ -3,6 +3,6 @@ import { SocialNetworksProps } from '../SocialNetworks/types';
 
 export interface FooterProps {
   navLinks?: LinkGroupsProps[];
-  socialMedias?: SocialNetworksProps[];
+  socialMedia?: SocialNetworksProps;
   disclaimer?: string;
 }

@@ -3,7 +3,7 @@ import React, { FC } from 'react';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 
-import { Item } from './components/Item';
+import { ItemIcon } from './components/Item';
 import * as S from './styles';
 import { SocialNetworksProps } from './types';
 
@@ -14,7 +14,7 @@ export const SocialNetworks: FC<SocialNetworksProps> = ({ title = '', icons = []
         <Typography variant="h4">{title}</Typography>
         <S.SocialNetworksContainer component="ul">
           {icons.map(({ id, name, redirectLink }) => (
-            <Item key={id} id={id} name={name} redirectLink={redirectLink} />
+            <ItemIcon key={id} id={id} name={name} redirectLink={redirectLink} />
           ))}
         </S.SocialNetworksContainer>
       </Grid>

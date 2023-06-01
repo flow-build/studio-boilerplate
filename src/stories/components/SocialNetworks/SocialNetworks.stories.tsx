@@ -11,22 +11,22 @@ const meta: Meta<typeof SocialNetworks> = {
     icons: [
       {
         id: '1',
-        name: 'Facebook',
+        name: 'facebook',
         redirectLink: 'https://www.facebook.com/'
       },
       {
         id: '2',
-        name: 'Instagram',
+        name: 'instagram',
         redirectLink: 'https://www.instagram.com/'
       },
       {
         id: '3',
-        name: 'Twitter',
+        name: 'twitter',
         redirectLink: 'https://twitter.com/'
       },
       {
         id: '4',
-        name: 'Youtube',
+        name: 'youtube',
         redirectLink: 'https://www.youtube.com/'
       }
     ]

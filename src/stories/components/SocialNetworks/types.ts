@@ -1,6 +1,8 @@
+import { TSocialNetworkIcon } from './utils';
+
 export interface InterfaceIcon {
   id: string;
-  name: string;
+  name: TSocialNetworkIcon;
   redirectLink: string;
 }
 

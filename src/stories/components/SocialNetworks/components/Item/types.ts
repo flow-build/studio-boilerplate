@@ -1,5 +1,7 @@
-export interface ItemProps {
+import { TSocialNetworkIcon } from '../../utils';
+
+export interface ItemIconProps {
   id: string;
-  name: string;
+  name: TSocialNetworkIcon;
   redirectLink: string;
 }
