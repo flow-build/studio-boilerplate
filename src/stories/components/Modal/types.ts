@@ -1,5 +1,6 @@
-import { DialogProps } from '@mui/material';
 import { ReactNode } from 'react';
+
+import { DialogProps } from '@mui/material';
 
 export interface ModalProps extends DialogProps {
   closeModal: () => void;
