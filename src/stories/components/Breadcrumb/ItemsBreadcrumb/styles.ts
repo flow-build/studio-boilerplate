@@ -13,7 +13,7 @@ export const LinkLabel = styled(Link)`
     background-color: transparent;
     text-decoration: underline;
 
-    & last-child {
+    &:last-child {
       text-decoration: none;
     }
   }
