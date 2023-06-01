@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 
 import { IconButton } from '@mui/material';
 import Autocomplete from '@mui/material/Autocomplete';
@@ -12,22 +12,24 @@ import { InputSearchAutocompleteProps } from './types';
 export const InputSearchAutocomplete = ({
   placeholder,
   noOptionsText = 'Nenhuma opção encontrada',
+  loadingText = 'Buscando...',
   suggestions,
-  isOpen,
-  setOpen,
   isLoading = false,
   onInputChange,
   onChange
 }: InputSearchAutocompleteProps) => {
+  const [open, setOpen] = useState(false);
   return (
     <Autocomplete
-      open={isOpen}
+      open={open}
+      onOpen={() => setOpen(true)}
       onClose={() => setOpen(false)}
       isOptionEqualToValue={(option, value) => option.text === value.text}
       getOptionLabel={(option) => option.text}
       noOptionsText={noOptionsText}
       options={suggestions}
       loading={isLoading}
+      loadingText={loadingText}
       onInputChange={onInputChange}
       onChange={onChange}
       renderInput={(params) => (
