@@ -9,7 +9,7 @@ import * as S from './styles';
 import { SocialNetworksProps } from './types';
 import { getSocialNetworkIcon } from './utils';
 
-export const SocialNetworks: FC<SocialNetworksProps> = ({ title, icons }) => {
+export const SocialNetworks: FC<SocialNetworksProps> = ({ title = '', icons = [] }) => {
   const renderIcons = useMemo(() => {
     return icons.map(({ id, name, redirectLink }) => {
       const SocialNetworkIcon = getSocialNetworkIcon(name);
