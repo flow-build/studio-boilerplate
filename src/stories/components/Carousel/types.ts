@@ -1,4 +1,5 @@
 export interface CarouselProps {
+  data: ListIcon[];
   urlRedirect?: string;
   slidesPerView: number;
 }

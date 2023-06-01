@@ -1,6 +1,7 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 
 import { Carousel } from './';
+import { mockCategories } from './mockResult';
 
 const meta: Meta<typeof Carousel> = {
   title: 'Carousel',
@@ -9,16 +10,7 @@ const meta: Meta<typeof Carousel> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof Carousel>;
 
-const Standard = () => {
-  return (
-    <div>
-      <Carousel slidesPerView={10} />
-    </div>
-  );
-};
-
-export const Primary: Story = {
-  render: () => <Standard />
+export const Standard: StoryFn<typeof Carousel> = (args) => {
+  return <Carousel {...args} data={mockCategories} slidesPerView={10} />;
 };
