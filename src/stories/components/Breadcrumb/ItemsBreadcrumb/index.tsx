@@ -1,4 +1,4 @@
-import React, { FC, useMemo, ReactElement } from 'react';
+import React, { useMemo } from 'react';
 import { ItemsBreadcrumbProps } from './types';
 import * as S from './styles';
 
@@ -12,7 +12,7 @@ export const ItemsBreadcrumb = ({ items }: ItemsBreadcrumbProps) => {
         }
 
         return (
-          <S.LinkLabel key={item.text} href={item.redirectLink}>
+          <S.LinkLabel key={item.text} href={item.redirectLink ?? ''}>
             {item.text}
           </S.LinkLabel>
         );

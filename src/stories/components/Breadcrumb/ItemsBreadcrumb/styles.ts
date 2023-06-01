@@ -1,5 +1,5 @@
-import { Link, styled, Typography } from '@mui/material';
-
+import { styled, Typography } from '@mui/material';
+import Link from 'next/link';
 export const LinkLabel = styled(Link)`
   padding: 0;
   margin: 0;

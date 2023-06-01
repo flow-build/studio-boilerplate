@@ -11,11 +11,11 @@ const meta: Meta<typeof Breadcrumbs> = {
     items: [
       {
         text: 'Home',
-        redirectLink: '/'
+        redirectLink: 'https://google.com.br'
       },
       {
         text: 'Apple',
-        redirectLink: '/categoria/apple'
+        redirectLink: 'https://google.com.br'
       },
       {
         text: 'iPhone'
