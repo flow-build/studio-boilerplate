@@ -7,9 +7,10 @@ import * as S from './styles';
 
 export type Props = SelectProps<Option['value']> & {
   options: Array<Option>;
+  helperText?: string;
 };
 
-export const Select: React.FC<Props> = ({ options = [], ...props }) => {
+export const Select: React.FC<Props> = ({ options, helperText, ...props }) => {
   const [value, setValue] = useState<Option['value']>('');
 
   function onChange(event: SelectChangeEvent<Option['value']>) {
@@ -17,14 +18,26 @@ export const Select: React.FC<Props> = ({ options = [], ...props }) => {
   }
 
   return (
-    <S.Wrapper value={value} onChange={onChange} {...props}>
-      <S.Option value="">Selecione uma opção</S.Option>
+    <S.Wrapper>
+      {props.label && <S.Label>{props.label}</S.Label>}
 
-      {options.map((option, index) => (
-        <S.Option key={`${option.value}-${index}`} value={option.value}>
-          {option.label}
-        </S.Option>
-      ))}
+      <S.Select
+        value={value}
+        onChange={onChange}
+        label={props.label}
+        notched={!!props.label}
+        {...props}
+      >
+        <S.Option value="">Selecione uma opção</S.Option>
+
+        {options.map((option, index) => (
+          <S.Option key={`${option.value}-${index}`} value={option.value}>
+            {option.label}
+          </S.Option>
+        ))}
+      </S.Select>
+
+      {helperText && <S.HelperText>{helperText}</S.HelperText>}
     </S.Wrapper>
   );
 };

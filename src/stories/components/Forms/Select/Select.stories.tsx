@@ -3,11 +3,13 @@ import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 import { Props, Select } from 'stories/components/Forms/Select';
 
-const meta: Meta<typeof Select> = {
+const meta: Meta<Props> = {
   title: 'Form/Select',
   component: Select,
   args: {
-    options: [{ label: 'Teste', value: 10 }]
+    label: 'Label',
+    options: [{ label: 'Teste', value: 10 }],
+    helperText: 'Helper text'
   },
   tags: ['autodocs']
 };
