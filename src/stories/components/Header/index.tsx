@@ -1,7 +1,6 @@
 'use client';
 import React from 'react';
 
-import { Button } from '@mui/material';
 import AppBar from '@mui/material/AppBar';
 
 import * as S from './styles';
@@ -21,14 +20,19 @@ export const Header: React.FC<HeaderProps> = ({ logo, links, button, loggedIn, u
         </S.ContainerHeader>
         {loggedIn === true ? (
           username != null && (
-            <Button color="inherit" variant="outlined" size="large" onClick={button.onClick}>
+            <S.ButtonHeader
+              color="inherit"
+              variant="outlined"
+              size="large"
+              onClick={button.onClick}
+            >
               {username}
-            </Button>
+            </S.ButtonHeader>
           )
         ) : (
-          <Button color="inherit" variant="outlined" size="large" onClick={button.onClick}>
+          <S.ButtonHeader color="inherit" variant="outlined" size="large" onClick={button.onClick}>
             {button.name}
-          </Button>
+          </S.ButtonHeader>
         )}
       </S.ToolbarHeader>
     </AppBar>

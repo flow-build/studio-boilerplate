@@ -1,4 +1,4 @@
-import { Container, Divider, Toolbar, Typography } from '@mui/material';
+import { Button, Container, Divider, Toolbar, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import Link from 'next/link';
 import { fontSizes } from 'theme/fontSizes.theme';
@@ -21,6 +21,10 @@ export const ContainerHeaderAvatar = styled(Container)`
   display: flex;
   justify-content: flex-end;
   gap: ${spacing.S16};
+`;
+
+export const ButtonHeader = styled(Button)`
+  text-transform: capitalize;
 `;
 
 export const DividedLink = styled(Typography, {
