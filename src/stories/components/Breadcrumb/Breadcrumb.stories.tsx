@@ -18,8 +18,7 @@ const meta: Meta<typeof Breadcrumbs> = {
         redirectLink: '/categoria/apple'
       },
       {
-        text: 'iPhone',
-        redirectLink: '/categoria/apple/iphone'
+        text: 'iPhone'
       }
     ]
   },
