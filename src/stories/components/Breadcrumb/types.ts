@@ -1,10 +1,6 @@
-export interface ItemsBreadcrumb {
-  text: string;
-  redirectLink: string;
-}
+import { Items } from './ItemsBreadcrumb/types';
 
 export interface BreadcrumbsProps {
-  allLinks: boolean;
-  items: ItemsBreadcrumb[];
+  items: Items[];
   separator?: string;
 }
