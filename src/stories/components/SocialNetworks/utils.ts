@@ -8,10 +8,3 @@ export const SocialNetworkIcon = Object.freeze({
 });
 
 export type TSocialNetworkIcon = keyof typeof SocialNetworkIcon;
-
-// export const getSocialNetworkIcon = (iconName: string): typeof SvgIcon | null => {
-//   return (
-//     SOCIAL_NETWORKS_ICON_MAP[iconName.toLowerCase() as keyof typeof SOCIAL_NETWORKS_ICON_MAP] ||
-//     null
-//   );
-// };
