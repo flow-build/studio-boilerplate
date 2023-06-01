@@ -2,6 +2,7 @@
 import { useState, useCallback } from 'react';
 
 import { debounce } from 'lodash';
+import { Logger } from 'utils';
 
 import { InputSearchAutocomplete } from '../../Forms/InputSearchSuggestions';
 import { Suggestions } from '../../Forms/InputSearchSuggestions/types';
@@ -27,6 +28,9 @@ export const InputSearchElastic = ({
         getData(value)
           .then((result: Suggestions[]) => {
             setSuggestions(result);
+          })
+          .catch((error) => {
+            Logger.error('Error on getData InputSearchElastic', error);
           })
           .finally(() => {
             setIsLoading(false);
