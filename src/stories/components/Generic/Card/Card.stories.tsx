@@ -22,7 +22,7 @@ export const Primary: Story = {
       value: getCurrencyIntegerValue(852),
       description: 'p/ período'
     },
-    mode: 'horizontal',
+    mode: 'vertical',
     attributes: [
       {
         name: 'quarto',
