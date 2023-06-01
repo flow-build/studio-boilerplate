@@ -1,30 +1,30 @@
-import React, { FC, PropsWithChildren, useMemo, Children } from 'react';
+import React, { FC } from 'react';
 
 import Grid from '@mui/material/Grid';
 
+import { Disclaimer } from '../Disclaimer';
+import { LinkGroup } from '../LinkGroup';
+import { LinkItem } from '../LinkGroup/types';
+import { SocialNetworks } from '../SocialNetworks';
+import { InterfaceIcon, SocialNetworksProps } from '../SocialNetworks/types';
 import * as S from './styles';
+import { FooterProps } from './types';
 
-export const Footer: FC<PropsWithChildren> = ({ children }) => {
-  const renderNavChildren = useMemo(() => {
-    return Children.toArray(children).slice(0, 4);
-  }, [children]);
+export const Footer: FC<FooterProps> = ({ navLinks = [], socialMedias = [], disclaimer = '' }) => {
+  const links: LinkItem[] = navLinks.flatMap((linkGroup) => linkGroup.links);
 
-  const renderFlagsChildren = useMemo(() => {
-    return Children.toArray(children).slice(4, 8);
-  }, [children]);
-
-  const renderDisclaimerChildren = useMemo(() => {
-    return Children.toArray(children).slice(8);
-  }, [children]);
-
+  const socialIcons: InterfaceIcon[] = socialMedias.flatMap(
+    (socialMedia: SocialNetworksProps) => socialMedia.icons
+  );
   return (
-    <S.Container>
+    <S.Container item container>
       <S.LinkWrapper container>
-        {renderNavChildren}
-        {renderFlagsChildren}
+        <LinkGroup title={'Lorem Ipsum'} links={links} />
+        <SocialNetworks title={'Lorem Ipsum'} icons={socialIcons} />
       </S.LinkWrapper>
-
-      <Grid item>{renderDisclaimerChildren}</Grid>
+      <Grid>
+        <Disclaimer text={disclaimer} />
+      </Grid>
     </S.Container>
   );
 };

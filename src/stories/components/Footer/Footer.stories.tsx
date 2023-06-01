@@ -3,9 +3,6 @@ import React from 'react';
 import { Meta, StoryFn } from '@storybook/react';
 
 import { Footer } from '.';
-import { Disclaimer } from '../Disclaimer';
-import * as LinkGroup from '../LinkGroup/LinkGroup.stories';
-import * as SocialNetworks from '../SocialNetworks/SocialNetworks.stories';
 
 const meta: Meta<typeof Footer> = {
   title: 'Layout/Footer',
@@ -15,86 +12,50 @@ const meta: Meta<typeof Footer> = {
 
 export default meta;
 
-export const Standard: StoryFn<typeof Footer> = (args) => (
-  <Footer {...args}>
-    <LinkGroup.Standard
-      title="Lorem Ipsum"
-      // eslint-disable-next-line react-perf/jsx-no-new-array-as-prop
-      links={[
-        {
-          id: '1',
-          label: 'Lorem Ipsum',
-          redirectLink: '/'
-        },
-        {
-          id: '2',
-          label: 'Lorem Ipsum',
-          redirectLink: '/'
-        },
-        {
-          id: '3',
-          label: 'Lorem Ipsum',
-          redirectLink: '/'
-        },
-        {
-          id: '4',
-          label: 'Lorem Ipsum',
-          redirectLink: '/'
-        }
-      ]}
+export const Standard: StoryFn<typeof Footer> = (args) => {
+  // eslint-disable-next-line react-perf/jsx-no-new-array-as-prop
+  const navLinks = [
+    {
+      title: 'Link Group 1',
+      links: [
+        { id: '1', label: 'Lorem Ipsum', redirectLink: '/' },
+        { id: '2', label: 'Lorem Ipsum', redirectLink: '/' }
+      ]
+    },
+    {
+      title: 'Link Group 2',
+      links: [
+        { id: '3', label: 'Lorem Ipsum', redirectLink: '/' },
+        { id: '4', label: 'Lorem Ipsum', redirectLink: '/' }
+      ]
+    }
+  ];
+
+  // eslint-disable-next-line react-perf/jsx-no-new-array-as-prop
+  const socialMedias = [
+    {
+      title: 'Facebook',
+      icons: [{ id: '1', name: 'Facebook', redirectLink: 'https://www.facebook.com' }]
+    },
+    {
+      title: 'Instagram',
+      icons: [{ id: '2', name: 'Instagram', redirectLink: 'https://www.instagram.com' }]
+    },
+    {
+      title: 'Twitter',
+      icons: [{ id: '3', name: 'Twitter', redirectLink: 'https://www.twitter.com' }]
+    },
+    {
+      title: 'Youtube',
+      icons: [{ id: '4', name: 'Youtube', redirectLink: 'https://www.youtube.com' }]
+    }
+  ];
+
+  return (
+    <Footer
+      navLinks={navLinks}
+      socialMedias={socialMedias}
+      disclaimer="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
     />
-    <LinkGroup.Standard
-      title="Lorem Ipsum"
-      // eslint-disable-next-line react-perf/jsx-no-new-array-as-prop
-      links={[
-        {
-          id: '1',
-          label: 'Lorem Ipsum',
-          redirectLink: '/'
-        },
-        {
-          id: '2',
-          label: 'Lorem Ipsum',
-          redirectLink: '/'
-        },
-        {
-          id: '3',
-          label: 'Lorem Ipsum',
-          redirectLink: '/'
-        },
-        {
-          id: '4',
-          label: 'Lorem Ipsum',
-          redirectLink: '/'
-        }
-      ]}
-    />
-    <SocialNetworks.Standard
-      title="Lorem Ipsum"
-      // eslint-disable-next-line react-perf/jsx-no-new-array-as-prop
-      icons={[
-        {
-          id: '1',
-          name: 'Facebook',
-          redirectLink: 'https://www.facebook.com/'
-        },
-        {
-          id: '2',
-          name: 'Instagram',
-          redirectLink: 'https://www.instagram.com/'
-        },
-        {
-          id: '3',
-          name: 'Twitter',
-          redirectLink: 'https://twitter.com/'
-        },
-        {
-          id: '4',
-          name: 'Youtube',
-          redirectLink: 'https://www.youtube.com/'
-        }
-      ]}
-    />
-    <Disclaimer text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. <br> Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. <br>" />
-  </Footer>
-);
+  );
+};

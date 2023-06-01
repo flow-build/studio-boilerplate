@@ -1,8 +1,4 @@
-import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
-import Instagram from '@mui/icons-material/Instagram';
-import Twitter from '@mui/icons-material/Twitter';
-import Youtube from '@mui/icons-material/YouTube';
-import SvgIcon from '@mui/material/SvgIcon';
+import { FacebookOutlinedIcon, Instagram, SvgIcon, Twitter, Youtube } from 'shared/icons';
 
 const SOCIAL_NETWORKS_ICON_MAP = {
   facebook: FacebookOutlinedIcon,

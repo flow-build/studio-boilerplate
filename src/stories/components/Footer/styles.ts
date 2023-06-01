@@ -7,6 +7,7 @@ export const Container = styled(Grid)`
   background-color: ${({ theme }) => theme.palette.grey[50]};
   width: 100%;
   display: flex;
+  justify-content: center;
 `;
 
 export const LinkWrapper = styled(Grid)`

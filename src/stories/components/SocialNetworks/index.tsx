@@ -9,12 +9,7 @@ import * as S from './styles';
 import { SocialNetworksProps } from './types';
 import { getSocialNetworkIcon } from './utils';
 
-export const SocialNetworks: FC<SocialNetworksProps> = ({
-  title,
-  icons,
-  secondTitle,
-  description
-}) => {
+export const SocialNetworks: FC<SocialNetworksProps> = ({ title, icons }) => {
   const renderIcons = useMemo(() => {
     return icons.map(({ id, name, redirectLink }) => {
       const SocialNetworkIcon = getSocialNetworkIcon(name);
@@ -37,10 +32,6 @@ export const SocialNetworks: FC<SocialNetworksProps> = ({
       <Grid item xs={12}>
         <Typography variant="h4">{title}</Typography>
         <S.SocialNetworksContainer component="ul">{renderIcons}</S.SocialNetworksContainer>
-        {secondTitle != null && <S.CustomTypography variant="h4">{secondTitle}</S.CustomTypography>}
-        {description != null && (
-          <S.CustomTypography variant="body1">{description}</S.CustomTypography>
-        )}
       </Grid>
     </Grid>
   );

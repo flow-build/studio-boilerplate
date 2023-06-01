@@ -11,11 +11,4 @@ export const Container = styled(Grid)`
     font-size: ${fontSizes.F12};
     font-weight: ${({ theme }) => theme.typography.fontWeightLight};
   }
-
-  a {
-    text-decoration: none;
-    color: ${({ theme }) => theme.palette.tonalOffset};
-    font-size: ${fontSizes.F12};
-    font-weight: ${({ theme }) => theme.typography.fontWeightLight};
-  }
 `;

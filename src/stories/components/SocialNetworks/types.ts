@@ -1,12 +1,10 @@
-interface InterfaceIcon {
+export interface InterfaceIcon {
   id: string;
   name: string;
   redirectLink: string;
 }
 
 export interface SocialNetworksProps {
-  title?: string;
+  title: string;
   icons: InterfaceIcon[];
-  secondTitle?: string;
-  description?: string;
 }

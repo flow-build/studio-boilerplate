@@ -6,7 +6,7 @@ import { DisclaimerProps } from './types';
 export const Disclaimer: FC<DisclaimerProps> = ({ text = '' }) => {
   return (
     <S.Container data-testid="disclaimer" item xs={12}>
-      <span dangerouslySetInnerHTML={{ __html: text }} />
+      <span>{text}</span>
     </S.Container>
   );
 };

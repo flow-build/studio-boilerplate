@@ -1,4 +1,4 @@
-interface LinkItem {
+export interface LinkItem {
   id: string;
   label: string;
   redirectLink: string;
