@@ -16,14 +16,14 @@ export const Standard: StoryFn<typeof Footer> = (args) => {
   // eslint-disable-next-line react-perf/jsx-no-new-array-as-prop
   const navLinks = [
     {
-      title: 'Link Group 1',
+      title: 'Lorem Ipsum',
       links: [
         { id: '1', label: 'Lorem Ipsum', redirectLink: '/' },
         { id: '2', label: 'Lorem Ipsum', redirectLink: '/' }
       ]
     },
     {
-      title: 'Link Group 2',
+      title: 'Lorem Ipsum',
       links: [
         { id: '3', label: 'Lorem Ipsum', redirectLink: '/' },
         { id: '4', label: 'Lorem Ipsum', redirectLink: '/' }
