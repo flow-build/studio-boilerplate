@@ -12,10 +12,6 @@ export const LinkLabel = styled(Link)`
   &:hover {
     background-color: transparent;
     text-decoration: underline;
-
-    &:last-child {
-      text-decoration: none;
-    }
   }
 `;
 
