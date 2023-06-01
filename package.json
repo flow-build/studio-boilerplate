@@ -9,7 +9,7 @@
     "type:check": "tsc --project tsconfig.json",
     "lint": "next lint",
     "lint:check": "eslint './src/**/*.{ts,tsx}' --fix && prettier './src/**/*.{ts,tsx}' --check",
-    "lint:fix": "eslint './src/**/*.{js,ts}' --fix && prettier './src/**/*.{js,ts}' --write",
+    "lint:fix": "eslint './src/**/*.{ts,tsx}' --fix && prettier './src/**/*.{ts,tsx}' --write",
     "prepare": "husky install",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
@@ -27,6 +27,7 @@
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.11.16",
     "@mui/material": "^5.13.2",
+    "lodash": "^4.17.21",
     "next": "^13.4.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

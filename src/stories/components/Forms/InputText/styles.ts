@@ -1,5 +1,6 @@
 import { styled } from '@mui/material/styles';
+import TextField from '@mui/material/TextField';
 
-export const Wrapper = styled('div')`
-  color: ${({ theme }) => theme.palette.primary.main};
+export const InputText = styled(TextField)`
+  width: 100%;
 `;
