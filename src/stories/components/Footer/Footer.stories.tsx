@@ -19,12 +19,16 @@ export const Standard: StoryFn<typeof Footer> = (args) => {
       title: 'Lorem Ipsum',
       links: [
         { id: '1', label: 'Lorem Ipsum', redirectLink: '/' },
-        { id: '2', label: 'Lorem Ipsum', redirectLink: '/' }
+        { id: '2', label: 'Lorem Ipsum', redirectLink: '/' },
+        { id: '3', label: 'Lorem Ipsum', redirectLink: '/' },
+        { id: '4', label: 'Lorem Ipsum', redirectLink: '/' }
       ]
     },
     {
       title: 'Lorem Ipsum',
       links: [
+        { id: '1', label: 'Lorem Ipsum', redirectLink: '/' },
+        { id: '2', label: 'Lorem Ipsum', redirectLink: '/' },
         { id: '3', label: 'Lorem Ipsum', redirectLink: '/' },
         { id: '4', label: 'Lorem Ipsum', redirectLink: '/' }
       ]

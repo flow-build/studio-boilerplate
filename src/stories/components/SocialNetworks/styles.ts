@@ -10,11 +10,6 @@ export const SocialNetworksContainer = styled(Box)`
   color: ${({ theme }) => theme.palette.grey[700]};
 `;
 
-export const IconName = styled(Typography)`
-  display: flex;
-  gap: ${spacing.S10};
-`;
-
 export const CustomTypography = styled(Typography)`
   white-space: pre-wrap;
   margin-top: ${spacing.S5};
