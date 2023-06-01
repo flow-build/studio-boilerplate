@@ -1,4 +1,4 @@
-import { Link, styled, Typography, Breadcrumbs as BreadcrumbsMUI } from '@mui/material';
+import { Link, styled, Typography } from '@mui/material';
 
 export const LinkLabel = styled(Link)`
   padding: 0;
@@ -21,9 +21,4 @@ export const LinkLabel = styled(Link)`
 
 export const LastText = styled(Typography)`
   text-transform: capitalize;
-`;
-
-export const Breadcrumbs = styled(BreadcrumbsMUI)`
-  .MuiBreadcrumbs-separator {
-  }
 `;

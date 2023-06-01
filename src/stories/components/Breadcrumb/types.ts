@@ -6,4 +6,5 @@ export interface ItemsBreadcrumb {
 export interface BreadcrumbsProps {
   allLinks: boolean;
   items: ItemsBreadcrumb[];
+  separator?: string;
 }
