@@ -12,7 +12,6 @@ export const InputText: FC<TextFieldProps & InputProps> = ({
   id,
   label,
   onChange,
-  type,
   error,
   helperText,
   onBlur,
