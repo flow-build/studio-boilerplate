@@ -1,6 +1,6 @@
 import { Link, styled, Typography, Breadcrumbs as BreadcrumbsMUI } from '@mui/material';
 
-export const Referance = styled(Link)`
+export const LinkLabel = styled(Link)`
   padding: 0;
   margin: 0;
 

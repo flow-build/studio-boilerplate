@@ -1,8 +1,5 @@
 import React, { FC, useMemo } from 'react';
 
-import Grid from '@mui/material/Grid';
-import Stack from '@mui/material/Stack';
-
 import * as S from './styles';
 import { BreadcrumbsProps } from './types';
 
@@ -15,10 +12,9 @@ export const Breadcrumbs: FC<BreadcrumbsProps> = ({ allLinks = false, items }) =
         }
 
         return (
-          <S.Referance key={item.text} href={item.redirectLink}>
-            {' '}
-            {item.text}{' '}
-          </S.Referance>
+          <S.LinkLabel key={item.text} href={item.redirectLink}>
+            {item.text}
+          </S.LinkLabel>
         );
       });
     }
