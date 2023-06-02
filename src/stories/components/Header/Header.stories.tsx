@@ -20,12 +20,7 @@ const Template: StoryFn<HeaderProps> = (args) => <Header {...args} />;
 export const Default = Template.bind({});
 Default.args = {
   logo: (
-    <ImageComponent
-      src="https://seeklogo.com/images/N/next-js-logo-60FB9B8D2B-seeklogo.com.png"
-      alt={'Logo'}
-      width={150}
-      height={30}
-    />
+    <ImageComponent src="https://img.logoipsum.com/263.svg" alt={'Logo'} width={150} height={30} />
   ),
   loggedIn: true,
   username: 'Haramura',
