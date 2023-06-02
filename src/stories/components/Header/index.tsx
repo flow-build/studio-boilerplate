@@ -6,11 +6,19 @@ import { AppBar } from '@mui/material';
 import * as S from './styles';
 import { HeaderProps } from './types';
 
-export const Header: React.FC<HeaderProps> = ({ logo, links, button, loggedIn, username }) => {
+export const Header: React.FC<HeaderProps> = ({
+  logo,
+  links,
+  button,
+  loggedIn,
+  username,
+  menu
+}) => {
   return (
     <AppBar position="static" color="default">
       <S.ToolbarHeader>
         <S.Content>
+          <S.Wrapper>{menu}</S.Wrapper>
           {logo}
           <S.ContainerHeader loggedIn={loggedIn ?? false}>
             {links?.map((link) => (
