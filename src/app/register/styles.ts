@@ -7,8 +7,7 @@ export const Main = styled('main')`
   align-items: center;
   justify-content: center;
   width: 100%;
-  min-height: calc(100vh - 1.875rem);
-  background-color: ${({ theme }) => theme.palette.grey[100]};
+  min-height: calc(100vh - 15.625rem);
   padding: ${spacing.S20} 0;
 `;
 
