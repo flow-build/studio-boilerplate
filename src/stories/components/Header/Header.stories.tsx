@@ -8,7 +8,7 @@ import { Header } from './index';
 import { HeaderProps } from './types';
 
 const header: Meta<typeof Header> = {
-  title: 'Component/Header',
+  title: 'Layout/Header',
   component: Header,
   tags: ['autodocs']
 };
