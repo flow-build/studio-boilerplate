@@ -47,8 +47,8 @@ export const InputText: FC<TextFieldProps & InputProps> = ({
       onFocus={onFocus}
       disabled={disabled}
       InputProps={{
-        endAdornment: IconInputLeft,
-        startAdornment: IconInputRight
+        endAdornment: IconInputRight,
+        startAdornment: IconInputLeft
       }}
       error={error}
       helperText={helperText}
