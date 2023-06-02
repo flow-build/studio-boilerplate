@@ -1,9 +1,6 @@
-import { ButtonProps } from '@mui/material';
+import MuiButton from '@mui/material/Button';
+import { ButtonProps } from 'stories/components/Forms/Button/types';
 
-import * as S from './styles';
-
-export type Props = Omit<ButtonProps, 'sx'>;
-
-export const Button: React.FC<Props> = ({ ...props }) => {
-  return <S.Wrapper {...props} />;
+export const Button: React.FC<ButtonProps> = ({ ...props }) => {
+  return <MuiButton {...props} />;
 };
