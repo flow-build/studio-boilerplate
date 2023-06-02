@@ -15,7 +15,7 @@ export const Select: React.FC<SelectProps> = ({
   emptyLabel = 'Selecione uma opção',
   ...props
 }) => {
-  const [value, setValue] = useState<Option['value']>('');
+  const [value, setValue] = useState<Option['value']>(props.multiple ? [] : '');
 
   const onChange = useCallback(
     (event: SelectChangeEvent<Option['value']>) => {
@@ -45,7 +45,7 @@ export const Select: React.FC<SelectProps> = ({
         notched={!!props.label}
         {...props}
       >
-        <MenuItem value="">{emptyLabel}</MenuItem>
+        {!props.multiple && <MenuItem value="">{emptyLabel}</MenuItem>}
 
         {options.map((option) => (
           <MenuItem key={`${option.value}-${option.label}`} value={option.value}>
