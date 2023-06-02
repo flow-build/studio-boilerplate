@@ -1,7 +1,7 @@
-import { SelectProps } from '@mui/material/Select';
+import { SelectProps as MuiSelectProps } from '@mui/material/Select';
 import { Option } from 'stories/components/Forms/Select/types/Option';
 
-export type Props = SelectProps<Option['value']> & {
+export type SelectProps = MuiSelectProps<Option['value']> & {
   options: Array<Option>;
   helperText?: string;
 };

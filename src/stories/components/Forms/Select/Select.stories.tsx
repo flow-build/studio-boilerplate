@@ -2,9 +2,9 @@ import React from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
 import { Select } from 'stories/components/Forms/Select';
-import { Props } from 'stories/components/Forms/Select/types/Props';
+import { SelectProps } from 'stories/components/Forms/Select/types/Props';
 
-const meta: Meta<Props> = {
+const meta: Meta<SelectProps> = {
   title: 'Form/Select',
   component: Select,
   args: {
@@ -18,7 +18,7 @@ export default meta;
 
 type Story = StoryObj<typeof Select>;
 
-const Standard = (args: Props) => {
+const Standard = (args: SelectProps) => {
   return <Select {...args} />;
 };
 

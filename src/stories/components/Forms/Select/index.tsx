@@ -2,11 +2,11 @@ import { useState } from 'react';
 
 import { SelectChangeEvent } from '@mui/material/Select';
 import { Option } from 'stories/components/Forms/Select/types/Option';
-import { Props } from 'stories/components/Forms/Select/types/Props';
+import { SelectProps } from 'stories/components/Forms/Select/types/Props';
 
 import * as S from './styles';
 
-export const Select: React.FC<Props> = ({ options, helperText, ...props }) => {
+export const Select: React.FC<SelectProps> = ({ options, helperText, ...props }) => {
   const [value, setValue] = useState<Option['value']>('');
 
   function onChange(event: SelectChangeEvent<Option['value']>) {
