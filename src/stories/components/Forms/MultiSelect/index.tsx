@@ -1,11 +1,10 @@
 import { ChipList } from 'stories/components/Forms/MultiSelect/components/ChipList';
-import { Option, SelectProps } from 'stories/components/Forms/Select/types';
+import { MultiSelectProps } from 'stories/components/Forms/MultiSelect/types';
+import { Option } from 'stories/components/Forms/Select/types';
 
 import * as S from './styles';
 
-export type Props = Omit<SelectProps, 'multiple'>;
-
-export const MultiSelect: React.FC<Props> = ({ options, ...props }) => {
+export const MultiSelect: React.FC<MultiSelectProps> = ({ options, ...props }) => {
   function isMultipleString(values: Option['value']): values is string[] {
     return Array.isArray(values);
   }
