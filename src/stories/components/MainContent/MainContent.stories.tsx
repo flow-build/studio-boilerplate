@@ -24,7 +24,7 @@ export const Standard: StoryFn<typeof MainContent> = (args) => {
           }
         }}
       />
-      <MainContent>
+      <MainContent {...args}>
         {' '}
         <h1>Content Here</h1>
       </MainContent>

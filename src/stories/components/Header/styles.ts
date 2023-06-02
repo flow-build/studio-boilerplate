@@ -10,16 +10,28 @@ import { spacing } from 'theme/spacing';
 
 export const ToolbarHeader = styled(Toolbar)`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+`;
+
+export const Content = styled('div')`
+  display: flex;
+  width: 100%;
+  max-width: ${spacing.S1200};
+  justify-content: center;
 `;
 
 export const ContainerHeader = styled(Container, {
-  shouldForwardProp: (prop) => prop !== 'loggedIn'
-})<{ loggedIn: boolean }>(({ loggedIn }) => ({
-  display: 'flex',
-  justifyContent: loggedIn ? 'center' : 'flex-end',
-  gap: loggedIn ? 'initial' : `${spacing.S16}`
-}));
+  shouldForwardProp: (prop) => !['loggedIn'].includes(prop as string)
+})<{
+  loggedIn: boolean;
+}>`
+  display: flex;
+  justify-content: ${({ loggedIn }) => (loggedIn ? 'center' : 'flex-end')};
+  gap: ${({ loggedIn }) => (loggedIn ? 'initial' : spacing.S16)};
+  ${({ theme }) => theme.breakpoints.up('lg')} {
+    justify-content: center;
+  }
+`;
 
 export const ContainerHeaderAvatar = styled(Container)`
   display: flex;

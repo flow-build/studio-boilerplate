@@ -12,6 +12,11 @@ export const Container = styled(Grid)`
   justify-content: center;
 `;
 
+export const Wrapper = styled('div')`
+  width: 100%;
+  max-width: ${spacing.S1200};
+`;
+
 export const LinkWrapper = styled(Grid)`
   background-color: ${({ theme }) => theme.palette.grey[50]};
   width: 100%;
