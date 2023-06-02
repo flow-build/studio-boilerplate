@@ -1,8 +1,7 @@
 import { ChipList } from 'stories/components/Forms/MultiSelect/components/ChipList';
 import { MultiSelectProps } from 'stories/components/Forms/MultiSelect/types';
+import { Select } from 'stories/components/Forms/Select';
 import { Option } from 'stories/components/Forms/Select/types';
-
-import * as S from './styles';
 
 export const MultiSelect: React.FC<MultiSelectProps> = ({ options, ...props }) => {
   function isMultipleString(values: Option['value']): values is string[] {
@@ -31,5 +30,5 @@ export const MultiSelect: React.FC<MultiSelectProps> = ({ options, ...props }) =
     return null;
   }
 
-  return <S.Wrapper options={options} multiple renderValue={renderValue} {...props} />;
+  return <Select options={options} multiple renderValue={renderValue} {...props} />;
 };
