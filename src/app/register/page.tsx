@@ -86,7 +86,6 @@ export default function Register() {
                 Li e aceito os <Link href="#">temos</Link> de uso
               </span>
             </span>
-            <Link href="/esqueci-minha-senha">Esqueci minha senha</Link>
           </S.FooterForm>
           <Button type="submit" variant="contained" color="success">
             Caadstrar
