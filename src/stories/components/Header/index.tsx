@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 
-import AppBar from '@mui/material/AppBar';
+import { AppBar } from '@mui/material';
 
 import * as S from './styles';
 import { HeaderProps } from './types';

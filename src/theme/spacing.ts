@@ -47,6 +47,7 @@ export const spacing = {
   S224: '14rem',
   S240: '15rem',
   S256: '16rem',
+  S269: '16.813rem',
   S280: '17.5rem',
   S288: '18rem',
   S320: '20rem',

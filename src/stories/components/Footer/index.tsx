@@ -10,7 +10,7 @@ import { FooterProps } from './types';
 
 export const Footer: FC<FooterProps> = ({ navLinks = [], socialMedia, disclaimer = '' }) => {
   return (
-    <S.Container item container>
+    <S.Container container>
       <S.LinkWrapper container>
         {navLinks.map((group) => (
           <LinkGroup key={group.title} links={group.links} title={group.title} />

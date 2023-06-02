@@ -8,7 +8,7 @@ import { LinkGroupsProps } from './types';
 
 export const LinkGroup: FC<LinkGroupsProps> = ({ title = '', links = [] }) => {
   return (
-    <S.Container item xs={12} sm={4} md={3} xl={3} style={{ justifyContent: 'center' }}>
+    <S.Container item xs={12} sm={4} md={3} xl={3}>
       <S.Title>{title}</S.Title>
       <S.ListLinks>
         {links.map((link) => (
