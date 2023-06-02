@@ -1,9 +1,10 @@
 import React from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
-import { Props, MultiSelect } from 'stories/components/Forms/MultiSelect';
+import { MultiSelect } from 'stories/components/Forms/MultiSelect';
+import { MultiSelectProps } from 'stories/components/Forms/MultiSelect/types';
 
-const meta: Meta<Props> = {
+const meta: Meta<MultiSelectProps> = {
   title: 'Form/MultiSelect',
   component: MultiSelect,
   args: {
@@ -21,7 +22,7 @@ export default meta;
 
 type Story = StoryObj<typeof MultiSelect>;
 
-const Standard = (args: Props) => {
+const Standard = (args: MultiSelectProps) => {
   return <MultiSelect {...args} />;
 };
 
