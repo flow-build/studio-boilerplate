@@ -2,31 +2,14 @@
 
 import Button from '@mui/material/Button';
 import Checkbox from '@mui/material/Checkbox';
-import { useFormik } from 'formik';
 import Link from 'next/link';
 import { ImageComponent, InputPassword, InputText } from 'stories/components';
-import { Logger } from 'utils';
-import * as yup from 'yup';
 
 import * as S from './styles';
-
-const INITIAL_VALUES = {
-  username: '',
-  password: ''
-};
+import { useLogin } from './useLogin';
 
 export default function Login() {
-  const validationSchemaLogin = yup.object().shape({
-    username: yup.string().required('Campo obrigatório').email('E-mail inválido'),
-    password: yup.string().required('Campo obrigatório')
-  });
-
-  const formik = useFormik({
-    initialValues: INITIAL_VALUES,
-    validationSchema: validationSchemaLogin,
-    validateOnBlur: true,
-    onSubmit: Logger.info
-  });
+  const { formik } = useLogin();
 
   return (
     <S.Main>
