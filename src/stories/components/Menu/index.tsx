@@ -6,9 +6,9 @@ import Link from 'next/link';
 import * as S from './styles';
 import { MenuProps } from './types';
 import { useMenu } from './useMenu';
-import { MenuOptions } from './utils';
+import { MenuOptions, MenuVariant } from './utils';
 
-export const Menu: FC<MenuProps> = ({ type, menuItems = [], logo, anchor }) => {
+export const Menu: FC<MenuProps> = ({ type, menuItems = [], logo, anchor, variant }) => {
   const { isOpen, handleOpen, handleClose } = useMenu();
 
   const renderedMenuHamburger = React.useMemo(() => {
@@ -18,6 +18,7 @@ export const Menu: FC<MenuProps> = ({ type, menuItems = [], logo, anchor }) => {
           <S.MenuIcon fontSize="small" />
         </S.MenuButton>
         <S.MenuDrawer
+          variant={variant}
           anchor={anchor}
           open={isOpen}
           onOpen={handleOpen}
@@ -27,9 +28,11 @@ export const Menu: FC<MenuProps> = ({ type, menuItems = [], logo, anchor }) => {
           <S.DrawerGrid>
             <S.ButtonWrapper>
               <S.LogoWrapper logo={logo}>{logo}</S.LogoWrapper>
-              <S.CloseDrawerButton variant="outlined" onClick={handleClose}>
-                <S.CloseDrawerIcon fontSize="small" />
-              </S.CloseDrawerButton>
+              {variant !== MenuVariant.permanent && (
+                <S.CloseDrawerButton variant="outlined" onClick={handleClose}>
+                  <S.CloseDrawerIcon fontSize="small" />
+                </S.CloseDrawerButton>
+              )}
             </S.ButtonWrapper>
             <Grid item xs={12}>
               <S.MenuList>
@@ -46,7 +49,7 @@ export const Menu: FC<MenuProps> = ({ type, menuItems = [], logo, anchor }) => {
         </S.MenuDrawer>
       </S.GridHeader>
     );
-  }, [handleOpen, anchor, isOpen, handleClose, logo, menuItems]);
+  }, [handleOpen, variant, anchor, isOpen, handleClose, logo, menuItems]);
 
   switch (type) {
     case MenuOptions.hamburger:

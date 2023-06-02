@@ -10,3 +10,9 @@ export const MenuAnchor = Object.freeze({
   top: 'top',
   bottom: 'bottom'
 });
+
+export const MenuVariant = Object.freeze({
+  permanent: 'permanent',
+  persistent: 'persistent',
+  temporary: 'temporary'
+});

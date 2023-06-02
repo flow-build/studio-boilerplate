@@ -23,6 +23,25 @@ export const GridHeader = styled(Grid)`
   }
 `;
 
+export const FixedMenu = styled('div')`
+  position: fixed;
+  width: 240px;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 1000;
+  background: #000;
+
+  & .MuiDrawer-paper {
+    background: #000;
+    box-shadow: none;
+    overflow: hidden;
+  }
+
+  backdrop-filter: blur(1.9375rem);
+  background: hsla(0, 0%, 100%, 0.65);
+`;
+
 export const MenuButton = styled(Button)`
   color: #000;
   border-radius: 50%;

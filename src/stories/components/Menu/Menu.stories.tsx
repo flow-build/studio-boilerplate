@@ -4,7 +4,7 @@ import { Meta, StoryFn } from '@storybook/react';
 
 import { Menu } from '.';
 import { ImageComponent } from '../Image';
-import { MenuAnchor, MenuOptions } from './utils';
+import { MenuAnchor, MenuOptions, MenuVariant } from './utils';
 
 const meta: Meta<typeof Menu> = {
   title: 'Header/Menu',
@@ -12,6 +12,7 @@ const meta: Meta<typeof Menu> = {
   args: {
     type: MenuOptions.hamburger,
     anchor: MenuAnchor.left,
+    variant: MenuVariant.persistent,
     menuItems: [
       {
         id: '1',
