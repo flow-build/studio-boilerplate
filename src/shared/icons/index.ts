@@ -4,3 +4,5 @@ export { default as Instagram } from '@mui/icons-material/Instagram';
 export { default as Twitter } from '@mui/icons-material/Twitter';
 export { default as Youtube } from '@mui/icons-material/YouTube';
 export { default as SvgIcon } from '@mui/material/SvgIcon';
+export { default as VisibilityOffIcon } from '@mui/icons-material/VisibilityOff';
+export { default as VisibilityIcon } from '@mui/icons-material/Visibility';
