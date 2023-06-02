@@ -6,7 +6,13 @@ import { SelectProps } from 'stories/components/Forms/Select/types/Props';
 
 import * as S from './styles';
 
-export const Select: React.FC<SelectProps> = ({ options, helperText, onChangeValue, ...props }) => {
+export const Select: React.FC<SelectProps> = ({
+  options,
+  helperText,
+  onChangeValue,
+  emptyLabel = 'Selecione uma opção',
+  ...props
+}) => {
   const [value, setValue] = useState<Option['value']>('');
 
   const onChange = useCallback(
@@ -31,7 +37,7 @@ export const Select: React.FC<SelectProps> = ({ options, helperText, onChangeVal
         notched={!!props.label}
         {...props}
       >
-        <S.Option value="">Selecione uma opção</S.Option>
+        <S.Option value="">{emptyLabel}</S.Option>
 
         {options.map((option, index) => (
           <S.Option key={`${option.value}-${index}`} value={option.value}>
