@@ -18,7 +18,6 @@ const STYLES: GlobalStylesProps['styles'] = {
     listStyle: 'none'
   },
   a: {
-    color: 'inherit',
     textDecoration: 'inherit'
   }
 };
