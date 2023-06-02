@@ -1,7 +1,5 @@
 import React, { FC, useMemo } from 'react';
 
-import ListItem from '@mui/material/ListItem';
-import Typography from '@mui/material/Typography';
 import Link from 'next/link';
 
 import { SocialNetworkIcon } from '../../utils';
@@ -14,13 +12,13 @@ export const ItemIcon: FC<ItemIconProps> = ({ id, name, redirectLink }) => {
   }, [name]);
 
   return (
-    <ListItem key={id}>
+    <S.ListItemIcon key={id}>
       <Link href={redirectLink} title={redirectLink}>
         <S.IconName>
-          <Icon fontSize="medium" />
-          <Typography>{name}</Typography>
+          <Icon fontSize="small" />
+          <S.SocialMediaName>{name}</S.SocialMediaName>
         </S.IconName>
       </Link>
-    </ListItem>
+    </S.ListItemIcon>
   );
 };

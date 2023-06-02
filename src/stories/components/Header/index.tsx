@@ -1,8 +1,7 @@
 'use client';
 import React from 'react';
 
-import { Button } from '@mui/material';
-import AppBar from '@mui/material/AppBar';
+import { AppBar } from '@mui/material';
 
 import * as S from './styles';
 import { HeaderProps } from './types';
@@ -11,25 +10,37 @@ export const Header: React.FC<HeaderProps> = ({ logo, links, button, loggedIn, u
   return (
     <AppBar position="static" color="default">
       <S.ToolbarHeader>
-        {logo}
-        <S.ContainerHeader loggedIn={loggedIn ?? false}>
-          {links?.map((link) => (
-            <S.DividedLink loggedIn={loggedIn ?? false} key={link.name}>
-              <S.LinkHeader href={link.url}>{link.name}</S.LinkHeader>
-            </S.DividedLink>
-          ))}
-        </S.ContainerHeader>
-        {loggedIn === true ? (
-          username != null && (
-            <Button color="inherit" variant="outlined" size="large" onClick={button.onClick}>
-              {username}
-            </Button>
-          )
-        ) : (
-          <Button color="inherit" variant="outlined" size="large" onClick={button.onClick}>
-            {button.name}
-          </Button>
-        )}
+        <S.Content>
+          {logo}
+          <S.ContainerHeader loggedIn={loggedIn ?? false}>
+            {links?.map((link) => (
+              <S.DividedLink loggedIn={loggedIn ?? false} key={link.name}>
+                <S.LinkHeader href={link.url}>{link.name}</S.LinkHeader>
+              </S.DividedLink>
+            ))}
+          </S.ContainerHeader>
+          {loggedIn === true ? (
+            username != null && (
+              <S.ButtonHeader
+                color="inherit"
+                variant="outlined"
+                size="large"
+                onClick={button.onClick}
+              >
+                {username}
+              </S.ButtonHeader>
+            )
+          ) : (
+            <S.ButtonHeader
+              color="inherit"
+              variant="outlined"
+              size="large"
+              onClick={button.onClick}
+            >
+              {button.name}
+            </S.ButtonHeader>
+          )}
+        </S.Content>
       </S.ToolbarHeader>
     </AppBar>
   );
