@@ -1,26 +1,46 @@
-import { Container, Divider, Toolbar, Typography } from '@mui/material';
+import Button from '@mui/material/Button';
+import Container from '@mui/material/Container';
+import Divider from '@mui/material/Divider';
 import { styled } from '@mui/material/styles';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
 import Link from 'next/link';
 import { fontSizes } from 'theme/fontSizes.theme';
 import { spacing } from 'theme/spacing';
 
 export const ToolbarHeader = styled(Toolbar)`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+`;
+
+export const Content = styled('div')`
+  display: flex;
+  width: 100%;
+  max-width: 75rem;
+  justify-content: center;
 `;
 
 export const ContainerHeader = styled(Container, {
-  shouldForwardProp: (prop) => prop !== 'loggedIn'
-})<{ loggedIn: boolean }>(({ loggedIn }) => ({
-  display: 'flex',
-  justifyContent: loggedIn ? 'center' : 'flex-end',
-  gap: loggedIn ? 'initial' : `${spacing.S16}`
-}));
+  shouldForwardProp: (prop) => !['loggedIn'].includes(prop as string)
+})<{
+  loggedIn: boolean;
+}>`
+  display: flex;
+  justify-content: ${({ loggedIn }) => (loggedIn ? 'center' : 'flex-end')};
+  gap: ${({ loggedIn }) => (loggedIn ? 'initial' : spacing.S16)};
+  ${({ theme }) => theme.breakpoints.up('lg')} {
+    justify-content: center;
+  }
+`;
 
 export const ContainerHeaderAvatar = styled(Container)`
   display: flex;
   justify-content: flex-end;
   gap: ${spacing.S16};
+`;
+
+export const ButtonHeader = styled(Button)`
+  text-transform: capitalize;
 `;
 
 export const DividedLink = styled(Typography, {
