@@ -12,7 +12,6 @@ const meta: Meta<typeof MainContent> = {
 
 export default meta;
 
-// eslint-disable-next-line react/no-children-prop
 export const Standard: StoryFn<typeof MainContent> = (args) => {
   return (
     <>

@@ -16,7 +16,7 @@ export const ToolbarHeader = styled(Toolbar)`
 export const Content = styled('div')`
   display: flex;
   width: 100%;
-  max-width: ${spacing.S1200};
+  max-width: 75rem;
   justify-content: center;
 `;
 

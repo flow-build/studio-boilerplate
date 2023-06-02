@@ -22,22 +22,24 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   );
 
   return (
-    <React.Fragment>
-      <Header
-        logo={logo}
-        links={links}
-        username={'Haramura'}
-        button={{
-          name: 'Entrar',
-          onClick: function (): void {
-            throw new Error('Function not implemented.');
-          }
-        }}
-        loggedIn={false}
-      />
-      <MainContent>{children}</MainContent>
-      <Footer navLinks={navLinks} socialMedia={socialMedias} disclaimer="[Lorem Ipsum text]" />
-      <GlobalStyles />
-    </React.Fragment>
+    <html lang="pt-br">
+      <body>
+        <Header
+          logo={logo}
+          links={links}
+          username={'Haramura'}
+          button={{
+            name: 'Entrar',
+            onClick: function (): void {
+              throw new Error('Function not implemented.');
+            }
+          }}
+          loggedIn={false}
+        />
+        <MainContent>{children}</MainContent>
+        <Footer navLinks={navLinks} socialMedia={socialMedias} disclaimer="[Lorem Ipsum text]" />
+        <GlobalStyles />
+      </body>
+    </html>
   );
 }
