@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 
 import { SelectChangeEvent } from '@mui/material/Select';
 import { Option } from 'stories/components/Forms/Select/types/Option';
@@ -6,12 +6,19 @@ import { SelectProps } from 'stories/components/Forms/Select/types/Props';
 
 import * as S from './styles';
 
-export const Select: React.FC<SelectProps> = ({ options, helperText, ...props }) => {
+export const Select: React.FC<SelectProps> = ({ options, helperText, onChangeValue, ...props }) => {
   const [value, setValue] = useState<Option['value']>('');
 
-  function onChange(event: SelectChangeEvent<Option['value']>) {
-    setValue(event.target.value);
-  }
+  const onChange = useCallback(
+    (event: SelectChangeEvent<Option['value']>) => {
+      setValue(event.target.value);
+
+      if (onChangeValue) {
+        onChangeValue(event.target.value);
+      }
+    },
+    [onChangeValue]
+  );
 
   return (
     <S.Wrapper>
