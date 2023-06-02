@@ -9,6 +9,7 @@ export const Container = styled('div')`
   display: flex;
   flex-direction: column;
   align-content: space-between;
+  color: ${({ theme }) => theme.palette.grey[600]};
   cursor: pointer;
   :hover {
     color: ${({ theme }) => theme.palette.primary.main};
@@ -25,5 +26,4 @@ export const Button = styled(`button`)`
 
 export const Grid = styled(MUIGrid)`
   text-align: center;
-  color: ${({ theme }) => theme.palette.grey[600]};
 `;

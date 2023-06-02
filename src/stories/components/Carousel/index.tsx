@@ -3,8 +3,8 @@ import React from 'react';
 /** Swiper Styles */
 import 'utils/swiper/styles';
 
-import { ArrowForwardIos, ArrowBackIos } from '@mui/icons-material';
 import Link from 'next/link';
+import { ArrowBack, ArrowForward } from 'shared/icons';
 import SwiperCore, { Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -19,7 +19,7 @@ export const Carousel = ({ data, slidesPerView }: CarouselProps) => {
       <S.Grid container spacing={3}>
         <S.Grid item xs>
           <S.Button className="swiper-prev">
-            <ArrowBackIos />
+            <ArrowBack />
           </S.Button>
         </S.Grid>
         <S.Grid item xs={10}>
@@ -31,8 +31,8 @@ export const Carousel = ({ data, slidesPerView }: CarouselProps) => {
             className="mySwiper"
             slidesPerView={slidesPerView}
           >
-            {data.map((item: ListIcon, index: number) => (
-              <SwiperSlide key={index}>
+            {data.map((item: ListIcon) => (
+              <SwiperSlide key={`${item.label}-${item.icon}`}>
                 {item && (
                   <Link href={{ pathname: item.pathname }}>
                     <S.Container>
@@ -47,7 +47,7 @@ export const Carousel = ({ data, slidesPerView }: CarouselProps) => {
         </S.Grid>
         <S.Grid item xs>
           <S.Button className="swiper-next">
-            <ArrowForwardIos />
+            <ArrowForward />
           </S.Button>
         </S.Grid>
       </S.Grid>
