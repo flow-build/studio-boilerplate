@@ -1,6 +1,5 @@
 import { useState } from 'react';
 
-import { Modal } from '../Modal';
 import * as S from './styles';
 import { AlertModalProps } from './types';
 
@@ -12,15 +11,13 @@ export function AlertModal({ alertTitle, alertText }: AlertModalProps) {
   };
 
   return (
-    <>
-      <Modal title={alertTitle} closeModal={handleCloseModal} open={open}>
-        <S.BoxAlert>
-          {alertText}
-          <S.IconButton onClick={handleCloseModal} variant="outlined">
-            OK
-          </S.IconButton>
-        </S.BoxAlert>
-      </Modal>
-    </>
+    <S.BoxModal title={alertTitle} closeModal={handleCloseModal} open={open}>
+      <S.BoxAlert>
+        {alertText}
+        <S.IconButton onClick={handleCloseModal} variant="outlined">
+          OK
+        </S.IconButton>
+      </S.BoxAlert>
+    </S.BoxModal>
   );
 }
