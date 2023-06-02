@@ -4,6 +4,7 @@ import Button from '@mui/material/Button';
 import Checkbox from '@mui/material/Checkbox';
 import Link from 'next/link';
 import { ImageComponent, InputPassword, InputText } from 'stories/components';
+import { getErrorsFormik, getHelperTextFormik } from 'utils';
 
 import * as S from './styles';
 import { useLogin } from './useLogin';
@@ -29,8 +30,8 @@ export default function Login() {
             label="E-mail"
             name="username"
             value={formik.values.username}
-            helperText={formik.errors.username}
-            error={!!formik.errors.username}
+            helperText={getHelperTextFormik(formik, 'username')}
+            error={getErrorsFormik(formik, 'username')}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
           />
@@ -39,8 +40,8 @@ export default function Login() {
             label="Senha"
             name="password"
             value={formik.values.password}
-            helperText={formik.errors.password}
-            error={!!formik.errors.password}
+            helperText={getHelperTextFormik(formik, 'password')}
+            error={getErrorsFormik(formik, 'password')}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
           />
