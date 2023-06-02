@@ -22,7 +22,7 @@ export const Select: React.FC<SelectProps> = ({
       setValue(event.target.value);
 
       if (onChangeValue) {
-        onChangeValue(event.target.value);
+        onChangeValue(event);
       }
     },
     [onChangeValue]

@@ -1,5 +1,5 @@
 import { MenuItemProps } from '@mui/material/MenuItem';
-import { SelectProps as MuiSelectProps } from '@mui/material/Select';
+import { SelectProps as MuiSelectProps, SelectChangeEvent } from '@mui/material/Select';
 
 export type Option = {
   value: MenuItemProps['value'];
@@ -10,5 +10,5 @@ export type SelectProps = MuiSelectProps<Option['value']> & {
   options: Array<Option>;
   helperText?: string;
   emptyLabel?: string;
-  onChangeValue?: (value: Option['value']) => void;
+  onChangeValue?: (event: SelectChangeEvent<Option['value']>) => void;
 };
