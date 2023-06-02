@@ -1,5 +1,8 @@
 import { useCallback, useState } from 'react';
 
+import HelperText from '@mui/material/FormHelperText';
+import Label from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
 import { SelectChangeEvent } from '@mui/material/Select';
 import { Option, SelectProps } from 'stories/components/Forms/Select/types';
 
@@ -27,25 +30,31 @@ export const Select: React.FC<SelectProps> = ({
 
   return (
     <S.Wrapper>
-      {props.label && <S.Label>{props.label}</S.Label>}
+      {props.label && (
+        <Label id="label-select" shrink>
+          {props.label}
+        </Label>
+      )}
 
       <S.Select
+        labelId="label-select"
+        displayEmpty
         value={value}
         onChange={onChange}
         label={props.label}
         notched={!!props.label}
         {...props}
       >
-        <S.Option value="">{emptyLabel}</S.Option>
+        <MenuItem value="">{emptyLabel}</MenuItem>
 
         {options.map((option) => (
-          <S.Option key={`${option.value}-${option.label}`} value={option.value}>
+          <MenuItem key={`${option.value}-${option.label}`} value={option.value}>
             {option.label}
-          </S.Option>
+          </MenuItem>
         ))}
       </S.Select>
 
-      {helperText && <S.HelperText>{helperText}</S.HelperText>}
+      {helperText && <HelperText>{helperText}</HelperText>}
     </S.Wrapper>
   );
 };
