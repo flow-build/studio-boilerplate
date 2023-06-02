@@ -1,19 +1,11 @@
 import { useState } from 'react';
 
-import { Alert, AlertTitle } from '@mui/material';
-
 import { Modal } from '../Modal';
+import * as S from './styles';
 import { AlertModalProps } from './types';
 
-export function AlertModal({
-  severity,
-  alertTitle,
-  alertText,
-  icon,
-  variant,
-  color
-}: AlertModalProps) {
-  const [open, setOpen] = useState(false);
+export function AlertModal({ alertTitle, alertText }: AlertModalProps) {
+  const [open, setOpen] = useState(true);
 
   const handleCloseModal = () => {
     setOpen(false);
@@ -25,14 +17,12 @@ export function AlertModal({
 
   return (
     <>
-      <button type="button" onClick={handleOpenModal}>
-        Erro
-      </button>
-      <Modal closeModal={handleCloseModal} open={open}>
-        <Alert icon={icon} severity={severity} variant={variant} color={color}>
-          <AlertTitle>{alertTitle}</AlertTitle>
-          {alertText}
-        </Alert>
+      <button onClick={handleOpenModal}>Modal alert</button>
+      <Modal title={alertTitle} closeModal={handleCloseModal} open={open}>
+        <S.BoxAlert>
+          <S.AlertText>{alertText}</S.AlertText>
+          <S.IconButton onClick={handleCloseModal}>OK</S.IconButton>
+        </S.BoxAlert>
       </Modal>
     </>
   );

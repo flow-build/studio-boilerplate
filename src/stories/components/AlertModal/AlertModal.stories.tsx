@@ -8,10 +8,8 @@ const meta: Meta<typeof AlertModal> = {
   title: 'AlertModal',
   component: AlertModal,
   args: {
-    severity: 'error',
-    alertTitle: 'Error',
-    alertText: 'Ocorreu um erro',
-    variant: 'filled'
+    alertTitle: 'Alert',
+    alertText: 'Texto de alerta'
   },
   tags: ['autodocs']
 };
