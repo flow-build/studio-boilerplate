@@ -1,6 +1,9 @@
-import { Items } from './ItemsBreadcrumb/types';
+type ItemsBreadcrumb = {
+  text: string;
+  redirectLink?: string;
+};
 
 export interface BreadcrumbsProps {
-  items: Items[];
+  items: ItemsBreadcrumb[];
   separator?: string;
 }
