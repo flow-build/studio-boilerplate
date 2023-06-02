@@ -39,8 +39,8 @@ export const Select: React.FC<SelectProps> = ({
       >
         <S.Option value="">{emptyLabel}</S.Option>
 
-        {options.map((option, index) => (
-          <S.Option key={`${option.value}-${index}`} value={option.value}>
+        {options.map((option) => (
+          <S.Option key={`${option.value}-${option.label}`} value={option.value}>
             {option.label}
           </S.Option>
         ))}
