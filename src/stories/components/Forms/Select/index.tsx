@@ -1,8 +1,7 @@
 import { useCallback, useState } from 'react';
 
 import { SelectChangeEvent } from '@mui/material/Select';
-import { Option } from 'stories/components/Forms/Select/types/Option';
-import { SelectProps } from 'stories/components/Forms/Select/types/Props';
+import { Option, SelectProps } from 'stories/components/Forms/Select/types';
 
 import * as S from './styles';
 

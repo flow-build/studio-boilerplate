@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
 import { Select } from 'stories/components/Forms/Select';
-import { SelectProps } from 'stories/components/Forms/Select/types/Props';
+import { SelectProps } from 'stories/components/Forms/Select/types';
 
 const meta: Meta<SelectProps> = {
   title: 'Form/Select',

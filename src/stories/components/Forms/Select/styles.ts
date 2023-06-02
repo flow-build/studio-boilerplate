@@ -4,8 +4,7 @@ import MuiInputLabel from '@mui/material/InputLabel';
 import MuiMenuItem from '@mui/material/MenuItem';
 import MuiSelect from '@mui/material/Select';
 import { styled } from '@mui/material/styles';
-
-import { Option as TOption } from './types/Option';
+import { Option as TOption } from 'stories/components/Forms/Select/types';
 
 export const Wrapper = styled(MuiFormControl)`
   width: 100%;

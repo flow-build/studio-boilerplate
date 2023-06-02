@@ -1,5 +1,10 @@
+import { MenuItemProps } from '@mui/material/MenuItem';
 import { SelectProps as MuiSelectProps } from '@mui/material/Select';
-import { Option } from 'stories/components/Forms/Select/types/Option';
+
+export type Option = {
+  value: MenuItemProps['value'];
+  label: string;
+};
 
 export type SelectProps = MuiSelectProps<Option['value']> & {
   options: Array<Option>;
