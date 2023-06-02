@@ -1,9 +1,10 @@
 import React from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
-import { Button, Props } from 'stories/components/Forms/Button';
+import { Button } from 'stories/components/Forms/Button';
+import { ButtonProps } from 'stories/components/Forms/Button/types';
 
-const meta: Meta<Props> = {
+const meta: Meta<ButtonProps> = {
   title: 'Form/Button',
   component: Button,
   args: {},
@@ -13,7 +14,7 @@ export default meta;
 
 type Story = StoryObj<typeof Button>;
 
-const Standard = (args: Props) => {
+const Standard = (args: ButtonProps) => {
   return <Button {...args}>Button</Button>;
 };
 
