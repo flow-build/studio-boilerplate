@@ -1,7 +1,10 @@
 import React from 'react';
+
+import { TextFieldProps } from '@mui/material';
 import { Meta, StoryObj } from '@storybook/react';
 
 import { InputText } from './index';
+import { InputProps } from './types';
 
 const meta: Meta<typeof InputText> = {
   title: 'Form/InputText',
@@ -18,7 +21,7 @@ export default meta;
 
 type Story = StoryObj<typeof InputText>;
 
-const Standard = (args: any) => {
+const Standard = (args: TextFieldProps & InputProps) => {
   const [value, setValue] = React.useState('');
   return (
     <InputText

@@ -1,9 +1,5 @@
 /* Luhn Validation */
 export function validateCreditCard(cardNumber: string): boolean {
-  if (typeof cardNumber !== 'string') {
-    return false;
-  }
-
   cardNumber = cardNumber.replace(/\D/g, '');
   let sum = 0;
   let isEven = false;
