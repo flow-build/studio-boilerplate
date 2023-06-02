@@ -1,12 +1,11 @@
-import { Typography, styled } from '@mui/material';
-import MUIDialogTitle from '@mui/material/DialogTitle';
-import MUIIconButton from '@mui/material/IconButton';
+import { Box, styled } from '@mui/material';
+import MUIIconButton from '@mui/material/Button';
 
-export const IconButton = styled(MUIIconButton)``;
+export const IconButton = styled(MUIIconButton)`
+  color: ${({ theme }) => theme.palette.grey[500]};
+`;
 
-export const AlertText = styled(Typography)``;
-
-export const BoxAlert = styled(MUIDialogTitle)`
+export const BoxAlert = styled(Box)`
   display: flex;
   justify-content: space-between;
   align-items: center;

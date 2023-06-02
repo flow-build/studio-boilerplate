@@ -8,8 +8,8 @@ const meta: Meta<typeof AlertModal> = {
   title: 'AlertModal',
   component: AlertModal,
   args: {
-    alertTitle: 'Alert',
-    alertText: 'Texto de alerta'
+    alertTitle: 'Titulo do alerta',
+    alertText: 'Texto do alerta'
   },
   tags: ['autodocs']
 };

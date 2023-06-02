@@ -11,17 +11,14 @@ export function AlertModal({ alertTitle, alertText }: AlertModalProps) {
     setOpen(false);
   };
 
-  const handleOpenModal = () => {
-    setOpen(true);
-  };
-
   return (
     <>
-      <button onClick={handleOpenModal}>Modal alert</button>
       <Modal title={alertTitle} closeModal={handleCloseModal} open={open}>
         <S.BoxAlert>
-          <S.AlertText>{alertText}</S.AlertText>
-          <S.IconButton onClick={handleCloseModal}>OK</S.IconButton>
+          {alertText}
+          <S.IconButton onClick={handleCloseModal} variant="outlined">
+            OK
+          </S.IconButton>
         </S.BoxAlert>
       </Modal>
     </>
