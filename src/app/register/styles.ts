@@ -23,20 +23,7 @@ export const Wrapper = styled('div')`
   ${({ theme }) => theme.breakpoints.up('sm')} {
     max-width: none;
     width: 37.5rem;
-    height: 25rem;
-  }
-`;
-
-export const SideLeft = styled('div')`
-  width: 40%;
-  height: 100%;
-  background-color: ${({ theme }) => theme.palette.grey[300]};
-  display: none;
-
-  ${({ theme }) => theme.breakpoints.up('sm')} {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    min-height: 25rem;
   }
 `;
 
@@ -48,10 +35,6 @@ export const Form = styled('form')`
   flex-direction: column;
   gap: 1rem;
   width: 100%;
-
-  ${({ theme }) => theme.breakpoints.up('sm')} {
-    width: 60%;
-  }
 `;
 
 export const FooterForm = styled('div')`
