@@ -7,12 +7,11 @@ import { Modal } from '../Modal';
 export const IconButton = styled(Button)`
   color: ${({ theme }) => theme.palette.text.primary};
   border-color: ${({ theme }) => theme.palette.grey[500]};
+
   &:hover {
-    &:hover {
-      border-color: ${({ theme }) => theme.palette.grey[700]};
-      background-color: ${({ theme }) => theme.palette.grey[700]};
-      color: ${({ theme }) => theme.palette.common.white};
-    }
+    border-color: ${({ theme }) => theme.palette.grey[700]};
+    background-color: ${({ theme }) => theme.palette.grey[700]};
+    color: ${({ theme }) => theme.palette.common.white};
   }
 `;
 
