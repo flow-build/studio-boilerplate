@@ -20,5 +20,6 @@ export const Default = Template.bind({});
 Default.args = {
   icon: PersonIcon,
   redirectLink: '#',
-  badge: 1
+  badge: 1,
+  title: 'Título do ícone'
 };

@@ -1,34 +1,28 @@
-import { Badge } from '@mui/material';
-import IconButton from '@mui/material/IconButton';
+import { Badge, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import Link from 'next/link';
 import { fontSizes } from 'theme/fontSizes.theme';
-import { spacing } from 'theme/spacing';
 
 export const Content = styled('div')`
   display: flex;
-  margin: 0 ${spacing.S5};
-
-  ${({ theme }) => theme.breakpoints.up('md')} {
-    & > MuiGrid-root {
-      flex-basis: fit-content;
-    }
-  }
 `;
 
-export const IconLinkButton = styled(IconButton)`
-  padding: 0;
-  gap: 0;
-  text-transform: none;
-  :hover {
-    background-color: transparent;
-  }
+export const LinkIcon = styled(Link)`
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  gap: 1rem;
+`;
+
+export const Title = styled(Typography)`
+  font-size: ${fontSizes.F14};
 `;
 
 export const AlertIcon = styled(Badge)`
   span {
-    padding: 0;
-    gap: 0;
-    background: #d82e23;
+    right: -1rem;
     font-size: ${fontSizes.F10};
     font-weight: ${({ theme }) => theme.typography.fontWeightRegular};
   }
