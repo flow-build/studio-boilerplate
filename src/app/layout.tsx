@@ -4,12 +4,12 @@ import React from 'react';
 import { navLinks, socialMedias } from 'stories/components/Footer/mockFooter';
 import { ImageComponent } from 'stories/components/Image';
 import { MainContent } from 'stories/components/MainContent';
-import { MenuAnchor, MenuOptions } from 'stories/components/Menu/utils';
+import { MenuAnchor } from 'stories/components/Menu/utils';
 import { GlobalStyles } from 'theme/Globalstyles';
 
 import { Footer } from '../stories/components/Footer/index';
 import { Header } from '../stories/components/Header/index';
-import { Menu } from '../stories/components/Menu/index';
+import { MenuProps } from '../stories/components/Menu/types';
 
 const links = [
   { name: '[Início]', url: '/' },
@@ -30,16 +30,24 @@ const menuItems = [
     title: 'Sobre'
   },
   {
-    id: '2',
+    id: '3',
     redirectLink: '/contato',
     title: 'Contato'
   },
   {
-    id: '2',
+    id: '4',
     redirectLink: '/faq',
     title: 'FAQ'
   }
 ];
+
+const menu: MenuProps = {
+  anchor: MenuAnchor.left,
+  menuItems: menuItems,
+  logo: (
+    <ImageComponent src="https://img.logoipsum.com/263.svg" alt={'Logo'} width={150} height={30} />
+  )
+};
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const logo = (
@@ -51,21 +59,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <Header
           logo={logo}
-          menu={
-            <Menu
-              type={MenuOptions.hamburger}
-              anchor={MenuAnchor.left}
-              menuItems={menuItems}
-              logo={
-                <ImageComponent
-                  src="https://img.logoipsum.com/263.svg"
-                  alt={'Logo'}
-                  width={150}
-                  height={30}
-                />
-              }
-            />
-          }
+          menu={menu}
           links={links}
           username={'Haramura'}
           button={{

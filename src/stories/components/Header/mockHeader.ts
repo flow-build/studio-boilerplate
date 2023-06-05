@@ -1,3 +1,5 @@
+import { Logger } from 'utils';
+
 export const menuItems = [
   {
     id: '1',
@@ -30,5 +32,5 @@ export const links = [
 
 export const button = {
   name: 'Entrar',
-  onClick: () => 'botão clicado'
+  onClick: () => Logger.info('botão clicado')
 };

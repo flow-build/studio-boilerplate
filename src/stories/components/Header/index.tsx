@@ -3,6 +3,7 @@ import React from 'react';
 
 import { AppBar } from '@mui/material';
 
+import { Menu } from '../Menu';
 import * as S from './styles';
 import { HeaderProps } from './types';
 
@@ -18,7 +19,11 @@ export const Header: React.FC<HeaderProps> = ({
     <AppBar position="static" color="default">
       <S.ToolbarHeader>
         <S.Content>
-          <S.Wrapper>{menu}</S.Wrapper>
+          {menu && (
+            <S.Wrapper>
+              <Menu {...menu} />
+            </S.Wrapper>
+          )}
           {logo}
           <S.ContainerHeader loggedIn={loggedIn ?? false}>
             {links?.map((link) => (

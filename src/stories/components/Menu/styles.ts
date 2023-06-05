@@ -14,8 +14,8 @@ import { spacing } from 'theme/spacing';
 
 export const GridHeader = styled(Grid)`
   display: flex;
-  align-items: center !important;
-  justify-content: flex-start !important;
+  align-items: center;
+  justify-content: flex-start;
 
   &.data-user {
     padding-left: ${spacing.S16};
@@ -25,7 +25,7 @@ export const GridHeader = styled(Grid)`
 
 export const FixedMenu = styled('div')`
   position: fixed;
-  width: 240px;
+  width: 15rem;
   height: 100%;
   left: 0;
   top: 0;
@@ -62,8 +62,8 @@ export const MenuIcon = styled(Menu)`
 
 export const GridSeeAll = styled(Grid)`
   display: flex;
-  align-items: center !important;
-  justify-content: flex-end !important;
+  align-items: center;
+  justify-content: flex-end;
 `;
 
 export const MenuDrawer = styled(SwipeableDrawer)`
@@ -108,8 +108,8 @@ export const DrawerGrid = styled(Grid)`
 export const LogoWrapper = styled(Grid, {
   shouldForwardProp: (prop) => !['logo'].includes(prop as string)
 })<{ logo?: React.ReactNode }>`
-  width: ${(props) => (props.logo ? 'auto' : '150px')};
-  height: ${(props) => (props.logo ? 'auto' : '30px')};
+  width: ${(props) => (props.logo ? 'auto' : '9.375rem')};
+  height: ${(props) => (props.logo ? 'auto' : '1.875rem')};
 `;
 
 export const ButtonWrapper = styled(Grid)`
@@ -155,8 +155,6 @@ export const MenuList = styled(List)`
     box-shadow: inset 0 0 0.375rem hsla(0, 0%, 75%, 0.3);
     -webkit-box-shadow: inset 0 0 0.375rem hsla(0, 0%, 75%, 0.3);
   }
-
-  /* Media Queries */
 
   ${({ theme }) => theme.breakpoints.up('md')} {
     height: calc(100vh - 11.25rem);
