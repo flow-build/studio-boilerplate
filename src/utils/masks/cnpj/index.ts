@@ -1,4 +1,6 @@
-export const maskCNPJ = (value: string): string => {
+import { MaskFunction } from 'utils/masks/types';
+
+export const maskCNPJ: MaskFunction = (value: string): string => {
   if (value === '') {
     return value;
   }
