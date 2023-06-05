@@ -1,7 +1,7 @@
 export interface AlertModalProps {
   alertTitle: string;
   alertText: string;
-  OnClose: () => void;
+  onClose: () => void;
   open: boolean;
   buttonText?: string;
 }

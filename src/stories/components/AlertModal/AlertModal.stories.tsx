@@ -30,7 +30,7 @@ const AlertModalDemo = (args: AlertModalProps) => {
   return (
     <div>
       <button onClick={handleOpenModal}>AlertModal</button>
-      <AlertModal {...args} OnClose={handleCloseModal} open={open}></AlertModal>
+      <AlertModal {...args} onClose={handleCloseModal} open={open}></AlertModal>
     </div>
   );
 };
