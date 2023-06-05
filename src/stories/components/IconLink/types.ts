@@ -4,6 +4,5 @@ import { OverridableComponent } from '@mui/material/OverridableComponent';
 export interface IconLinkProps extends IconProps {
   icon: OverridableComponent<SvgIconTypeMap>;
   redirectLink: string;
-  iconSize?: number;
   badge?: number;
 }
