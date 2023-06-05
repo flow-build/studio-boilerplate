@@ -8,7 +8,7 @@ const meta: Meta<typeof ProgressBar> = {
   title: 'Generic/ProgressBar',
   component: ProgressBar,
   args: {
-    descriptionTip: `Digite aqui`,
+    descriptionTip: ` `,
     strength: 'strong'
   }
 };
