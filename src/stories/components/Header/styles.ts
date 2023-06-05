@@ -1,3 +1,4 @@
+import { Grid } from '@mui/material';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Divider from '@mui/material/Divider';
@@ -34,10 +35,10 @@ export const ContainerHeader = styled(Container, {
   }
 `;
 
-export const IconWrapper = styled(Container)`
+export const IconWrapper = styled(Grid)`
   display: flex;
   justify-content: flex-end;
-  gap: 0.5rem;
+  padding-right: ${spacing.S16};
 `;
 
 export const ContainerHeaderAvatar = styled(Container)`
