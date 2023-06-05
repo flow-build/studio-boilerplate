@@ -3,7 +3,6 @@ import React from 'react';
 import { Meta, StoryFn } from '@storybook/react';
 
 import { Menu } from '.';
-import { ImageComponent } from '../Image';
 import { MenuAnchor, MenuVariant } from './utils';
 
 const meta: Meta<typeof Menu> = {
@@ -34,14 +33,7 @@ const meta: Meta<typeof Menu> = {
         title: 'FAQ'
       }
     ],
-    logo: (
-      <ImageComponent
-        src="https://img.logoipsum.com/263.svg"
-        alt={'Logo'}
-        width={150}
-        height={30}
-      />
-    )
+    logo: true
   }
 };
 

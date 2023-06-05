@@ -21,9 +21,7 @@ export const Standard: StoryFn<HeaderProps> = (args) => {
   const menuProps: MenuProps = {
     anchor: MenuAnchor.left,
     menuItems: menuItems,
-    logo: (
-      <ImageComponent src="https://img.logoipsum.com/263.svg" alt="Logo" width={150} height={30} />
-    )
+    logo: true
   };
 
   return (

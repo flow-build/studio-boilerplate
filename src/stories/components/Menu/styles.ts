@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Menu } from '@mui/icons-material';
 import CloseIcon from '@mui/icons-material/Close';
 import { ListItem, ListItemText } from '@mui/material';
@@ -106,10 +104,10 @@ export const DrawerGrid = styled(Grid)`
 `;
 
 export const LogoWrapper = styled(Grid, {
-  shouldForwardProp: (prop) => !['logo'].includes(prop as string)
-})<{ logo?: React.ReactNode }>`
-  width: ${(props) => (props.logo ? 'auto' : '9.375rem')};
-  height: ${(props) => (props.logo ? 'auto' : '1.875rem')};
+  shouldForwardProp: (prop) => !['hasLogo'].includes(prop as string)
+})<{ hasLogo?: boolean }>`
+  width: ${(props) => (props.hasLogo ? 'auto' : '9.375rem')};
+  height: ${(props) => (props.hasLogo ? 'auto' : '1.875rem')};
 `;
 
 export const ButtonWrapper = styled(Grid)`
@@ -140,22 +138,6 @@ export const MenuList = styled(List)`
 
   padding: 0 ${spacing.S1} 0 ${spacing.S32};
 
-  &::-webkit-scrollbar {
-    width: 0.3125rem;
-  }
-
-  &::-webkit-scrollbar-track {
-    background: -webkit-linear-gradient(180deg, #fff 40%, #fff 50%, #fff 70%);
-    border-radius: 0.625rem;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background-color: ${({ theme }) => theme.palette.grey[900]};
-    border-radius: 0.625rem;
-    box-shadow: inset 0 0 0.375rem hsla(0, 0%, 75%, 0.3);
-    -webkit-box-shadow: inset 0 0 0.375rem hsla(0, 0%, 75%, 0.3);
-  }
-
   ${({ theme }) => theme.breakpoints.up('md')} {
     height: calc(100vh - 11.25rem);
   }
@@ -171,42 +153,5 @@ export const TitleCategory = styled(ListItemText)`
     font-weight: ${({ theme }) => theme.typography.fontWeightRegular};
     color: ${({ theme }) => theme.palette.grey[900]};
     opacity: 1;
-  }
-`;
-
-export const MenuItemsHeader = styled(Grid)`
-  padding: 0 ${spacing.S20} ${spacing.S20} ${spacing.S20};
-
-  & .MuiTypography-root {
-    font-size: ${fontSizes.F14};
-    font-weight: ${({ theme }) => theme.typography.h2.fontWeight};
-  }
-
-  & .MuiDivider-root {
-    margin-top: ${spacing.S10};
-  }
-`;
-
-export const GoBackButton = styled(Button)`
-  width: 100%;
-
-  color: inherit;
-  text-transform: initial;
-
-  & .MuiListItemText-root {
-    & > .MuiTypography-root {
-      width: 100%;
-
-      display: -webkit-box;
-
-      overflow: hidden;
-      text-align: left;
-      -webkit-line-clamp: 1;
-      -webkit-box-orient: vertical;
-    }
-  }
-
-  &:hover {
-    background-color: transparent;
   }
 `;

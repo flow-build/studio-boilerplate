@@ -19,6 +19,19 @@ const STYLES: GlobalStylesProps['styles'] = {
   },
   a: {
     textDecoration: 'inherit'
+  },
+  '::-webkit-scrollbar': {
+    width: '0.3125rem'
+  },
+  '::-webkit-scrollbar-track': {
+    background: '-webkit-linear-gradient(180deg, #fff 40%, #fff 50%, #fff 70%)',
+    borderRadius: '0.625rem'
+  },
+  '::-webkit-scrollbar-thumb': {
+    backgroundColor: 'YOUR_COLOR_HERE',
+    borderRadius: '0.625rem',
+    boxShadow: 'inset 0 0 0.375rem hsla(0, 0%, 75%, 0.3)',
+    '-webkit-box-shadow': 'inset 0 0 0.375rem hsla(0, 0%, 75%, 0.3)'
   }
 };
 
