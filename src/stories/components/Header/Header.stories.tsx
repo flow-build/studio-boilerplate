@@ -2,7 +2,6 @@ import React from 'react';
 
 import { Meta, StoryFn } from '@storybook/react';
 
-import { ImageComponent } from '../Image';
 import { MenuProps } from '../Menu/types';
 import { MenuAnchor } from '../Menu/utils';
 import { Header } from './index';
@@ -27,14 +26,6 @@ export const Standard: StoryFn<HeaderProps> = (args) => {
   return (
     <Header
       {...args}
-      logo={
-        <ImageComponent
-          src="https://img.logoipsum.com/263.svg"
-          alt="Logo"
-          width={150}
-          height={30}
-        />
-      }
       loggedIn={true}
       username="Haramura"
       links={links}

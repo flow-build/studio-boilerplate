@@ -3,6 +3,7 @@ import React from 'react';
 
 import { AppBar } from '@mui/material';
 
+import { Logo } from '../Logo';
 import { Menu } from '../Menu';
 import * as S from './styles';
 import { HeaderProps } from './types';
@@ -24,7 +25,7 @@ export const Header: React.FC<HeaderProps> = ({
               <Menu {...menu} />
             </S.Wrapper>
           )}
-          {logo}
+          {logo && <Logo />}
           <S.ContainerHeader loggedIn={loggedIn ?? false}>
             {links?.map((link) => (
               <S.DividedLink loggedIn={loggedIn ?? false} key={link.name}>

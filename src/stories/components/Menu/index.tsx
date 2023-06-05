@@ -4,7 +4,7 @@ import React, { FC } from 'react';
 import Grid from '@mui/material/Grid';
 import Link from 'next/link';
 
-import { ImageComponent } from '../Image';
+import { Logo } from '../Logo';
 import * as S from './styles';
 import { MenuProps } from './types';
 import { useMenu } from './useMenu';
@@ -28,16 +28,7 @@ export const Menu: FC<MenuProps> = ({ menuItems = [], logo, anchor, variant }) =
       >
         <S.DrawerGrid>
           <S.ButtonWrapper>
-            <S.LogoWrapper hasLogo={!!logo}>
-              {logo && (
-                <ImageComponent
-                  src="https://img.logoipsum.com/263.svg"
-                  alt="Logo"
-                  width={150}
-                  height={30}
-                />
-              )}
-            </S.LogoWrapper>
+            <S.LogoWrapper hasLogo={!!logo}>{logo && <Logo />}</S.LogoWrapper>
             {variant !== MenuVariant.permanent && (
               <S.CloseDrawerButton variant="outlined" onClick={handleClose}>
                 <S.CloseDrawerIcon fontSize="small" />

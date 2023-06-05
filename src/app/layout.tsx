@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 
-import { Header, ImageComponent } from 'stories/components';
+import { Header } from 'stories/components';
 import { Footer } from 'stories/components/Footer';
 import { navLinks, socialMedias } from 'stories/components/Footer/mockFooter';
 import { links, menuItems } from 'stories/components/Header/mockHeader';
@@ -17,15 +17,11 @@ const menu: MenuProps = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  const logo = (
-    <ImageComponent src="https://img.logoipsum.com/263.svg" alt="Logo" width={150} height={30} />
-  );
-
   return (
     <html lang="pt-br">
       <body>
         <Header
-          logo={logo}
+          logo={true}
           menu={menu}
           links={links}
           username={'Haramura'}

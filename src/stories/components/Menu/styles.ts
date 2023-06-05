@@ -131,7 +131,6 @@ export const MenuDivider = styled(Divider)`
 `;
 
 export const MenuList = styled(List)`
-  height: calc(100vh - 21.5625rem);
   margin-right: ${spacing.S16};
   margin-bottom: ${spacing.S20};
   overflow-y: auto;
