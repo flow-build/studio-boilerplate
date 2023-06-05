@@ -1,4 +1,6 @@
-export function maskCurrency(value: string) {
+import { MaskFunction } from 'utils/masks/types';
+
+export const maskCurrency: MaskFunction = (value: string) => {
   if (value === '') {
     return 'R$ 0,00';
   }
@@ -28,4 +30,4 @@ export function maskCurrency(value: string) {
   }
 
   return 'R$ ' + reais + ',' + cents;
-}
+};

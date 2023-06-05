@@ -1,6 +1,8 @@
+import { MaskFunction } from 'utils/masks/types';
+
 const CELLPHONE_LENGTH = 11;
 
-export const maskPhoneNumber = (value: string): string => {
+export const maskPhoneNumber: MaskFunction = (value: string): string => {
   if (value === '') {
     return '';
   }
