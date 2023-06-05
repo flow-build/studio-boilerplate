@@ -1,9 +1,10 @@
 import { useFormik } from 'formik';
-import { signUp } from 'services';
+import { useRouter } from 'next/navigation';
 import { Logger, validateCPF } from 'utils';
 import * as yup from 'yup';
 
 import { messages } from '../../constants';
+import api from '../../services/httpClient';
 
 export const useRegister = () => {
   const INITIAL_VALUES = {
@@ -14,6 +15,7 @@ export const useRegister = () => {
     password: '',
     confirmPassword: ''
   };
+  const router = useRouter();
 
   const validations = {
     name: yup.string().required(messages.fieldRequired),
@@ -38,8 +40,12 @@ export const useRegister = () => {
     validateOnBlur: true,
     onSubmit: async (values) => {
       try {
-        const result = await signUp(values);
-        Logger.info({ result });
+        const result = await api.post<{ status: number }>('/api/signUp', values);
+        if (result?.status === 200) {
+          router.push('/token');
+        } else {
+          Logger.error('error creating user');
+        }
       } catch (error) {
         Logger.error({ error });
       }
