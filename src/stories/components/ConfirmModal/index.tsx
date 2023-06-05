@@ -2,24 +2,23 @@ import * as S from './styles';
 import { ConfirmModalProps } from './types';
 
 export function ConfirmModal({
-  Title,
-  Text,
-  textButtonConfirm,
-  textButtonCancel,
+  title,
+  text,
+  textButtonConfirm = 'Confirmar',
+  textButtonCancel = 'Cancelar',
   open,
-  onConfirm,
-  onClose
+  onConfirm
 }: ConfirmModalProps) {
   return (
-    <S.BoxModal title={Title} closeModal={onClose} open={open}>
+    <S.BoxModal title={title} closeModal={() => onConfirm(false)} open={open}>
       <S.BoxConfirm>
-        {Text}
+        {text}
         <S.BoxButton>
-          <S.IconButton onClick={onConfirm} variant="outlined">
-            {textButtonConfirm ?? 'Confirmar'}
+          <S.IconButton onClick={() => onConfirm(true)} variant="outlined">
+            {textButtonConfirm}
           </S.IconButton>
-          <S.IconButton onClick={onClose} variant="outlined">
-            {textButtonCancel ?? 'Cancelar'}
+          <S.IconButton onClick={() => onConfirm(false)} variant="outlined">
+            {textButtonCancel}
           </S.IconButton>
         </S.BoxButton>
       </S.BoxConfirm>

@@ -1,9 +1,8 @@
 export interface ConfirmModalProps {
-  Title?: string;
-  Text: string;
+  title?: string;
+  text: string;
   open: boolean;
   textButtonConfirm?: string;
   textButtonCancel?: string;
-  onConfirm: () => void;
-  onClose: () => void;
+  onConfirm: (confirm: boolean) => void;
 }

@@ -9,8 +9,8 @@ const meta: Meta<typeof ConfirmModal> = {
   title: 'ConfirmModal',
   component: ConfirmModal,
   args: {
-    Title: 'Titulo',
-    Text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer auctor a urna et sollicitudin.',
+    title: 'Titulo',
+    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer auctor a urna et sollicitudin.',
     open: true
   },
   tags: ['autodocs']
@@ -27,15 +27,11 @@ const ConfirmModalDemo = (args: ConfirmModalProps) => {
   const handleOpenModal = () => {
     setOpen(true);
   };
+
   return (
     <div>
       <button onClick={handleOpenModal}>ConfirmModal</button>
-      <ConfirmModal
-        {...args}
-        onClose={handleCloseModal}
-        open={open}
-        onConfirm={handleCloseModal}
-      ></ConfirmModal>
+      <ConfirmModal {...args} open={open} onConfirm={handleCloseModal}></ConfirmModal>
     </div>
   );
 };
