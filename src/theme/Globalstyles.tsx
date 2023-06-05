@@ -28,7 +28,7 @@ const STYLES: GlobalStylesProps['styles'] = {
     borderRadius: '0.625rem'
   },
   '::-webkit-scrollbar-thumb': {
-    backgroundColor: 'YOUR_COLOR_HERE',
+    backgroundColor: '#212121',
     borderRadius: '0.625rem',
     boxShadow: 'inset 0 0 0.375rem hsla(0, 0%, 75%, 0.3)',
     '-webkit-box-shadow': 'inset 0 0 0.375rem hsla(0, 0%, 75%, 0.3)'
