@@ -4,7 +4,7 @@ import { Button } from '../Forms/Button';
 import { Modal } from '../Modal';
 
 export const IconButton = styled(Button)`
-  color: #0a0a0a;
+  color: ${({ theme }) => theme.palette.text.primary};
   border-color: ${({ theme }) => theme.palette.grey[500]};
   &:hover {
     border-color: ${({ theme }) => theme.palette.grey[700]};
