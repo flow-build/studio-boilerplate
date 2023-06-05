@@ -1,4 +1,5 @@
 import { useFormik } from 'formik';
+import { signUp } from 'services';
 import { Logger, validateCPF } from 'utils';
 import * as yup from 'yup';
 
@@ -35,7 +36,14 @@ export const useRegister = () => {
     initialValues: INITIAL_VALUES,
     validationSchema: validationSchemaRegister,
     validateOnBlur: true,
-    onSubmit: Logger.info
+    onSubmit: async (values) => {
+      try {
+        const result = await signUp(values);
+        Logger.info({ result });
+      } catch (error) {
+        Logger.error({ error });
+      }
+    }
   });
 
   return {
