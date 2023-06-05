@@ -1,9 +1,8 @@
-import { ReactNode } from 'react';
-
-import { IconProps } from '@mui/material';
+import { IconProps, SvgIconTypeMap } from '@mui/material';
+import { OverridableComponent } from '@mui/material/OverridableComponent';
 
 export interface IconLinkProps extends IconProps {
-  icon: ReactNode;
+  icon: OverridableComponent<SvgIconTypeMap>;
   redirectLink: string;
   iconSize?: number;
   badge?: number;

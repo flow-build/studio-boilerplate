@@ -1,12 +1,21 @@
 'use client';
 import React from 'react';
 
+import { Person } from '@mui/icons-material';
 import { AppBar } from '@mui/material';
 
+import { IconLink } from '../IconLink';
 import * as S from './styles';
 import { HeaderProps } from './types';
 
-export const Header: React.FC<HeaderProps> = ({ logo, links, button, loggedIn, username }) => {
+export const Header: React.FC<HeaderProps> = ({
+  logo,
+  links,
+  button,
+  loggedIn,
+  username,
+  icon
+}) => {
   return (
     <AppBar position="static" color="default">
       <S.ToolbarHeader>
@@ -19,6 +28,9 @@ export const Header: React.FC<HeaderProps> = ({ logo, links, button, loggedIn, u
               </S.DividedLink>
             ))}
           </S.ContainerHeader>
+          <S.IconWrapper>
+            {icon && <IconLink badge={1} icon={Person} redirectLink={'/minha-conta'} />}
+          </S.IconWrapper>
           {loggedIn === true ? (
             username != null && (
               <S.ButtonHeader

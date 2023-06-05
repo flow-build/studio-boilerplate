@@ -5,4 +5,5 @@ export interface HeaderProps {
   button: { name: string; onClick: () => void };
   loggedIn?: boolean;
   username?: string;
+  icon?: boolean;
 }

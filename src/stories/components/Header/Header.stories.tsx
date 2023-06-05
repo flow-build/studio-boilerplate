@@ -23,6 +23,7 @@ Default.args = {
     <ImageComponent src="https://img.logoipsum.com/263.svg" alt={'Logo'} width={150} height={30} />
   ),
   loggedIn: true,
+  icon: true,
   username: 'Haramura',
   links: [
     { name: '[Início]', url: '/' },

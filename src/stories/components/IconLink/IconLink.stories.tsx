@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { Person2Outlined } from '@mui/icons-material';
 import { Meta, StoryFn } from '@storybook/react';
+import { PersonIcon } from 'shared';
 
 import { IconLink } from '.';
 import { IconLinkProps } from './types';
@@ -18,8 +18,7 @@ const Template: StoryFn<IconLinkProps> = (args) => <IconLink {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  icon: Person2Outlined,
+  icon: PersonIcon,
   redirectLink: '#',
-  badge: 1,
-  iconSize: 24
+  badge: 1
 };

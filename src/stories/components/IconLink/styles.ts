@@ -1,14 +1,12 @@
 import { Badge } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import { styled } from '@mui/material/styles';
-
-export interface PropsColor {
-  colorFont: string;
-}
+import { fontSizes } from 'theme/fontSizes.theme';
+import { spacing } from 'theme/spacing';
 
 export const Content = styled('div')`
   display: flex;
-  margin: 0 5px;
+  margin: 0 ${spacing.S5};
 
   ${({ theme }) => theme.breakpoints.up('md')} {
     & > MuiGrid-root {
@@ -31,7 +29,7 @@ export const AlertIcon = styled(Badge)`
     padding: 0;
     gap: 0;
     background: #d82e23;
-    font-size: 0.5625rem;
-    font-weight: 400;
+    font-size: ${fontSizes.F10};
+    font-weight: ${({ theme }) => theme.typography.fontWeightRegular};
   }
 `;

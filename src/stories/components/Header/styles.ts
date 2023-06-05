@@ -17,6 +17,7 @@ export const Content = styled('div')`
   display: flex;
   width: 100%;
   max-width: 75rem;
+  align-items: center;
   justify-content: center;
 `;
 
@@ -31,6 +32,12 @@ export const ContainerHeader = styled(Container, {
   ${({ theme }) => theme.breakpoints.up('lg')} {
     justify-content: center;
   }
+`;
+
+export const IconWrapper = styled(Container)`
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
 `;
 
 export const ContainerHeaderAvatar = styled(Container)`
