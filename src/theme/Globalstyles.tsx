@@ -33,7 +33,8 @@ const STYLES: GlobalStylesProps['styles'] = {
     }
   },
   a: {
-    textDecoration: 'inherit'
+    textDecoration: 'inherit',
+    color: 'inherit'
   }
 };
 

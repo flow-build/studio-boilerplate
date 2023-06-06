@@ -34,7 +34,8 @@ export const ContainerHeader = styled(Container, {
   justify-content: ${({ loggedIn }) => (loggedIn ? 'center' : 'flex-end')};
   gap: ${({ loggedIn }) => (loggedIn ? 'initial' : spacing.S16)};
   ${({ theme }) => theme.breakpoints.up('lg')} {
-    justify-content: center;
+    justify-content: flex-end;
+    align-items: center;
   }
 `;
 

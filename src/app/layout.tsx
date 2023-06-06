@@ -1,11 +1,10 @@
 'use client';
 import React from 'react';
 
-import { Header } from 'stories/components';
-import { Footer } from 'stories/components/Footer';
+import { useRouter } from 'next/navigation';
+import { Header, Footer, MainContent } from 'stories/components';
 import { navLinks, socialMedias } from 'stories/components/Footer/mockFooter';
 import { links, menuItems } from 'stories/components/Header/mockHeader';
-import { MainContent } from 'stories/components/MainContent';
 import { MenuProps } from 'stories/components/Menu/types';
 import { MenuAnchor } from 'stories/components/Menu/utils';
 import { GlobalStyles } from 'theme/Globalstyles';
@@ -17,6 +16,8 @@ const menu: MenuProps = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const router = useRouter();
+
   return (
     <html lang="pt-br">
       <body>
@@ -28,7 +29,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           button={{
             name: 'Entrar',
             onClick: function (): void {
-              throw new Error('Function not implemented.');
+              router.push('/login');
             }
           }}
           loggedIn={false}
