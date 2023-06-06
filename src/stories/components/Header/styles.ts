@@ -1,3 +1,4 @@
+import { Grid } from '@mui/material';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Divider from '@mui/material/Divider';
@@ -17,7 +18,12 @@ export const Content = styled('div')`
   display: flex;
   width: 100%;
   max-width: 75rem;
+  align-items: center;
   justify-content: center;
+`;
+
+export const Wrapper = styled('div')`
+  padding-right: ${spacing.S10};
 `;
 
 export const ContainerHeader = styled(Container, {
@@ -29,8 +35,15 @@ export const ContainerHeader = styled(Container, {
   justify-content: ${({ loggedIn }) => (loggedIn ? 'center' : 'flex-end')};
   gap: ${({ loggedIn }) => (loggedIn ? 'initial' : spacing.S16)};
   ${({ theme }) => theme.breakpoints.up('lg')} {
-    justify-content: center;
+    justify-content: flex-end;
+    align-items: center;
   }
+`;
+
+export const IconWrapper = styled(Grid)`
+  display: flex;
+  justify-content: flex-end;
+  padding-right: ${spacing.S16};
 `;
 
 export const ContainerHeaderAvatar = styled(Container)`
