@@ -20,7 +20,6 @@ export const Content = styled('div')`
   max-width: 75rem;
   align-items: center;
   justify-content: center;
-  align-items: center;
 `;
 
 export const Wrapper = styled('div')`
