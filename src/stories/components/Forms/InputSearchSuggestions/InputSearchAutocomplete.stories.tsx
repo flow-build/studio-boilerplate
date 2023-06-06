@@ -1,6 +1,7 @@
 import React from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react';
+import { Logger } from 'utils';
 
 import { InputSearchAutocomplete } from '.';
 import { mockAutocomplete } from './mockResult';
@@ -49,7 +50,7 @@ function WrapperSuggestions(args: InputSearchAutocompleteProps) {
       isLoading={isLoading}
       suggestions={suggestions}
       onInputChange={onInputChange}
-      onChange={(_, newValue) => console.log({ newValue })}
+      onChange={(_, newValue) => Logger.info({ newValue })}
     />
   );
 }
