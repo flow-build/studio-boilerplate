@@ -1,3 +1,5 @@
+import { ReactNode } from 'react';
+
 import { MenuProps } from '../Menu/types';
 export interface HeaderProps {
   logo?: boolean;
