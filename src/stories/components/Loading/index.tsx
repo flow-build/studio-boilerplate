@@ -1,11 +1,19 @@
+import React from 'react';
+
 import { Backdrop, CircularProgress } from '@mui/material';
 
+import * as S from './styles';
 import { LoadingProps } from './types';
 
-export function Loading({ size, loader, open = true }: LoadingProps) {
+export function Loading({ size }: LoadingProps) {
   return (
-    <Backdrop open={open}>
-      <CircularProgress></CircularProgress>
-    </Backdrop>
+    <>
+      <S.Container>
+        <S.LoaderContainer>
+          <CircularProgress size={size} />
+        </S.LoaderContainer>
+      </S.Container>
+      <Backdrop sx={{ zIndex: 999999998 }} open={true} />
+    </>
   );
 }
