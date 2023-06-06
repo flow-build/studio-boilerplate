@@ -18,6 +18,11 @@ export const Content = styled('div')`
   width: 100%;
   max-width: 75rem;
   justify-content: center;
+  align-items: center;
+`;
+
+export const Wrapper = styled('div')`
+  padding-right: ${spacing.S10};
 `;
 
 export const ContainerHeader = styled(Container, {
