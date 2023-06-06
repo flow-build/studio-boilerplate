@@ -5,5 +5,5 @@ export const Wrapper = styled('div')`
   display: flex;
   align-items: center;
   gap: ${spacing.S16};
-  max-width: 400px;
+  max-width: 25rem;
 `;

@@ -51,9 +51,11 @@ export function useInput(length: number) {
   // Handle onChange value for each input
   const onChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
+      e.preventDefault();
+
       const val = getValue(e.currentTarget.value);
+
       if (!val) {
-        e.preventDefault();
         return;
       }
       changeCodeAtFocus(val);
