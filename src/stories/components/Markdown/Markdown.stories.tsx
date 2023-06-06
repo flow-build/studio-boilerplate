@@ -16,7 +16,11 @@ const meta: Meta<typeof Markdown> = {
 export default meta;
 
 export const Standard: StoryFn<typeof Markdown> = () => {
-  return <Markdown children={mdx} />;
+  return (
+    <div>
+      <Markdown children={mdx} />
+    </div>
+  );
 };
 
 export const Demo: StoryFn<typeof Markdown> = () => {
