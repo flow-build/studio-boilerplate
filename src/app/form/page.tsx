@@ -3,6 +3,7 @@
 import { FormEvent } from 'react';
 
 import Form, { IChangeEvent } from '@rjsf/core';
+import { WidgetProps } from '@rjsf/utils';
 import validator from '@rjsf/validator-ajv8';
 import { JSONSchema7 } from 'json-schema';
 import { InputText } from 'stories/components';
@@ -10,14 +11,13 @@ import { Button } from 'stories/components/Forms/Button';
 
 import formSchema from './formSchema.json';
 import * as S from './styles';
-import { useForm } from './useForm';
 
 interface FormData {
   name: string;
   email: string;
 }
 
-const MyCustomWidget = (props) => {
+const MyCustomWidget = (props: WidgetProps) => {
   return (
     <InputText
       type="text"
@@ -34,17 +34,11 @@ const widgets = {
 };
 
 export default function MyForm() {
-  const { formik } = useForm();
-
-  const handleFormSubmit = (
-    data: IChangeEvent<FormData, JSONSchema7>,
-    e: FormEvent<HTMLFormElement>
-  ): void => {
+  const handleFormSubmit = (data: IChangeEvent<FormData>, e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     if (data.formData) {
-      formik.setValues(data.formData);
+      console.log('Data submitted: ', data.formData);
     }
-    formik.handleSubmit(e);
   };
 
   return (
