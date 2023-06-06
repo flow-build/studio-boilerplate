@@ -2,7 +2,9 @@ import React from 'react';
 
 import { action } from '@storybook/addon-actions';
 import { Meta, StoryFn } from '@storybook/react';
+import { getAavatarURL } from 'utils';
 
+import { Avatar } from '../Avatar';
 import { ImageComponent } from '../Image';
 import { Header } from './index';
 import { HeaderProps } from './types';
@@ -33,5 +35,6 @@ Default.args = {
   button: {
     name: 'Entrar',
     onClick: action('botão clicado')
-  }
+  },
+  avatar: <Avatar alt={'teste'} src={getAavatarURL('teste@fdte.io')} />
 };
