@@ -1,7 +1,10 @@
 'use client';
 
+import { useState } from 'react';
+
 import Button from '@mui/material/Button';
 import Checkbox from '@mui/material/Checkbox';
+import CircularProgress from '@mui/material/CircularProgress';
 import Link from 'next/link';
 import { InputPassword, InputText } from 'stories/components';
 import { getErrorsFormik, getHelperTextFormik, maskCPF, maskPhoneNumber } from 'utils';
@@ -11,6 +14,7 @@ import { useRegister } from './useRegister';
 
 export default function Register() {
   const { formik } = useRegister();
+  const [optIn, setOptIn] = useState(false);
 
   return (
     <S.Main>
@@ -81,15 +85,28 @@ export default function Register() {
 
           <S.FooterForm>
             <span>
-              <Checkbox aria-label="remember" />
+              <Checkbox
+                aria-label="remember"
+                onChange={(e) => setOptIn(e.currentTarget.value === 'on')}
+              />
               <span>
                 Li e aceito os <Link href="#">temos</Link> de uso
               </span>
             </span>
           </S.FooterForm>
-          <Button type="submit" variant="contained" color="success">
-            Caadstrar
+          <Button
+            type="submit"
+            variant="contained"
+            color="success"
+            disabled={!formik.isValid || !optIn}
+          >
+            Cadastrar
           </Button>
+          {formik.isSubmitting && (
+            <center>
+              <CircularProgress />
+            </center>
+          )}
         </S.Form>
       </S.Wrapper>
     </S.Main>
