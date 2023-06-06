@@ -18,6 +18,11 @@ export const Content = styled('div')`
   width: 100%;
   max-width: 75rem;
   justify-content: center;
+  align-items: center;
+`;
+
+export const Wrapper = styled('div')`
+  padding-right: ${spacing.S10};
 `;
 
 export const ContainerHeader = styled(Container, {
@@ -29,7 +34,8 @@ export const ContainerHeader = styled(Container, {
   justify-content: ${({ loggedIn }) => (loggedIn ? 'center' : 'flex-end')};
   gap: ${({ loggedIn }) => (loggedIn ? 'initial' : spacing.S16)};
   ${({ theme }) => theme.breakpoints.up('lg')} {
-    justify-content: center;
+    justify-content: flex-end;
+    align-items: center;
   }
 `;
 
