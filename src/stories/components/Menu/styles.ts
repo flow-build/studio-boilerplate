@@ -1,6 +1,6 @@
 import { Menu } from '@mui/icons-material';
 import CloseIcon from '@mui/icons-material/Close';
-import { Badge, ListItem, ListItemText } from '@mui/material';
+import { ListItem, ListItemText } from '@mui/material';
 import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid';
@@ -168,12 +168,4 @@ export const LinkIcon = styled(Link)`
   justify-content: center;
   text-decoration: none;
   gap: 1rem;
-`;
-
-export const AlertIcon = styled(Badge)`
-  span {
-    right: 10rem;
-    font-size: ${fontSizes.F10};
-    font-weight: ${({ theme }) => theme.typography.fontWeightRegular};
-  }
 `;

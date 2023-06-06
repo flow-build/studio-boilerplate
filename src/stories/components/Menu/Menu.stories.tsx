@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { AccessTime, House, Message } from '@mui/icons-material';
+import { AccessTime, Announcement, House, Message } from '@mui/icons-material';
 import { Meta, StoryFn } from '@storybook/react';
 
 import { Menu } from '.';
@@ -16,37 +16,37 @@ const meta: Meta<typeof Menu> = {
     menuItems: [
       {
         id: '1',
-        redirectLink: '/inicio',
+        redirectLink: '/anuncios',
         title: 'Anuncios',
         icon: {
-          redirectLink: '/',
-          icon: AccessTime
+          redirectLink: '/anuncios',
+          icon: Announcement
         }
       },
       {
         id: '2',
-        redirectLink: '/sobre',
+        redirectLink: '/locacoes',
         title: 'Locações',
         icon: {
-          redirectLink: '/',
+          redirectLink: '/locacoes',
           icon: House
         }
       },
       {
         id: '2',
-        redirectLink: '/contato',
+        redirectLink: '/mensagens',
         title: 'Mensagens',
         icon: {
-          redirectLink: '/',
+          redirectLink: '/mensagens',
           icon: Message
         }
       },
       {
         id: '2',
-        redirectLink: '/faq',
+        redirectLink: '/acessos',
         title: 'Acessos',
         icon: {
-          redirectLink: '/',
+          redirectLink: '/acessos',
           icon: AccessTime,
           badge: 12
         }
