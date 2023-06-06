@@ -25,6 +25,7 @@ const MyCustomWidget = (props) => {
       label={props.label}
       value={props.value}
       onChange={(event) => props.onChange(event.target.value)}
+      margin="normal"
     />
   );
 };
@@ -37,7 +38,7 @@ export default function MyForm() {
   const { formik } = useForm();
 
   const handleFormSubmit = (
-    data: IChangeEvent<FormData, JSONSchema7, any>,
+    data: IChangeEvent<FormData, JSONSchema7>,
     e: FormEvent<HTMLFormElement>
   ): void => {
     e.preventDefault();
@@ -47,10 +48,7 @@ export default function MyForm() {
     formik.handleSubmit(e);
   };
 
-  const validate: ValidatorType<FormData, JSONSchema7, any> = async (
-    formData: FormData,
-    errors: ValidationError
-  ) => {
+  const validate = async (formData: FormData, errors: ValidationError) => {
     const validationSchema = yup.object().shape({
       name: yup.string().required('Campo obrigatório'),
       email: yup.string().required('Campo obrigatório').email('E-mail inválido')
