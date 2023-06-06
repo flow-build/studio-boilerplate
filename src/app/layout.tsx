@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
 
+import { useRouter } from 'next/navigation';
 import { navLinks, socialMedias } from 'stories/components/Footer/mockFooter';
 import { ImageComponent } from 'stories/components/Image';
 import { MainContent } from 'stories/components/MainContent';
@@ -17,8 +18,16 @@ const links = [
 ];
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const router = useRouter();
+
   const logo = (
-    <ImageComponent src="https://img.logoipsum.com/263.svg" alt="Logo" width={150} height={30} />
+    <ImageComponent
+      src="https://img.logoipsum.com/263.svg"
+      alt="Logo"
+      width={150}
+      height={30}
+      redirectLink="/"
+    />
   );
 
   return (
@@ -31,7 +40,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           button={{
             name: 'Entrar',
             onClick: function (): void {
-              throw new Error('Function not implemented.');
+              router.push('/login');
             }
           }}
           loggedIn={false}
