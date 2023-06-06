@@ -1,4 +1,3 @@
-/* eslint-disable react/no-children-prop */
 import type { Meta, StoryFn } from '@storybook/react';
 
 import { Footer } from '../Footer';
@@ -17,11 +16,7 @@ const meta: Meta<typeof Markdown> = {
 export default meta;
 
 export const Standard: StoryFn<typeof Markdown> = () => {
-  return (
-    <>
-      <Markdown children={mdx} />;
-    </>
-  );
+  return <Markdown children={mdx} />;
 };
 
 export const Demo: StoryFn<typeof Markdown> = () => {
