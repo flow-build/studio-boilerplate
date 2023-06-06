@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { Person } from '@mui/icons-material';
 import { action } from '@storybook/addon-actions';
 import { Meta, StoryFn } from '@storybook/react';
 
@@ -23,7 +24,11 @@ Default.args = {
     <ImageComponent src="https://img.logoipsum.com/263.svg" alt={'Logo'} width={150} height={30} />
   ),
   loggedIn: true,
-  icon: true,
+  icon: {
+    icon: Person,
+    redirectLink: '/minha-conta',
+    badge: 1
+  },
   username: 'Haramura',
   links: [
     { name: '[Início]', url: '/' },
