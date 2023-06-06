@@ -25,7 +25,7 @@ export const Standard: StoryFn<typeof Markdown> = () => {
 
 export const Demo: StoryFn<typeof Markdown> = () => {
   return (
-    <>
+    <div>
       <Header
         button={{
           name: 'Entrar',
@@ -38,6 +38,6 @@ export const Demo: StoryFn<typeof Markdown> = () => {
         <Markdown children={mdx} />;
       </MainContent>
       <Footer socialMedia={socialMedias} disclaimer="Text here" navLinks={navLinks} />
-    </>
+    </div>
   );
 };
