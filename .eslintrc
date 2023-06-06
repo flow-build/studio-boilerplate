@@ -53,6 +53,8 @@
     "react/prop-types": "off",
     "react/no-array-index-key": "off",
     "react/jsx-uses-react": "off",
+    "react-perf/jsx-no-new-array-as-prop": "off",
+    "react/no-children-prop": "off",
     "max-len": [
       "warn",
       {
