@@ -1,8 +1,10 @@
+type Strength = 'weak' | 'medium' | 'strong' | 'great' | '';
+
 export interface ProgressBarProps {
   descriptionTip: string;
-  strength: 'weak' | 'medium' | 'strong' | 'great' | '';
+  strength: Strength;
 }
 
 export interface StyledTips {
-  strength: 'weak' | 'medium' | 'strong' | 'great' | '';
+  strength: Strength;
 }
