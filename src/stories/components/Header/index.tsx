@@ -3,7 +3,6 @@ import React from 'react';
 
 import { AppBar } from '@mui/material';
 
-import { IconLink } from '../IconLink';
 import { Logo } from '../Logo';
 import { Menu } from '../Menu';
 import * as S from './styles';
@@ -15,7 +14,6 @@ export const Header: React.FC<HeaderProps> = ({
   button,
   loggedIn,
   username,
-  icon,
   menu
 }) => {
   return (
@@ -35,7 +33,6 @@ export const Header: React.FC<HeaderProps> = ({
               </S.DividedLink>
             ))}
           </S.ContainerHeader>
-          <S.IconWrapper>{icon && <IconLink {...icon} />}</S.IconWrapper>
           {loggedIn === true ? (
             username != null && (
               <S.ButtonHeader

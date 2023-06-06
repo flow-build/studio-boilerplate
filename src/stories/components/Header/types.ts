@@ -1,4 +1,3 @@
-import { IconLinkProps } from '../IconLink/types';
 import { MenuProps } from '../Menu/types';
 export interface HeaderProps {
   logo?: boolean;
@@ -7,5 +6,4 @@ export interface HeaderProps {
   loggedIn?: boolean;
   menu?: MenuProps;
   username?: string;
-  icon?: IconLinkProps;
 }

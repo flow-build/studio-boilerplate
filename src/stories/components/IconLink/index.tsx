@@ -16,9 +16,10 @@ export const IconLink: React.FC<IconLinkProps> = ({
     <S.Content>
       <Grid item xs={1}>
         <S.LinkIcon href={redirectLink}>
-          <IconComponent />
           <S.Title>{title}</S.Title>
-          <S.AlertIcon badgeContent={badge} color="error" />
+          <S.AlertIcon badgeContent={badge} color="error">
+            <IconComponent />
+          </S.AlertIcon>
         </S.LinkIcon>
       </Grid>
     </S.Content>

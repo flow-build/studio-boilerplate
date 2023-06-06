@@ -22,8 +22,6 @@ export const Title = styled(Typography)`
 
 export const AlertIcon = styled(Badge)`
   span {
-    right: -1rem;
-    font-size: ${fontSizes.F10};
-    font-weight: ${({ theme }) => theme.typography.fontWeightRegular};
+    font-size: ${fontSizes.F9};
   }
 `;

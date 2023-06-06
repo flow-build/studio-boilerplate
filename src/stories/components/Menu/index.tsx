@@ -2,8 +2,8 @@
 import React, { FC } from 'react';
 
 import Grid from '@mui/material/Grid';
-import Link from 'next/link';
 
+import { IconLink } from '../IconLink';
 import { Logo } from '../Logo';
 import * as S from './styles';
 import { MenuProps } from './types';
@@ -38,11 +38,12 @@ export const Menu: FC<MenuProps> = ({ menuItems = [], logo, anchor, variant }) =
           <Grid item xs={12}>
             <S.MenuList>
               {menuItems.map((item) => (
-                <Link href={item.redirectLink} key={item.id}>
+                <S.LinkIcon href={item.redirectLink} key={item.id}>
+                  {item.icon && <IconLink {...item.icon} />}
                   <S.MenuItem key={item.id} disablePadding>
                     <S.TitleCategory primary={item.title} />
                   </S.MenuItem>
-                </Link>
+                </S.LinkIcon>
               ))}
             </S.MenuList>
           </Grid>
