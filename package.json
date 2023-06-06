@@ -27,6 +27,8 @@
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.11.16",
     "@mui/material": "^5.13.2",
+    "@rjsf/core": "^5.8.0",
+    "@rjsf/utils": "^5.8.0",
     "@types/json-schema": "^7.0.12",
     "formik": "^2.4.1",
     "json-schema": "^0.4.0",
