@@ -8,11 +8,18 @@ export const SnackbarAlerts = ({
   message,
   severity,
   variant = 'filled',
+  vertical = 'bottom',
+  horizontal = 'left',
   autoHideDuration,
   onClose
 }: SnackbarAlertsProps) => {
   return (
-    <Snackbar open={open} autoHideDuration={autoHideDuration} onClose={onClose}>
+    <Snackbar
+      anchorOrigin={{ vertical, horizontal }}
+      open={open}
+      autoHideDuration={autoHideDuration}
+      onClose={onClose}
+    >
       <Alert severity={severity} onClose={onClose} variant={variant}>
         {message}
       </Alert>
