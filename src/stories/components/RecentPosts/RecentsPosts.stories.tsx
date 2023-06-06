@@ -14,6 +14,7 @@ const meta: Meta<typeof RecentPosts> = {
       value: getCurrencyIntegerValue(1234),
       description: 'p/ período'
     },
+    urlRedirect: 'https://google.com.br',
     description: 'Outra qualquer descrição'
   },
   tags: ['autodocs']

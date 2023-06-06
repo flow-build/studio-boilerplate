@@ -1,6 +1,6 @@
 export interface RecentPostsProps {
   title: string;
-  urlRedirect: string;
+  urlRedirect?: string;
   price: Price;
   description: string;
 }
