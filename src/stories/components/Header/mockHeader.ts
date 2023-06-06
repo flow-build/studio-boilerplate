@@ -1,25 +1,43 @@
+import { AccessTime, Announcement, House, Message } from '@mui/icons-material';
 import { Logger } from 'utils';
 
 export const menuItems = [
   {
     id: '1',
-    redirectLink: '/inicio',
-    title: 'Inicio'
+    redirectLink: '/anuncios',
+    title: 'Anuncios',
+    icon: {
+      redirectLink: '/anuncios',
+      icon: Announcement
+    }
   },
   {
     id: '2',
-    redirectLink: '/sobre',
-    title: 'Sobre'
+    redirectLink: '/locacoes',
+    title: 'Locações',
+    icon: {
+      redirectLink: '/locacoes',
+      icon: House
+    }
   },
   {
-    id: '2',
-    redirectLink: '/contato',
-    title: 'Contato'
+    id: '3',
+    redirectLink: '/mensagens',
+    title: 'Mensagens',
+    icon: {
+      redirectLink: '/mensagens',
+      icon: Message,
+      badge: 12
+    }
   },
   {
-    id: '2',
-    redirectLink: '/faq',
-    title: 'FAQ'
+    id: '4',
+    redirectLink: '/acessos',
+    title: 'Acessos',
+    icon: {
+      redirectLink: '/acessos',
+      icon: AccessTime
+    }
   }
 ];
 

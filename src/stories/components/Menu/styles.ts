@@ -7,6 +7,7 @@ import Grid from '@mui/material/Grid';
 import List from '@mui/material/List';
 import { styled } from '@mui/material/styles';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
+import Link from 'next/link';
 import { fontSizes } from 'theme/fontSizes.theme';
 import { spacing } from 'theme/spacing';
 
@@ -142,6 +143,11 @@ export const MenuList = styled(List)`
   }
 `;
 
+export const IconWrapper = styled(Grid)`
+  display: flex;
+  justify-content: flex-end;
+`;
+
 export const MenuItem = styled(ListItem)`
   height: 2.0625rem;
 `;
@@ -153,4 +159,13 @@ export const TitleCategory = styled(ListItemText)`
     color: ${({ theme }) => theme.palette.grey[900]};
     opacity: 1;
   }
+`;
+
+export const LinkIcon = styled(Link)`
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  gap: 1rem;
 `;

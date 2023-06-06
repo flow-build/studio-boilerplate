@@ -35,6 +35,20 @@ const STYLES: GlobalStylesProps['styles'] = {
   a: {
     textDecoration: 'inherit',
     color: 'inherit'
+  },
+
+  'input::-webkit-outer-spin-button': {
+    WebkitAppearance: 'none',
+    margin: 0
+  },
+
+  'input::-webkit-inner-spin-button': {
+    WebkitAppearance: 'none',
+    margin: 0
+  },
+
+  'input[type=number]': {
+    MozAppearance: 'textfield'
   }
 };
 
