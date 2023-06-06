@@ -1,25 +1,17 @@
-import { Snackbar } from '@mui/material';
 import Alert from '@mui/material/Alert';
+import Snackbar from '@mui/material/Snackbar';
 
 import { SnackbarAlertsProps } from './types';
 
 export const SnackbarAlerts = ({
-  open = true,
   message,
   severity,
   variant = 'filled',
-  vertical = 'bottom',
-  horizontal = 'left',
-  autoHideDuration,
-  onClose
+  onClose,
+  ...props
 }: SnackbarAlertsProps) => {
   return (
-    <Snackbar
-      anchorOrigin={{ vertical, horizontal }}
-      open={open}
-      autoHideDuration={autoHideDuration}
-      onClose={onClose}
-    >
+    <Snackbar {...props} onClose={onClose}>
       <Alert severity={severity} onClose={onClose} variant={variant}>
         {message}
       </Alert>

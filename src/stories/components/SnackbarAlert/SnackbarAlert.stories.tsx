@@ -29,7 +29,12 @@ const SnackbarAlertsDemo = (args: SnackbarAlertsProps) => {
   return (
     <div>
       <button onClick={handleOpenModal}>Snackbar</button>
-      <SnackbarAlerts {...args} onClose={handleCloseModal} open={open}></SnackbarAlerts>
+      <SnackbarAlerts
+        {...args}
+        onClose={handleCloseModal}
+        open={open}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+      ></SnackbarAlerts>
     </div>
   );
 };
