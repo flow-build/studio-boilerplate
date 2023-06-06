@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 
 export function useInput(length: number) {
   const [activeInput, setActiveInput] = useState(0);
