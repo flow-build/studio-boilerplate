@@ -3,16 +3,18 @@ import { spacing } from 'theme/spacing';
 export const Wrapper = styled('div')`
   display: flex;
   margin: ${spacing.S10};
+  width: 40%;
 `;
 
 export const Img = styled('img')`
   height: auto;
-  width: 15%;
+  width: 50%;
+  border-radius: 5px;
 `;
 
 export const WrapperContent = styled('div')`
   margin-left: ${spacing.S14};
-  width: 20%;
+  width: 50%;
 `;
 export const Name = styled(Typography)`
   color: ${({ theme }) => theme.palette.text.primary};
