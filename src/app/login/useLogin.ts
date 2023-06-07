@@ -31,7 +31,7 @@ export const useLogin = () => {
       const result = await api.post<CognitoSignIn>('/api/signIn', values);
 
       if (_isEqual(result?.status, 200)) {
-        router.push('/home');
+        router.push('/');
       } else {
         throw new Error(result.message);
       }

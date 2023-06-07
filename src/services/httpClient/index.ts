@@ -5,14 +5,16 @@ import { BaseResponse } from './types';
 
 function API() {
   let BASE_URL = '';
-  let HEADER: HeadersInit;
+  let HEADER: HeadersInit = {
+    'Content-Type': 'application/json'
+  };
 
   return {
     setBaseUrl(baseUrl: string) {
       BASE_URL = baseUrl;
     },
     setHeader(header: HeadersInit) {
-      HEADER = header;
+      HEADER = { ...HEADER, ...header };
     },
     async get<T>(url: string, options?: RequestInit): Promise<BaseResponse<T>> {
       try {
