@@ -9,6 +9,10 @@ function API() {
     'Content-Type': 'application/json'
   };
 
+  function isBaseResponse<T>(response: BaseResponse<T>): response is BaseResponse<T> {
+    return !!response.status;
+  }
+
   return {
     setBaseUrl(baseUrl: string) {
       BASE_URL = baseUrl;
@@ -54,7 +58,11 @@ function API() {
           }
         });
 
-        const result = (await response.json()) as T;
+        const result = (await response.json()) as BaseResponse<T>;
+
+        if (isBaseResponse(result)) {
+          return result;
+        }
 
         return {
           status: 200,
