@@ -15,7 +15,6 @@ export default async function handler(
     const { email } = req.body;
 
     try {
-      console.log({ email });
       const response = await Auth.forgotPassword(email);
 
       return res.status(200).json({ data: response, ok: true, status: 200 });
