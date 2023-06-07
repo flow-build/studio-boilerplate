@@ -29,14 +29,16 @@ export default function Posts() {
           <Markdown children={descriptionMock} />
         </S.Wrapper>
         <S.SideRight>
-          <RecentPosts
-            title={'Recent Posts'}
-            price={{
-              value: getCurrencyIntegerValue(1234),
-              description: 'p/ período'
-            }}
-            description={'Adicione uma descrição aqui'}
-          />
+          <S.Box>
+            <RecentPosts
+              title={'Recent Posts'}
+              price={{
+                value: getCurrencyIntegerValue(1234),
+                description: 'p/ período'
+              }}
+              description={'Adicione uma descrição aqui'}
+            />
+          </S.Box>
 
           <MiniCardsCarousel miniCards={miniCards} arraySize={3} />
         </S.SideRight>
