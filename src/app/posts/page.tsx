@@ -3,7 +3,7 @@
 import React from 'react';
 
 import { Typography } from '@mui/material';
-import { Breadcrumbs, ImageComponent } from 'components';
+import { Breadcrumbs, ImageComponent } from 'stories/components';
 import { Markdown } from 'stories/components/Markdown';
 
 import { descriptionMock } from './descriptionMock';
