@@ -2,7 +2,6 @@
 import React from 'react';
 
 import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
 import Link from 'next/link';
 
 import * as S from './styles';
@@ -20,14 +19,12 @@ export const Card = ({
   return (
     <Link href={urlRedirect ?? ''}>
       <S.Wrapper mode={mode}>
-        {Boolean(urlImg) && Boolean(title) && (
-          <S.CardMedia mode={mode} image={urlImg} title={title} />
-        )}
+        {Boolean(urlImg) && <S.CardMedia mode={mode} image={urlImg} title={title ?? ''} />}
         <CardContent>
           {Boolean(title) && (
-            <Typography gutterBottom variant="h5" component="div">
+            <S.Title gutterBottom variant="h6">
               {title}
-            </Typography>
+            </S.Title>
           )}
           {Boolean(description) && <S.Description variant="body2">{description}</S.Description>}
           {Boolean(price) && (
