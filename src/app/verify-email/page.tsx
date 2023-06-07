@@ -28,8 +28,6 @@ export default function VerifyEmail() {
   const [token, setToken] = useState('');
   const disableButton = !_isEqual(token.length, TOKEN_LENGTH);
 
-  console.log({ newPassword: newPassword.current, ref: newPassword });
-
   async function handleResetPasswordSubmit() {
     await api.post('/api/forgotPassword/submit', {
       username: email,
@@ -52,7 +50,7 @@ export default function VerifyEmail() {
     } catch (error) {
       if (error instanceof Error) {
         if (_isEqual(error.message, 'CodeMismatchException')) {
-          console.log('Código inválido');
+          Logger.error('Código inválido');
         }
       }
     }
@@ -60,7 +58,6 @@ export default function VerifyEmail() {
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    Logger.info(token);
 
     if (resettingPassword) {
       await handleResetPasswordSubmit();
@@ -106,7 +103,7 @@ export default function VerifyEmail() {
 
           <OTPInput autoFocus length={TOKEN_LENGTH} onChangeToken={setToken} />
 
-          <Button type="submit" variant="contained" disabled={disableButton}>
+          <Button type="submit" variant="outlined" disabled={disableButton}>
             Enviar
           </Button>
 
