@@ -1,13 +1,18 @@
+import { useDispatch } from 'react-redux';
+
 import { useFormik } from 'formik';
+import _delay from 'lodash/delay';
 import _isEqual from 'lodash/isEqual';
 import { useRouter } from 'next/navigation';
 import api from 'services/httpClient';
 import { CognitoSignIn } from 'shared/types/cognito';
+import { setEmail } from 'store/slices/user';
 import { Logger } from 'utils';
 import * as yup from 'yup';
 
 export const useLogin = () => {
   const router = useRouter();
+  const dispatch = useDispatch();
 
   const INITIAL_VALUES = {
     username: '',
@@ -35,7 +40,12 @@ export const useLogin = () => {
       } else {
         throw new Error(result.message);
       }
-    } catch (error) {
+    } catch (error: any) {
+      if (_isEqual(error.message, 'UserNotConfirmedException')) {
+        dispatch(setEmail(values.username));
+        _delay(() => router.push('/verify-email'), 500);
+      }
+
       Logger.error({ error });
     }
   }
