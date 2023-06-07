@@ -31,6 +31,7 @@ const MyCustomTextWidget = (props: WidgetProps) => {
       error={hasError}
       helperText={hasError}
       sx={hasError ? { color: 'red' } : {}}
+      margin="normal"
     />
   );
 };
