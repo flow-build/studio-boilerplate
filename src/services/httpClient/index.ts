@@ -23,12 +23,12 @@ function API() {
             ...HEADER
           }
         });
-        const result = (await response.json()) as BaseResponse<T>;
+        const result = (await response.json()) as T;
 
         return {
-          status: result.status,
-          ok: result.ok,
-          data: result.data
+          status: 100,
+          ok: true,
+          data: result
         };
       } catch (error) {
         Logger.error({ error });
@@ -52,12 +52,13 @@ function API() {
             ...HEADER
           }
         });
-        const result = (await response.json()) as BaseResponse<T>;
+
+        const result = (await response.json()) as T;
 
         return {
-          status: result.status,
-          ok: result.ok,
-          data: result.data
+          status: 200,
+          ok: true,
+          data: result
         };
       } catch (error: any) {
         Logger.error({ error });
