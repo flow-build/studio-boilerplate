@@ -16,8 +16,7 @@ export const Wrapper = styled('div')`
   }
 
   .sui-layout-sidebar {
-    display: block;
-    position: unset;
+    display: none;
   }
 
   .pdef-results {
@@ -31,6 +30,10 @@ export const Wrapper = styled('div')`
     ${({ theme }) => theme.breakpoints.up('md')} {
       grid-template-columns: 1fr 1fr 1fr;
     }
+  }
+
+  .sui-layout-main {
+    width: 100%;
   }
 
   .sui-layout-main-header__inner {
