@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 
+import { messages } from 'constants/index';
 import { useFormik } from 'formik';
 import _delay from 'lodash/delay';
 import { useRouter } from 'next/navigation';
@@ -21,13 +22,17 @@ export const useResetPassword = () => {
 
   const validationSchemaLogin = yup.object().shape({
     newPassword: yup.string().required('Campo obrigatório'),
-    confirmPassword: yup.string().required('Campo obrigatório')
+    confirmPassword: yup
+      .string()
+      .required(messages.fieldRequired)
+      .oneOf([yup.ref('newPassword')], messages.passwordNoMatch)
   });
 
   const formik = useFormik({
     initialValues: INITIAL_VALUES,
     validationSchema: validationSchemaLogin,
     validateOnBlur: true,
+    validateOnMount: true,
     onSubmit: onSubmit
   });
 

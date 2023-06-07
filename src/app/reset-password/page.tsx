@@ -32,6 +32,7 @@ export default function Login() {
           <InputPassword
             label="Senha Nova"
             name="newPassword"
+            required
             value={formik.values.newPassword}
             helperText={getHelperTextFormik(formik, 'newPassword')}
             error={getErrorsFormik(formik, 'newPassword')}
@@ -42,6 +43,7 @@ export default function Login() {
           <InputPassword
             label="Confirme a senha"
             name="confirmPassword"
+            required
             value={formik.values.confirmPassword}
             helperText={getHelperTextFormik(formik, 'confirmPassword')}
             error={getErrorsFormik(formik, 'confirmPassword')}
@@ -49,7 +51,7 @@ export default function Login() {
             onBlur={formik.handleBlur}
           />
 
-          <Button type="submit" variant="outlined">
+          <Button type="submit" variant="outlined" disabled={!formik.isValid}>
             Enviar
           </Button>
         </S.Form>
