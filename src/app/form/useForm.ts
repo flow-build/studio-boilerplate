@@ -1,24 +1,25 @@
-import { useFormik } from 'formik';
-import { Logger } from 'utils';
-import * as yup from 'yup';
+import { FormValidation, RJSFValidationError } from '@rjsf/utils';
 
-export const useForm = () => {
-  const INITIAL_VALUES = {
-    name: '',
-    email: ''
-  };
+import { FormData } from './types';
 
-  const validationSchema = yup.object().shape({
-    name: yup.string().required('Campo obrigatório'),
-    email: yup.string().required('Campo obrigatório').email('E-mail inválido')
+export function handleCustomValidate(formData: FormData, errors: FormValidation) {
+  if (!formData.name) {
+    errors?.name?.addError('Nome é obrigatório');
+  }
+  if (!formData.email) {
+    errors?.email?.addError('Email é obrigatório');
+  }
+  return errors;
+}
+
+export function handleTransformErrors(errors: RJSFValidationError[]) {
+  return errors.map((error) => {
+    if (error.name === 'pattern') {
+      return {
+        ...error,
+        message: 'Por favor, insira um endereço de email válido.'
+      };
+    }
+    return error;
   });
-
-  const formik = useFormik({
-    initialValues: INITIAL_VALUES,
-    validationSchema,
-    validateOnBlur: true,
-    onSubmit: Logger.info
-  });
-
-  return { formik };
-};
+}

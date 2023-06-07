@@ -3,7 +3,7 @@
 import { useState } from 'react';
 
 import Form, { IChangeEvent } from '@rjsf/core';
-import { FormValidation, RJSFValidationError, WidgetProps } from '@rjsf/utils';
+import { WidgetProps } from '@rjsf/utils';
 import validator from '@rjsf/validator-ajv8';
 import { JSONSchema7 } from 'json-schema';
 import { InputText } from 'stories/components';
@@ -12,11 +12,8 @@ import { Logger } from 'utils';
 
 import formSchema from './formSchema.json';
 import * as S from './styles';
-
-interface FormData {
-  name: string;
-  email: string;
-}
+import { FormData } from './types';
+import { handleCustomValidate, handleTransformErrors } from './useForm';
 
 const MyCustomTextWidget = (props: WidgetProps) => {
   const { rawErrors = [] } = props;
@@ -55,28 +52,6 @@ export default function MyForm() {
 
     setFormData({ name: '', email: '' });
   };
-
-  function handleCustomValidate(formData: FormData, errors: FormValidation) {
-    if (!formData.name) {
-      errors?.name?.addError('Nome é obrigatório');
-    }
-    if (!formData.email) {
-      errors?.email?.addError('Email é obrigatório');
-    }
-    return errors;
-  }
-
-  function handleTransformErrors(errors: RJSFValidationError[]) {
-    return errors.map((error) => {
-      if (error.name === 'pattern') {
-        return {
-          ...error,
-          message: 'Por favor, insira um endereço de email válido.'
-        };
-      }
-      return error;
-    });
-  }
 
   return (
     <S.Wrapper>
