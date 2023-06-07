@@ -1,3 +1,5 @@
+import { ReactNode } from 'react';
+
 import { IconLinkProps } from '../IconLink/types';
 import { MenuAnchor, MenuVariant } from './utils';
 export declare type MenuAnchorTypes = (typeof MenuAnchor)[keyof typeof MenuAnchor];
@@ -13,4 +15,6 @@ export interface MenuProps {
   variant?: MenuVariantTypes;
   menuItems?: MenuItemProps[];
   logo?: boolean;
+  avatar?: ReactNode;
+  email?: string;
 }

@@ -35,7 +35,10 @@ export const Header: React.FC<HeaderProps> = ({
             ))}
           </S.ContainerHeader>
           {loggedIn === true ? (
-            username != null && (
+            username != null &&
+            (avatar ? (
+              avatar
+            ) : (
               <S.ButtonHeader
                 color="inherit"
                 variant="outlined"
@@ -44,7 +47,7 @@ export const Header: React.FC<HeaderProps> = ({
               >
                 {username}
               </S.ButtonHeader>
-            )
+            ))
           ) : (
             <S.ButtonHeader
               color="inherit"
@@ -55,7 +58,6 @@ export const Header: React.FC<HeaderProps> = ({
               {button.name}
             </S.ButtonHeader>
           )}
-          {avatar}
         </S.Content>
       </S.ToolbarHeader>
     </AppBar>

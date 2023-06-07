@@ -1,7 +1,5 @@
-import { AvatarProps } from '@mui/material';
-
-import * as S from './styles';
+import MUIAvatar, { AvatarProps } from '@mui/material/Avatar';
 
 export const Avatar = ({ ...props }: AvatarProps) => {
-  return <S.Avatar {...props} />;
+  return <MUIAvatar {...props} />;
 };

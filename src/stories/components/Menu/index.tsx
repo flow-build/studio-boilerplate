@@ -10,7 +10,7 @@ import { MenuProps } from './types';
 import { useMenu } from './useMenu';
 import { MenuVariant } from './utils';
 
-export const Menu: FC<MenuProps> = ({ menuItems = [], logo, anchor, variant }) => {
+export const Menu: FC<MenuProps> = ({ menuItems = [], logo, anchor, variant, avatar, email }) => {
   const { isOpen, handleOpen, handleClose } = useMenu();
 
   return (
@@ -46,6 +46,12 @@ export const Menu: FC<MenuProps> = ({ menuItems = [], logo, anchor, variant }) =
                 </S.LinkIcon>
               ))}
             </S.MenuList>
+            {avatar && email && (
+              <S.AvatarWrapper>
+                {avatar}
+                <S.EmailText>{email}</S.EmailText>
+              </S.AvatarWrapper>
+            )}
           </Grid>
         </S.DrawerGrid>
       </S.MenuDrawer>
