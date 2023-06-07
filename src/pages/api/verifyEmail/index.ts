@@ -2,21 +2,20 @@ import { Amplify, Auth } from 'aws-amplify';
 import { amplifyConfig } from 'config/cognito';
 import { NextApiResponse } from 'next';
 import { BaseResponse } from 'services/httpClient/types';
+import { VerifyEmailApiRequest } from 'shared/types/api/verifyEmail';
 import { Logger } from 'utils';
-
-import { VerifyEmailApiRequest } from './types';
 
 Amplify.configure(amplifyConfig);
 
-export default async function handler<T>(
+export default async function handler(
   req: VerifyEmailApiRequest,
-  res: NextApiResponse<BaseResponse<T>>
+  res: NextApiResponse<BaseResponse<void>>
 ) {
   if (req.method === 'POST') {
     const { email, code } = req.body;
 
     try {
-      const response = (await Auth.confirmSignUp(email, code)) as T;
+      const response = await Auth.confirmSignUp(email, code);
 
       return res.status(200).json({ data: response, ok: true, status: 200 });
     } catch (error: any) {

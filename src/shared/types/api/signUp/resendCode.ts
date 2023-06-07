@@ -1,6 +1,6 @@
 import { NextApiRequest } from 'next';
 
-export interface SendCodeApiRequest extends NextApiRequest {
+export interface ResendCodeApiRequest extends NextApiRequest {
   body: {
     email: string;
   };
