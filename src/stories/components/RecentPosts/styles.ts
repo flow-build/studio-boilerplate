@@ -1,8 +1,8 @@
 import { Typography, styled } from '@mui/material';
 import { spacing } from 'theme/spacing';
 export const Wrapper = styled('div')`
-  background-color: ${({ theme }) => theme.palette.text.disabled};
-  padding: 0.8rem;
+  background-color: ${({ theme }) => theme.palette.primary.light};
+  padding: ${spacing.S14};
 
   width: 25%;
 `;
