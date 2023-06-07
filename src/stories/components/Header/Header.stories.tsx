@@ -17,7 +17,6 @@ const menuProps: MenuProps = {
   anchor: MenuAnchor.left,
   menuItems: menuItems,
   logo: true,
-  avatar: true,
   email: email,
   username: username
 };
