@@ -40,10 +40,12 @@ export const useLogin = () => {
       } else {
         throw new Error(result.message);
       }
-    } catch (error: any) {
-      if (_isEqual(error.message, 'UserNotConfirmedException')) {
-        dispatch(setEmail(values.username));
-        _delay(() => router.push('/verify-email'), 500);
+    } catch (error) {
+      if (error instanceof Error) {
+        if (_isEqual(error.message, 'UserNotConfirmedException')) {
+          dispatch(setEmail(values.username));
+          _delay(() => router.push('/verify-email'), 500);
+        }
       }
 
       Logger.error({ error });

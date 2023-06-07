@@ -48,9 +48,11 @@ export default function VerifyEmail() {
       } else {
         throw new Error(result.message);
       }
-    } catch (error: any) {
-      if (_isEqual(error.message, 'CodeMismatchException')) {
-        console.log('Código inválido');
+    } catch (error) {
+      if (error instanceof Error) {
+        if (_isEqual(error.message, 'CodeMismatchException')) {
+          console.log('Código inválido');
+        }
       }
     }
   }

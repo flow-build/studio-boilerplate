@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Amplify, Auth } from 'aws-amplify';
 import { amplifyConfig } from 'config/cognito';
 import { NextApiResponse } from 'next';

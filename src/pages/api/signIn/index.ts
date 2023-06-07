@@ -20,6 +20,7 @@ export default async function handler(
       return res.status(200).json({ data: response, ok: true, status: 200 });
     } catch (error: any) {
       Logger.error({ error });
+
       return res.status(400).json({ message: error?.code, ok: false, status: 400 });
     }
   }

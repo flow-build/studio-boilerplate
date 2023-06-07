@@ -69,13 +69,18 @@ function API() {
           ok: true,
           data: result
         };
-      } catch (error: any) {
+      } catch (error) {
         Logger.error({ error });
-        return {
-          message: error?.message,
-          ok: false,
-          status: 400
-        };
+
+        if (error instanceof Error) {
+          return {
+            message: error?.message,
+            ok: false,
+            status: 400
+          };
+        }
+
+        return { ok: false, status: 400 };
       }
     }
   };
