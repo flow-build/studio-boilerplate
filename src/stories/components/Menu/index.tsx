@@ -12,15 +12,7 @@ import { MenuProps } from './types';
 import { useMenu } from './useMenu';
 import { MenuVariant } from './utils';
 
-export const Menu: FC<MenuProps> = ({
-  menuItems = [],
-  logo,
-  anchor,
-  variant,
-  avatar,
-  email,
-  username
-}) => {
+export const Menu: FC<MenuProps> = ({ menuItems = [], logo, anchor, variant, email, username }) => {
   const { isOpen, handleOpen, handleClose } = useMenu();
 
   return (
@@ -56,7 +48,7 @@ export const Menu: FC<MenuProps> = ({
                 </S.LinkIcon>
               ))}
             </S.MenuList>
-            {avatar && email && <Avatar alt={username} src={getAvatarURL(email)} email={email} />}
+            {email && <Avatar alt={username} src={getAvatarURL(email)} email={email} />}
           </Grid>
         </S.DrawerGrid>
       </S.MenuDrawer>

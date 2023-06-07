@@ -53,7 +53,6 @@ const meta: Meta<typeof Menu> = {
       }
     ],
     logo: true,
-    avatar: true,
     email: 'gustavo.haramura@fdte.io',
     username: 'haramura'
   }

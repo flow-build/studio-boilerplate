@@ -13,5 +13,5 @@ export default meta;
 
 export const Standard: StoryFn<typeof Avatar> = () => {
   const email = 'teste@fdte.io';
-  return <Avatar alt={'teste'} src={getAvatarURL(email)} />;
+  return <Avatar alt={'teste'} src={getAvatarURL(email)} email={email} />;
 };

@@ -13,7 +13,6 @@ export interface MenuProps {
   variant?: MenuVariantTypes;
   menuItems?: MenuItemProps[];
   logo?: boolean;
-  avatar?: boolean;
   email?: string;
   username?: string;
 }
