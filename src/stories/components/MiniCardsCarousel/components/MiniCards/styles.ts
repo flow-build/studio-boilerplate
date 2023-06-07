@@ -9,7 +9,7 @@ export const Wrapper = styled('div')`
 export const Img = styled('img')`
   height: auto;
   width: 50%;
-  border-radius: 5px;
+  border-radius: 0.3125rem;
 `;
 
 export const WrapperContent = styled('div')`

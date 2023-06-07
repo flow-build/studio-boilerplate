@@ -1,7 +1,7 @@
 export interface MiniCardsProps {
   name: string;
   urlImg?: string;
-  description?: string;
+  description: string;
   urlRedirect?: string;
   text?: string;
 }

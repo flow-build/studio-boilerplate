@@ -1,12 +1,14 @@
 import { MiniCards } from './components/MiniCards';
 import { MiniCardsCarouselProps } from './types';
 
-export const MiniCardsCarousel = ({ miniCards }: MiniCardsCarouselProps) => {
+export const MiniCardsCarousel = ({ miniCards, arraySize }: MiniCardsCarouselProps) => {
+  const array = miniCards.slice(0, arraySize);
+
   return (
     <>
-      <MiniCards {...miniCards[0]}></MiniCards>
-      <MiniCards {...miniCards[1]}></MiniCards>
-      <MiniCards {...miniCards[2]}></MiniCards>
+      {array.map((miniCard) => (
+        <MiniCards {...miniCard} key={miniCard.name}></MiniCards>
+      ))}
     </>
   );
 };

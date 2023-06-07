@@ -28,8 +28,10 @@ export const Primary: Story = {
       },
       {
         name: 'Alameda Dourado',
-        urlImg: 'https://bolsaimovel.com.br/uploads/104_1652364708_2375873.jpg'
+        urlImg: 'https://bolsaimovel.com.br/uploads/104_1652364708_2375873.jpg',
+        description: 'Jurerê internacional, Florianópolis'
       }
-    ]
+    ],
+    arraySize: 3
   }
 };
