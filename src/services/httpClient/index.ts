@@ -49,7 +49,6 @@ function API() {
           ...options,
           body,
           headers: {
-            'Content-Type': 'application/json',
             ...options?.headers,
             ...HEADER
           }
