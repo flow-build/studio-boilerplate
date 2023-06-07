@@ -51,7 +51,7 @@ export default function Login() {
               <Checkbox aria-label="remember" />
               <span>Lembrar-me</span>
             </span>
-            <Link href="/esqueci-minha-senha">Esqueci minha senha</Link>
+            <Link href="/forgot-password">Esqueci minha senha</Link>
           </S.FooterForm>
           <Button type="submit" variant="outlined">
             Entrar
