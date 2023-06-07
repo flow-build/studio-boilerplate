@@ -1,7 +1,9 @@
 'use client';
 import React from 'react';
+import { Provider as ReduxProvider } from 'react-redux';
 
 import { useRouter } from 'next/navigation';
+import { store } from 'store';
 import { Header, Footer, MainContent } from 'stories/components';
 import { navLinks, socialMedias } from 'stories/components/Footer/mockFooter';
 import { links, menuItems } from 'stories/components/Header/mockHeader';
@@ -21,22 +23,24 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="pt-br">
       <body>
-        <Header
-          logo={true}
-          menu={menu}
-          links={links}
-          username={'Haramura'}
-          button={{
-            name: 'Entrar',
-            onClick: function (): void {
-              router.push('/login');
-            }
-          }}
-          loggedIn={false}
-        />
-        <MainContent>{children}</MainContent>
-        <Footer navLinks={navLinks} socialMedia={socialMedias} disclaimer="[Lorem Ipsum text]" />
-        <GlobalStyles />
+        <ReduxProvider store={store}>
+          <Header
+            logo={true}
+            menu={menu}
+            links={links}
+            username={'Haramura'}
+            button={{
+              name: 'Entrar',
+              onClick: function (): void {
+                router.push('/login');
+              }
+            }}
+            loggedIn={false}
+          />
+          <MainContent>{children}</MainContent>
+          <Footer navLinks={navLinks} socialMedia={socialMedias} disclaimer="[Lorem Ipsum text]" />
+          <GlobalStyles />
+        </ReduxProvider>
       </body>
     </html>
   );
