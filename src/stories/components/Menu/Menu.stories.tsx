@@ -2,14 +2,9 @@ import React from 'react';
 
 import { AccessTime, Announcement, House, Message } from '@mui/icons-material';
 import { Meta, StoryFn } from '@storybook/react';
-import { getAvatarURL } from 'utils';
 
 import { Menu } from '.';
-import { Avatar } from '../Avatar';
 import { MenuAnchor, MenuVariant } from './utils';
-
-const email = 'gustavo.haramura@fdte.io';
-const avatar = <Avatar alt={'haramura'} src={getAvatarURL(email)} />;
 
 const meta: Meta<typeof Menu> = {
   title: 'Header/Menu',
@@ -58,8 +53,9 @@ const meta: Meta<typeof Menu> = {
       }
     ],
     logo: true,
-    avatar: avatar,
-    email: email
+    avatar: true,
+    email: 'gustavo.haramura@fdte.io',
+    username: 'haramura'
   }
 };
 

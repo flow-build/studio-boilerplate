@@ -9,6 +9,7 @@ import { MenuAnchor } from '../Menu/utils';
 import { Header } from './index';
 import { button, links, menuItems } from './mockHeader';
 
+const username = 'haramura';
 const email = 'gustavo.haramura@fdte.io';
 const avatar = <Avatar alt={'haramura'} src={getAvatarURL(email)} />;
 
@@ -16,8 +17,9 @@ const menuProps: MenuProps = {
   anchor: MenuAnchor.left,
   menuItems: menuItems,
   logo: true,
-  avatar: avatar,
-  email: email
+  avatar: true,
+  email: email,
+  username: username
 };
 
 const header: Meta<typeof Header> = {

@@ -35,19 +35,20 @@ export const Header: React.FC<HeaderProps> = ({
             ))}
           </S.ContainerHeader>
           {loggedIn === true ? (
-            username != null &&
-            (avatar ? (
-              avatar
-            ) : (
-              <S.ButtonHeader
-                color="inherit"
-                variant="outlined"
-                size="large"
-                onClick={button.onClick}
-              >
-                {username}
-              </S.ButtonHeader>
-            ))
+            username != null && (
+              <>
+                {avatar ?? (
+                  <S.ButtonHeader
+                    color="inherit"
+                    variant="outlined"
+                    size="large"
+                    onClick={button.onClick}
+                  >
+                    {username}
+                  </S.ButtonHeader>
+                )}
+              </>
+            )
           ) : (
             <S.ButtonHeader
               color="inherit"

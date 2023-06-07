@@ -1,6 +1,8 @@
-import { ReactNode } from 'react';
+// import { ReactNode } from 'react';
+import { AvatarProps } from '@mui/material';
 
 import { MenuProps } from '../Menu/types';
+
 export interface HeaderProps {
   logo?: boolean;
   links?: Array<{ name: string; url: string }>;
@@ -8,5 +10,5 @@ export interface HeaderProps {
   loggedIn?: boolean;
   menu?: MenuProps;
   username?: string;
-  avatar?: ReactNode;
+  avatar?: AvatarProps;
 }
