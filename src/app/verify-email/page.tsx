@@ -3,6 +3,8 @@
 import { FormEvent, useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { cryptoConfig } from 'config/crypto';
+import cryptoJs from 'crypto-js';
 import _isEqual from 'lodash/isEqual';
 import { redirect, useRouter } from 'next/navigation';
 import api from 'services/httpClient';
@@ -21,12 +23,21 @@ export default function VerifyEmail() {
   const router = useRouter();
   const dispatch = useDispatch();
 
-  const newPassword = useRef(store.getState().user.newPassword);
+  const newPassword = useRef(decryptPassword(store.getState().user.newPassword));
   const email = useSelector((state: RootState) => state.user.email);
   const resettingPassword = useSelector((state: RootState) => state.user.resettingPassword);
 
   const [token, setToken] = useState('');
   const disableButton = !_isEqual(token.length, TOKEN_LENGTH);
+
+  function decryptPassword(hash?: string) {
+    if (!hash) {
+      return undefined;
+    }
+
+    const passwordBytes = cryptoJs.AES.decrypt(hash, cryptoConfig.secretKey as string);
+    return passwordBytes.toString(cryptoJs.enc.Utf8);
+  }
 
   async function handleResetPasswordSubmit() {
     await api.post('/api/forgotPassword/submit', {

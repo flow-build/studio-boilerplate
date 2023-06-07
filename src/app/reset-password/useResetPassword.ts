@@ -1,6 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 
+import { cryptoConfig } from 'config/crypto';
 import { messages } from 'constants/index';
+import cryptoJs from 'crypto-js';
 import { useFormik } from 'formik';
 import _delay from 'lodash/delay';
 import { useRouter } from 'next/navigation';
@@ -38,10 +40,14 @@ export const useResetPassword = () => {
 
   async function onSubmit(values: typeof INITIAL_VALUES) {
     const result = await api.post('/api/forgotPassword/sendCode', { email });
-    console.log({ result });
 
     if (result?.status === 200) {
-      dispatch(setNewPassword(values.newPassword));
+      const hash = cryptoJs.AES.encrypt(
+        values.newPassword,
+        cryptoConfig.secretKey as string
+      ).toString();
+
+      dispatch(setNewPassword(hash));
       _delay(() => router.push('/verify-email'), 500);
     } else {
       Logger.error('error resetting password');
