@@ -1,4 +1,5 @@
 import { Typography, styled } from '@mui/material';
+import { fontSizes } from 'theme/fontSizes.theme';
 import { spacing } from 'theme/spacing';
 export const Wrapper = styled('div')`
   display: flex;
@@ -18,15 +19,15 @@ export const WrapperContent = styled('div')`
 `;
 export const Name = styled(Typography)`
   color: ${({ theme }) => theme.palette.text.primary};
-  font-size: ${({ theme }) => theme.typography.h6};
+  font-size: ${fontSizes.F20};
   font-weight: bold;
 `;
 
 export const Description = styled(Typography)`
   color: ${({ theme }) => theme.palette.text.secondary};
-  font-size: ${({ theme }) => theme.typography.subtitle2};
+  font-size: ${fontSizes.F12};
 `;
 export const ContentText = styled(Typography)`
   color: ${({ theme }) => theme.palette.text.secondary};
-  font-size: ${({ theme }) => theme.typography.subtitle2};
+  font-size: ${fontSizes.F12};
 `;
