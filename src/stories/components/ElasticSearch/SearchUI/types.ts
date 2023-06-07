@@ -1,4 +1,5 @@
 import type { SearchDriverOptions } from '@elastic/search-ui';
+import { CarouselProps } from 'stories/components/Carousel/types';
 import { CardProps } from 'stories/components/Generic/Card/types';
 
 export type WriteUrlProps = {
@@ -9,13 +10,14 @@ export interface SearchUIProps {
   title: string;
   config: SearchDriverOptions;
   configFields: ConfigFields;
+  carouselItems?: CarouselProps;
 }
 
 export interface FieldsItemResult {
   namePropComponent: string;
   namePropElasticSearch: string;
   customValue?: string;
-  isArray?: boolean;
+  isPropArrayComponent?: boolean;
 }
 
 export interface ConfigFields {

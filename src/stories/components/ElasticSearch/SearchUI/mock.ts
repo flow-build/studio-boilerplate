@@ -41,29 +41,106 @@ export const configFields: ConfigFields = {
       namePropComponent: 'attributes.name',
       namePropElasticSearch: '',
       customValue: 'Plataforma',
-      isArray: true
+      isPropArrayComponent: true
     },
     {
       namePropComponent: 'attributes.value',
       namePropElasticSearch: 'platform',
-      isArray: true
+      isPropArrayComponent: true
     },
     {
       namePropComponent: 'attributes.name',
       namePropElasticSearch: '',
       customValue: 'Fabricante',
-      isArray: true
+      isPropArrayComponent: true
     },
     {
       namePropComponent: 'attributes.value',
       namePropElasticSearch: 'publisher',
-      isArray: true
+      isPropArrayComponent: true
     }
   ]
 };
 
 export const congigSearchUI: SearchDriverOptions = {
   apiConnector: connector,
+  initialState: {
+    searchTerm: ' '
+  }
+};
+
+export const configFields2: ConfigFields = {
+  fields: [
+    {
+      namePropComponent: 'title',
+      namePropElasticSearch: 'name'
+    },
+    {
+      namePropComponent: 'urlImg',
+      namePropElasticSearch: 'image_url'
+    },
+    {
+      namePropComponent: 'description',
+      namePropElasticSearch: 'address.street'
+    },
+    {
+      namePropComponent: 'urlRedirect',
+      namePropElasticSearch: 'id',
+      customValue: '/listing/{{id}}'
+    },
+    {
+      namePropComponent: 'price.value',
+      namePropElasticSearch: 'price'
+    },
+    {
+      namePropComponent: 'price.description',
+      namePropElasticSearch: '',
+      customValue: 'por período'
+    },
+    {
+      namePropComponent: 'attributes.name',
+      namePropElasticSearch: '',
+      customValue: 'Área',
+      isPropArrayComponent: true
+    },
+    {
+      namePropComponent: 'attributes.value',
+      namePropElasticSearch: 'attributes.area',
+      isPropArrayComponent: true
+    },
+    {
+      namePropComponent: 'attributes.name',
+      namePropElasticSearch: '',
+      customValue: 'Quartos',
+      isPropArrayComponent: true
+    },
+    {
+      namePropComponent: 'attributes.value',
+      namePropElasticSearch: 'attributes.bedrooms',
+      isPropArrayComponent: true
+    },
+    {
+      namePropComponent: 'attributes.name',
+      namePropElasticSearch: '',
+      customValue: 'Banheiros',
+      isPropArrayComponent: true
+    },
+    {
+      namePropComponent: 'attributes.value',
+      namePropElasticSearch: 'attributes.baths',
+      isPropArrayComponent: true
+    }
+  ]
+};
+
+const connector2 = new AppSearchAPIConnector({
+  searchKey: 'search-nawi3j3vgrr292hkfs83iuai',
+  engineName: '2lar-listings-dev',
+  endpointBase: 'https://fdte.ent.us-east-1.aws.found.io'
+});
+
+export const congigSearchUI2: SearchDriverOptions = {
+  apiConnector: connector2,
   initialState: {
     searchTerm: ' '
   }
