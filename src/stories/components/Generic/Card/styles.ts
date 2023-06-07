@@ -2,6 +2,7 @@ import CardMUI from '@mui/material/Card';
 import CardMediaMUI from '@mui/material/CardMedia';
 import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
+import { fontSizes } from 'theme/fontSizes.theme';
 import { spacing } from 'theme/spacing';
 
 import { Mode } from './types';
@@ -42,6 +43,7 @@ export const WrapperAttributes = styled('div')`
 `;
 
 export const AttributeText = styled(Typography)`
+  font-size: ${fontSizes.F12};
   ::after {
     content: '|';
     margin-left: ${spacing.S4};

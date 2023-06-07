@@ -1,16 +1,20 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import type { SearchResult } from '@elastic/search-ui';
+import _isArray from 'lodash/isArray';
 import Mustache from 'mustache';
 
-import { DynamicObject, FieldsItemResult } from './types';
+import { FieldsItemResult } from '../types';
+import { DynamicObject } from './types';
 
-export const useBodyContent = (fields: FieldsItemResult[]) => {
-  function transformArrayToNestedObject(array: Array<DynamicObject>): Record<string, any> {
+export const useBodyContent = (fields?: FieldsItemResult[]) => {
+  function transformArrayToNestedObject(
+    daynamicObjects: Array<DynamicObject>
+  ): Record<string, any> {
     const nestedObject: Record<string, any> = {};
 
-    const names = array.map((item) => item.name);
-    const values = array.map((item) => item.value);
+    const names = daynamicObjects.map((item) => item.name);
+    const values = daynamicObjects.map((item) => item.value);
 
     names.forEach((str, indexArray) => {
       const parts = str.split('.');
@@ -18,18 +22,63 @@ export const useBodyContent = (fields: FieldsItemResult[]) => {
 
       parts.forEach((part, index) => {
         if (!currentObject[part]) {
-          currentObject[part] = {};
+          if (!daynamicObjects[indexArray].isArray) {
+            currentObject[part] = {};
+          } else {
+            currentObject[part] = [];
+          }
         }
 
         if (index === parts.length - 1) {
-          currentObject[part] = values[indexArray];
+          if (!daynamicObjects[indexArray].isArray) {
+            currentObject[part] = values[indexArray];
+          } else {
+            currentObject[part].push(values[indexArray]);
+          }
         }
 
         currentObject = currentObject[part];
       });
     });
 
-    return nestedObject;
+    const newObject = Object.keys(nestedObject).reduce((prev, current) => {
+      if (_isArray(nestedObject[current])) {
+        const mapObject = Object.keys(nestedObject[current]).reduce((acc: any, curr: any) => {
+          const arr = nestedObject[current][curr];
+          const result = arr.map((_: any, index: number) => {
+            return {
+              [curr]: arr[index]
+            };
+          });
+
+          if (!acc.length) {
+            return [...result];
+          }
+
+          const newAcc = acc.map((item: any, index: number) => {
+            if (item[curr]) {
+              return item;
+            }
+
+            return {
+              ...item,
+              ...result[index]
+            };
+          });
+
+          return newAcc;
+        }, []);
+
+        return {
+          ...prev,
+          [current]: mapObject
+        };
+      }
+
+      return prev;
+    }, nestedObject);
+
+    return { ...nestedObject, ...newObject };
   }
 
   function getValue(field: FieldsItemResult, searchResult: SearchResult) {
@@ -52,8 +101,10 @@ export const useBodyContent = (fields: FieldsItemResult[]) => {
     };
   }
 
-  function getPropsCard<T>(result: SearchResult): T {
+  function getPropsCard<T>(result: SearchResult): T | null {
     let objects: Array<DynamicObject> = [];
+
+    if (!fields) return null;
 
     let propsCard = fields.reduce((prev, current) => {
       const propsObj = current.namePropComponent.split('.');
@@ -64,9 +115,11 @@ export const useBodyContent = (fields: FieldsItemResult[]) => {
           ...objects,
           {
             name: current.namePropComponent,
-            value: getValue(current, result)
+            value: getValue(current, result),
+            isArray: current.isArray
           }
         ];
+
         return prev;
       } else {
         const valueProp = buildProp(current, result);

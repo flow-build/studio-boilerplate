@@ -1,20 +1,23 @@
-import { useCallback } from 'react';
+import { useCallback, useContext } from 'react';
 
 import { Results } from '@elastic/react-search-ui';
 import { ResultViewProps } from '@elastic/react-search-ui-views';
+import { SearchUICustonContext } from 'context/SearchUI';
 import { Card } from 'stories/components/Generic';
 import { CardProps } from 'stories/components/Generic/Card/types';
 
 import * as S from './styles';
-import { BodyContentProps } from './types';
 import { useBodyContent } from './useBodyContent';
 
-export const BodyContent = ({ fields }: BodyContentProps) => {
-  const { getPropsCard } = useBodyContent(fields);
+export const BodyContent = () => {
+  const { configFields } = useContext(SearchUICustonContext);
+  const { getPropsCard } = useBodyContent(configFields?.fields);
 
   const resultView = useCallback(
     ({ result, key }: ResultViewProps) => {
       const propsCard = getPropsCard<CardProps>(result);
+
+      if (!propsCard) return null;
 
       return (
         <li key={key}>

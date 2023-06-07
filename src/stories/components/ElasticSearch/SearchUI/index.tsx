@@ -3,6 +3,8 @@ import { memo } from 'react';
 
 import { Paging, SearchProvider, WithSearch } from '@elastic/react-search-ui';
 import { Layout } from '@elastic/react-search-ui-views';
+import { SearchUICustomProvider } from 'context/SearchUI';
+
 import '@elastic/react-search-ui-views/lib/styles/styles.css';
 
 import { BodyContent } from './BodyContent';
@@ -11,52 +13,25 @@ import { SideContent } from './SideContent';
 import * as S from './styles';
 import { SearchUIProps } from './types';
 
-const SearcUIComponent = ({ title, config }: SearchUIProps) => {
-  const fields = [
-    {
-      namePropComponent: 'title',
-      namePropElasticSearch: 'name'
-    },
-    {
-      namePropComponent: 'urlImg',
-      namePropElasticSearch: 'image_url'
-    },
-    {
-      namePropComponent: 'description',
-      namePropElasticSearch: 'publisher'
-    },
-    {
-      namePropComponent: 'urlRedirect',
-      namePropElasticSearch: 'id',
-      customValue: '/product/{{id}}'
-    },
-    {
-      namePropComponent: 'price.value',
-      namePropElasticSearch: 'critic_score'
-    },
-    {
-      namePropComponent: 'price.description',
-      namePropElasticSearch: '',
-      customValue: 'por período'
-    }
-  ];
-
+const SearcUIComponent = ({ title, config, configFields }: SearchUIProps) => {
   return (
     <SearchProvider config={config}>
-      <WithSearch mapContextToProps={({ wasSearched }) => ({ wasSearched })}>
-        {({ wasSearched }) => {
-          return (
-            <S.Wrapper>
-              <Layout
-                bodyHeader={<BodyHeader title={title} />}
-                sideContent={<>{wasSearched && <SideContent />}</>}
-                bodyContent={<>{wasSearched && <BodyContent fields={fields} />}</>}
-                bodyFooter={<Paging />}
-              />
-            </S.Wrapper>
-          );
-        }}
-      </WithSearch>
+      <SearchUICustomProvider configFields={configFields}>
+        <WithSearch mapContextToProps={({ wasSearched }) => ({ wasSearched })}>
+          {({ wasSearched }) => {
+            return (
+              <S.Wrapper>
+                <Layout
+                  bodyHeader={<BodyHeader title={title} />}
+                  sideContent={<>{wasSearched && <SideContent />}</>}
+                  bodyContent={<>{wasSearched && <BodyContent />}</>}
+                  bodyFooter={<Paging />}
+                />
+              </S.Wrapper>
+            );
+          }}
+        </WithSearch>
+      </SearchUICustomProvider>
     </SearchProvider>
   );
 };
