@@ -1,5 +1,3 @@
-import { ReactNode } from 'react';
-
 import { IconLinkProps } from '../IconLink/types';
 import { MenuAnchor, MenuVariant } from './utils';
 export declare type MenuAnchorTypes = (typeof MenuAnchor)[keyof typeof MenuAnchor];
