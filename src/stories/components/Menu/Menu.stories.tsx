@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { AccessTime, Announcement, House, Message } from '@mui/icons-material';
 import { Meta, StoryFn } from '@storybook/react';
 
 import { Menu } from '.';
@@ -8,29 +9,47 @@ import { MenuAnchor, MenuVariant } from './utils';
 const meta: Meta<typeof Menu> = {
   title: 'Header/Menu',
   component: Menu,
+  tags: ['autodocs'],
   args: {
     anchor: MenuAnchor.left,
     variant: MenuVariant.persistent,
     menuItems: [
       {
         id: '1',
-        redirectLink: '/inicio',
-        title: 'Inicio'
+        redirectLink: '/anuncios',
+        title: 'Anuncios',
+        icon: {
+          redirectLink: '/anuncios',
+          icon: Announcement
+        }
       },
       {
         id: '2',
-        redirectLink: '/sobre',
-        title: 'Sobre'
+        redirectLink: '/locacoes',
+        title: 'Locações',
+        icon: {
+          redirectLink: '/locacoes',
+          icon: House
+        }
       },
       {
         id: '2',
-        redirectLink: '/contato',
-        title: 'Contato'
+        redirectLink: '/mensagens',
+        title: 'Mensagens',
+        icon: {
+          redirectLink: '/mensagens',
+          icon: Message
+        }
       },
       {
         id: '2',
-        redirectLink: '/faq',
-        title: 'FAQ'
+        redirectLink: '/acessos',
+        title: 'Acessos',
+        icon: {
+          redirectLink: '/acessos',
+          icon: AccessTime,
+          badge: 12
+        }
       }
     ],
     logo: true

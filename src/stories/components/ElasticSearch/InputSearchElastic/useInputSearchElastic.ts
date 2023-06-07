@@ -21,12 +21,16 @@ export const useInputSearchElastic = ({
       size: countItemsResult
     };
 
-    const data = await api.post<ResultSuggestions>(
+    const response = await api.post<ResultSuggestions>(
       `/api/as/v1/engines/${engineName}/query_suggestion`,
       body
     );
 
-    return (data as ResultSuggestions).results.documents.map((item: { suggestion: string }) => ({
+    if (!response.data) {
+      return [];
+    }
+
+    return response.data.results.documents.map((item: { suggestion: string }) => ({
       text: item.suggestion,
       value: item.suggestion
     }));
