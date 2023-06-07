@@ -14,9 +14,7 @@ type Story = StoryObj<typeof SearchUI>;
 
 export const Primary: Story = {
   args: {
-    title: 'Categoria',
-    config: congigSearchUI,
-    titleField: 'name',
-    urlField: 'image_url,'
+    title: 'Sua fantástica segunda casa',
+    config: congigSearchUI
   }
 };

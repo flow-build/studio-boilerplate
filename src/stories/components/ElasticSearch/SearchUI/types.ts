@@ -7,6 +7,4 @@ export type WriteUrlProps = {
 export interface SearchUIProps {
   title: string;
   config: SearchDriverOptions;
-  titleField?: string;
-  urlField?: string;
 }

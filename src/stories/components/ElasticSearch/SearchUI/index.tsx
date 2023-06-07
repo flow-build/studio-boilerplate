@@ -11,7 +11,36 @@ import { SideContent } from './SideContent';
 import * as S from './styles';
 import { SearchUIProps } from './types';
 
-const SearcUIComponent = ({ title, config, titleField, urlField }: SearchUIProps) => {
+const SearcUIComponent = ({ title, config }: SearchUIProps) => {
+  const fields = [
+    {
+      namePropComponent: 'title',
+      namePropElasticSearch: 'name'
+    },
+    {
+      namePropComponent: 'urlImg',
+      namePropElasticSearch: 'image_url'
+    },
+    {
+      namePropComponent: 'description',
+      namePropElasticSearch: 'publisher'
+    },
+    {
+      namePropComponent: 'urlRedirect',
+      namePropElasticSearch: 'id',
+      customValue: '/product/{{id}}'
+    },
+    {
+      namePropComponent: 'price.value',
+      namePropElasticSearch: 'critic_score'
+    },
+    {
+      namePropComponent: 'price.description',
+      namePropElasticSearch: '',
+      customValue: 'por período'
+    }
+  ];
+
   return (
     <SearchProvider config={config}>
       <WithSearch mapContextToProps={({ wasSearched }) => ({ wasSearched })}>
@@ -19,11 +48,9 @@ const SearcUIComponent = ({ title, config, titleField, urlField }: SearchUIProps
           return (
             <S.Wrapper>
               <Layout
-                sideContent={<>{wasSearched && <SideContent />}</>}
                 bodyHeader={<BodyHeader title={title} />}
-                bodyContent={
-                  <>{wasSearched && <BodyContent titleField={titleField} urlField={urlField} />}</>
-                }
+                sideContent={<>{wasSearched && <SideContent />}</>}
+                bodyContent={<>{wasSearched && <BodyContent fields={fields} />}</>}
                 bodyFooter={<Paging />}
               />
             </S.Wrapper>
