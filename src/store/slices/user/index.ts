@@ -5,12 +5,14 @@ export interface InitialState {
   email?: string;
   resettingPassword?: boolean;
   code?: string;
+  newPassword?: string;
 }
 
 const initialState: InitialState = {
   email: undefined,
   resettingPassword: undefined,
-  code: undefined
+  code: undefined,
+  newPassword: undefined
 };
 
 export const userSlice = createSlice({
@@ -27,6 +29,9 @@ export const userSlice = createSlice({
     setCode: (state, action: PayloadAction<string>) => {
       state.code = action.payload;
     },
+    setNewPassword: (state, action: PayloadAction<string | undefined>) => {
+      state.newPassword = action.payload;
+    },
     reset: (state) => {
       state.email = initialState.email;
     }
@@ -34,6 +39,6 @@ export const userSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { reset, setResettingPassword, setEmail } = userSlice.actions;
+export const { reset, setResettingPassword, setEmail, setNewPassword } = userSlice.actions;
 
 export default userSlice.reducer;

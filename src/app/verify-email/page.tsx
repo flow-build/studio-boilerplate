@@ -1,13 +1,13 @@
 'use client';
 
-import { FormEvent, useEffect, useState } from 'react';
+import { FormEvent, useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import _isEqual from 'lodash/isEqual';
-import { redirect } from 'next/navigation';
+import { redirect, useRouter } from 'next/navigation';
 import api from 'services/httpClient';
-import { RootState } from 'store';
-import { reset } from 'store/slices/user';
+import { RootState, store } from 'store';
+import { reset, setNewPassword } from 'store/slices/user';
 import { Button } from 'stories/components/Forms/Button';
 import { OTPInput } from 'stories/components/Forms/OTPInput';
 import { Logo } from 'stories/components/Logo';
@@ -18,36 +18,37 @@ import * as S from './styles';
 const TOKEN_LENGTH = 6;
 
 export default function VerifyEmail() {
+  const router = useRouter();
   const dispatch = useDispatch();
 
+  const newPassword = useRef(store.getState().user.newPassword);
   const email = useSelector((state: RootState) => state.user.email);
   const resettingPassword = useSelector((state: RootState) => state.user.resettingPassword);
 
   const [token, setToken] = useState('');
   const disableButton = !_isEqual(token.length, TOKEN_LENGTH);
 
-  async function onSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    Logger.info(token);
+  console.log({ newPassword: newPassword.current, ref: newPassword });
 
-    if (resettingPassword) {
-      const result = await api.post('/api/forgotPassword/submit', {
-        username: email,
-        newPassword: 'Teste@135',
-        code: token
-      });
-      console.log({ result });
-      return;
-    }
+  async function handleResetPasswordSubmit() {
+    await api.post('/api/forgotPassword/submit', {
+      username: email,
+      newPassword: newPassword.current,
+      code: token
+    });
 
+    router.replace('/login');
+  }
+
+  async function handleSignUpSubmit(): Promise<void> {
     try {
       const result = await api.post('/api/verifyEmail', { email, code: token });
 
       if (_isEqual(result.status, 200)) {
-        console.log('Confirmado Cadastro');
-      } else {
-        throw new Error(result.message);
+        router.replace('/login');
       }
+
+      throw new Error(result.message);
     } catch (error) {
       if (error instanceof Error) {
         if (_isEqual(error.message, 'CodeMismatchException')) {
@@ -57,19 +58,32 @@ export default function VerifyEmail() {
     }
   }
 
-  async function resendCode() {
+  async function onSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    Logger.info(token);
+
     if (resettingPassword) {
-      const result = await api.post('/api/forgotPassword/sendCode', { email });
+      await handleResetPasswordSubmit();
       return;
     }
 
-    const result = await api.post('/api/resendCode', { email });
+    await handleSignUpSubmit();
+  }
+
+  async function resendCode() {
+    if (resettingPassword) {
+      await api.post('/api/forgotPassword/sendCode', { email });
+      return;
+    }
+
+    await api.post('/api/resendCode', { email });
   }
 
   useEffect(() => {
+    dispatch(setNewPassword());
+
     return () => {
       dispatch(reset());
-      console.log('saiu');
     };
   }, [dispatch]);
 

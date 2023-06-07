@@ -1,14 +1,16 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { useFormik } from 'formik';
 import _delay from 'lodash/delay';
 import { useRouter } from 'next/navigation';
 import api from 'services/httpClient';
 import { RootState } from 'store';
+import { setNewPassword } from 'store/slices/user';
 import { Logger } from 'utils';
 import * as yup from 'yup';
 
 export const useResetPassword = () => {
+  const dispatch = useDispatch();
   const email = useSelector((state: RootState) => state.user.email);
   const router = useRouter();
 
@@ -34,6 +36,7 @@ export const useResetPassword = () => {
     console.log({ result });
 
     if (result?.status === 200) {
+      dispatch(setNewPassword(values.newPassword));
       _delay(() => router.push('/verify-email'), 500);
     } else {
       Logger.error('error resetting password');
