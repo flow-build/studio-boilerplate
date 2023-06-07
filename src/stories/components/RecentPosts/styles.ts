@@ -1,10 +1,10 @@
 import { Typography, styled } from '@mui/material';
 import { spacing } from 'theme/spacing';
 export const Wrapper = styled('div')`
-  background-color: ${({ theme }) => theme.palette.primary.light};
+  background-color: ${({ theme }) => theme.palette.grey[100]};
   padding: ${spacing.S14};
 
-  width: 25%;
+  width: 100%;
 `;
 
 export const Title = styled(Typography)`

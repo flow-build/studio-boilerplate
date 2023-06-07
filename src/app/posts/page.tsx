@@ -2,20 +2,16 @@
 
 import React from 'react';
 
-import { Typography } from '@mui/material';
 import { Breadcrumbs, ImageComponent } from 'stories/components';
 import { Markdown } from 'stories/components/Markdown';
+import { MiniCardsCarousel } from 'stories/components/MiniCardsCarousel';
+import { RecentPosts } from 'stories/components/RecentPosts';
+import { getCurrencyIntegerValue } from 'utils';
 
-import { descriptionMock } from './descriptionMock';
+import { breadcrumbItems, descriptionMock, miniCards } from './postsMock';
 import * as S from './styles';
 
 export default function Posts() {
-  const breadcrumbItems = [
-    { text: 'Home', href: '/' },
-    { text: 'Category', href: '/' },
-    { text: 'Post' }
-  ];
-
   return (
     <S.Main>
       <Breadcrumbs items={breadcrumbItems} />
@@ -33,17 +29,16 @@ export default function Posts() {
           <Markdown children={descriptionMock} />
         </S.Wrapper>
         <S.SideRight>
-          <S.Box>
-            <Typography variant="h5" fontWeight={'bold'} style={{ marginBottom: 10 }}>
-              Recent Posts
-            </Typography>
-            <Typography variant="h6" fontWeight={'bold'}>
-              R$ 1234 por periodo
-            </Typography>
-            <Typography variant="body1" fontWeight={'light'}>
-              Outra qualquer descrição
-            </Typography>
-          </S.Box>
+          <RecentPosts
+            title={'Recent Posts'}
+            price={{
+              value: getCurrencyIntegerValue(1234),
+              description: 'p/ período'
+            }}
+            description={'Adicione uma descrição aqui'}
+          />
+
+          <MiniCardsCarousel miniCards={miniCards} arraySize={3} />
         </S.SideRight>
       </S.ContentWrapper>
     </S.Main>
