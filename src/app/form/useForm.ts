@@ -1,13 +1,14 @@
 import { FormValidation, RJSFValidationError } from '@rjsf/utils';
 
+import { messages } from '../../constants';
 import { FormData } from './types';
 
 export function handleCustomValidate(formData: FormData, errors: FormValidation) {
   if (!formData.name) {
-    errors?.name?.addError('Nome é obrigatório');
+    errors?.name?.addError(messages.fieldRequired);
   }
   if (!formData.email) {
-    errors?.email?.addError('Email é obrigatório');
+    errors?.email?.addError(messages.fieldRequired);
   }
   return errors;
 }
@@ -17,7 +18,7 @@ export function handleTransformErrors(errors: RJSFValidationError[]) {
     if (error.name === 'pattern') {
       return {
         ...error,
-        message: 'Por favor, insira um endereço de email válido.'
+        message: messages.emailRequired
       };
     }
     return error;
