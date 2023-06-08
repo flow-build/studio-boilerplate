@@ -1,22 +1,25 @@
 import { Typography, styled } from '@mui/material';
+import { ImageComponent } from 'stories/components/Image';
 import { fontSizes } from 'theme/fontSizes.theme';
 import { spacing } from 'theme/spacing';
+
+export const Container = styled('div')`
+  width: 100%;
+`;
+
 export const Wrapper = styled('div')`
   display: flex;
   margin: ${spacing.S10};
-  width: 40%;
 `;
 
-export const Img = styled('img')`
-  height: auto;
-  width: 50%;
+export const Img = styled(ImageComponent)`
   border-radius: 0.3125rem;
 `;
 
 export const WrapperContent = styled('div')`
   margin-left: ${spacing.S14};
-  width: 50%;
 `;
+
 export const Name = styled(Typography)`
   color: ${({ theme }) => theme.palette.text.primary};
   font-size: ${fontSizes.F20};

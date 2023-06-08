@@ -7,7 +7,7 @@ export function MiniCards({ name, urlRedirect, description, urlImg, text }: Mini
   return (
     <Link href={urlRedirect ?? ''}>
       <S.Wrapper>
-        <S.Img src={urlImg} />
+        <S.Img alt={name} src={urlImg ?? ''} width={155} height={100} />
         <S.WrapperContent>
           <S.Name>{name}</S.Name>
           <S.Description>{description}</S.Description>

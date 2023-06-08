@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  images: {
+    domains: ['bolsaimovel.com.br']
+  },
   env: {
     AWS_REGION: process.env.AWS_REGION,
     AWS_POOL_ID: process.env.AWS_POOL_ID,
