@@ -1,4 +1,5 @@
 import { Typography, styled } from '@mui/material';
+import { ImageComponent } from 'stories/components/Image';
 import { fontSizes } from 'theme/fontSizes.theme';
 import { spacing } from 'theme/spacing';
 
@@ -11,9 +12,7 @@ export const Wrapper = styled('div')`
   margin: ${spacing.S10};
 `;
 
-export const Img = styled('img')`
-  height: 100px;
-  width: 155px;
+export const Img = styled(ImageComponent)`
   border-radius: 0.3125rem;
 `;
 
