@@ -1,4 +1,3 @@
-// import { ReactNode } from 'react';
 import { AvatarProps } from '@mui/material';
 
 import { MenuProps } from '../Menu/types';
