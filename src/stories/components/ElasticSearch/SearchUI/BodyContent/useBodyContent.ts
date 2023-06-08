@@ -2,7 +2,9 @@
 
 import type { SearchResult } from '@elastic/search-ui';
 import _isArray from 'lodash/isArray';
+import _isObject from 'lodash/isObject';
 import Mustache from 'mustache';
+import { Logger } from 'utils';
 
 import { FieldsItemResult } from '../types';
 import { DynamicObject } from './types';
@@ -22,7 +24,7 @@ export const useBodyContent = (fields?: FieldsItemResult[]) => {
 
       parts.forEach((part, index) => {
         if (!currentObject[part]) {
-          if (!daynamicObjects[indexArray].isArray) {
+          if (!daynamicObjects[indexArray].isPropArrayComponent) {
             currentObject[part] = {};
           } else {
             currentObject[part] = [];
@@ -30,7 +32,7 @@ export const useBodyContent = (fields?: FieldsItemResult[]) => {
         }
 
         if (index === parts.length - 1) {
-          if (!daynamicObjects[indexArray].isArray) {
+          if (!daynamicObjects[indexArray].isPropArrayComponent) {
             currentObject[part] = values[indexArray];
           } else {
             currentObject[part].push(values[indexArray]);
@@ -81,18 +83,44 @@ export const useBodyContent = (fields?: FieldsItemResult[]) => {
     return { ...nestedObject, ...newObject };
   }
 
+  function getValueElastic(field: FieldsItemResult, searchResult: SearchResult) {
+    try {
+      const propsObjectElastic = field.namePropElasticSearch.split('.');
+      const isPropsObjectElastic = propsObjectElastic.length > 1;
+
+      if (isPropsObjectElastic) {
+        const objElastic = JSON.parse(searchResult[propsObjectElastic[0]]?.raw);
+
+        if (_isObject(objElastic)) {
+          const result = propsObjectElastic.reduce((acc: any, curr: any) => {
+            if (acc[curr]) {
+              return acc[curr];
+            }
+            return acc;
+          }, objElastic);
+
+          return result;
+        }
+      }
+
+      return searchResult[field.namePropElasticSearch]?.raw ?? '';
+    } catch (error) {
+      Logger.error({ error });
+      return searchResult[field.namePropElasticSearch]?.raw ?? '';
+    }
+  }
+
   function getValue(field: FieldsItemResult, searchResult: SearchResult) {
+    const valueProp = getValueElastic(field, searchResult);
     if (field.customValue) {
       const objReplace = {
-        [field.namePropElasticSearch]: field.namePropElasticSearch
-          ? searchResult[field.namePropElasticSearch]?.raw ?? ''
-          : ''
+        [field.namePropElasticSearch]: field.namePropElasticSearch ? valueProp ?? '' : ''
       };
 
       return Mustache.render(field.customValue, objReplace);
     }
 
-    return searchResult[field.namePropElasticSearch]?.raw ?? '';
+    return valueProp;
   }
 
   function buildProp(field: FieldsItemResult, searchResult: SearchResult) {
@@ -116,7 +144,7 @@ export const useBodyContent = (fields?: FieldsItemResult[]) => {
           {
             name: current.namePropComponent,
             value: getValue(current, result),
-            isArray: current.isArray
+            isPropArrayComponent: current.isPropArrayComponent
           }
         ];
 

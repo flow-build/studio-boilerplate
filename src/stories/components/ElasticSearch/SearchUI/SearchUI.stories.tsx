@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import { mockCategories } from 'stories/components/Carousel/mockResult';
 
 import { SearchUI } from './';
 import { congigSearchUI, configFields } from './mock';
@@ -14,8 +15,12 @@ type Story = StoryObj<typeof SearchUI>;
 
 export const Primary: Story = {
   args: {
-    title: 'Sua fantástica segunda casa',
+    title: 'Games',
     config: congigSearchUI,
-    configFields
+    configFields,
+    carouselItems: {
+      data: mockCategories,
+      slidesPerView: 10
+    }
   }
 };

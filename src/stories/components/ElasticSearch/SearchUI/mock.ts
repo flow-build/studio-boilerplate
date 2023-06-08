@@ -41,23 +41,23 @@ export const configFields: ConfigFields = {
       namePropComponent: 'attributes.name',
       namePropElasticSearch: '',
       customValue: 'Plataforma',
-      isArray: true
+      isPropArrayComponent: true
     },
     {
       namePropComponent: 'attributes.value',
       namePropElasticSearch: 'platform',
-      isArray: true
+      isPropArrayComponent: true
     },
     {
       namePropComponent: 'attributes.name',
       namePropElasticSearch: '',
       customValue: 'Fabricante',
-      isArray: true
+      isPropArrayComponent: true
     },
     {
       namePropComponent: 'attributes.value',
       namePropElasticSearch: 'publisher',
-      isArray: true
+      isPropArrayComponent: true
     }
   ]
 };

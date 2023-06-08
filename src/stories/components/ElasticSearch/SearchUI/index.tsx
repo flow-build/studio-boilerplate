@@ -13,10 +13,10 @@ import { SideContent } from './SideContent';
 import * as S from './styles';
 import { SearchUIProps } from './types';
 
-const SearcUIComponent = ({ title, config, configFields }: SearchUIProps) => {
+const SearcUIComponent = ({ title, config, configFields, carouselItems }: SearchUIProps) => {
   return (
     <SearchProvider config={config}>
-      <SearchUICustomProvider configFields={configFields}>
+      <SearchUICustomProvider configFields={configFields} carouselItems={carouselItems}>
         <WithSearch mapContextToProps={({ wasSearched }) => ({ wasSearched })}>
           {({ wasSearched }) => {
             return (

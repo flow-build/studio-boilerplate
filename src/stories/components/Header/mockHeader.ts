@@ -4,10 +4,10 @@ import { Logger } from 'utils';
 export const menuItems = [
   {
     id: '1',
-    redirectLink: '/anuncios',
+    redirectLink: '/listings',
     title: 'Anuncios',
     icon: {
-      redirectLink: '/anuncios',
+      redirectLink: '/listings',
       icon: Announcement
     }
   },
