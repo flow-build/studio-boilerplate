@@ -22,7 +22,7 @@ export default function ForgotPassword() {
           />
         </S.SideLeft>
 
-        <S.Form>
+        <S.Form onSubmit={formik.handleSubmit}>
           <h3>Resetar senha</h3>
           <p>Insira o e-mail cadastrado para que você altere sua senha</p>
 
