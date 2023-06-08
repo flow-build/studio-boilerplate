@@ -1,7 +1,5 @@
 'use client';
 
-import React from 'react';
-
 import { Breadcrumbs, ImageComponent } from 'stories/components';
 import { Markdown } from 'stories/components/Markdown';
 import { MiniCardsCarousel } from 'stories/components/MiniCardsCarousel';
