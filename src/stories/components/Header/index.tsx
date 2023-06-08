@@ -14,7 +14,8 @@ export const Header: React.FC<HeaderProps> = ({
   button,
   loggedIn,
   username,
-  menu
+  menu,
+  avatar
 }) => {
   return (
     <AppBar position="static" color="default">
@@ -35,14 +36,18 @@ export const Header: React.FC<HeaderProps> = ({
           </S.ContainerHeader>
           {loggedIn === true ? (
             username != null && (
-              <S.ButtonHeader
-                color="inherit"
-                variant="outlined"
-                size="large"
-                onClick={button.onClick}
-              >
-                {username}
-              </S.ButtonHeader>
+              <>
+                {avatar ?? (
+                  <S.ButtonHeader
+                    color="inherit"
+                    variant="outlined"
+                    size="large"
+                    onClick={button.onClick}
+                  >
+                    {username}
+                  </S.ButtonHeader>
+                )}
+              </>
             )
           ) : (
             <S.ButtonHeader
