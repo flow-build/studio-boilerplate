@@ -3,7 +3,8 @@
 import Button from '@mui/material/Button';
 import Checkbox from '@mui/material/Checkbox';
 import Link from 'next/link';
-import { ImageComponent, InputPassword, InputText } from 'stories/components';
+import { InputPassword, InputText } from 'stories/components';
+import { Logo } from 'stories/components/Logo';
 import { getErrorsFormik, getHelperTextFormik } from 'utils';
 
 import * as S from './styles';
@@ -16,12 +17,7 @@ export default function Login() {
     <S.Main>
       <S.Wrapper>
         <S.SideLeft>
-          <ImageComponent
-            src="https://img.logoipsum.com/263.svg"
-            alt="Logo"
-            width={150}
-            height={30}
-          />
+          <Logo />
         </S.SideLeft>
         <S.Form onSubmit={formik.handleSubmit}>
           <h3>Acesse sua conta</h3>
@@ -51,7 +47,7 @@ export default function Login() {
               <Checkbox aria-label="remember" />
               <span>Lembrar-me</span>
             </span>
-            <Link href="/esqueci-minha-senha">Esqueci minha senha</Link>
+            <Link href="/forgot-password">Esqueci minha senha</Link>
           </S.FooterForm>
           <Button type="submit" variant="outlined">
             Entrar
