@@ -11,14 +11,14 @@ export const Main = styled('main')`
 export const Wrapper = styled('div')`
   display: flex;
   align-items: center;
-  max-width: ${spacing.S384};
+  max-width: 24rem;
   background-color: ${({ theme }) => theme.palette.grey[50]};
   box-shadow: 0 0 ${spacing.S10} ${spacing.S1} rgba(0, 0, 0, 0.34);
 
   ${({ theme }) => theme.breakpoints.up('sm')} {
     max-width: none;
     width: 37.5rem;
-    height: ${spacing.S384};
+    height: 24rem;
   }
 `;
 

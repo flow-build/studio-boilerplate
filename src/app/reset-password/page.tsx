@@ -9,7 +9,7 @@ import { getErrorsFormik, getHelperTextFormik } from 'utils';
 import * as S from './styles';
 import { useResetPassword } from './useResetPassword';
 
-export default function Login() {
+export default function ResetPassword() {
   const { formik, email } = useResetPassword();
 
   if (!email) {
