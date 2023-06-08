@@ -13,4 +13,6 @@ export interface MenuProps {
   variant?: MenuVariantTypes;
   menuItems?: MenuItemProps[];
   logo?: boolean;
+  email?: string;
+  username?: string;
 }

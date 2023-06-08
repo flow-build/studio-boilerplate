@@ -2,7 +2,9 @@
 import React, { FC } from 'react';
 
 import Grid from '@mui/material/Grid';
+import { getAvatarURL } from 'utils';
 
+import { Avatar } from '../Avatar';
 import { IconLink } from '../IconLink';
 import { Logo } from '../Logo';
 import * as S from './styles';
@@ -10,7 +12,7 @@ import { MenuProps } from './types';
 import { useMenu } from './useMenu';
 import { MenuVariant } from './utils';
 
-export const Menu: FC<MenuProps> = ({ menuItems = [], logo, anchor, variant }) => {
+export const Menu: FC<MenuProps> = ({ menuItems = [], logo, anchor, variant, email, username }) => {
   const { isOpen, handleOpen, handleClose } = useMenu();
 
   return (
@@ -46,6 +48,7 @@ export const Menu: FC<MenuProps> = ({ menuItems = [], logo, anchor, variant }) =
                 </S.LinkIcon>
               ))}
             </S.MenuList>
+            {email && <Avatar alt={username} src={getAvatarURL(email)} email={email} />}
           </Grid>
         </S.DrawerGrid>
       </S.MenuDrawer>
