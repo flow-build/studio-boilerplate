@@ -4,6 +4,6 @@ import { spacing } from 'theme/spacing';
 export const Wrapper = styled('div')`
   display: flex;
   align-items: center;
-  gap: ${spacing.S16};
+  gap: ${spacing.S8};
   max-width: 25rem;
 `;

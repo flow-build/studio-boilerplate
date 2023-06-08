@@ -7,7 +7,7 @@ Amplify.configure(amplifyConfig);
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'POST') {
-    const { name, email, password } = JSON.parse(req.body);
+    const { name, email, password } = req.body;
     try {
       await Auth.signUp({
         username: email,

@@ -52,7 +52,9 @@ const meta: Meta<typeof Menu> = {
         }
       }
     ],
-    logo: true
+    logo: true,
+    email: 'gustavo.haramura@fdte.io',
+    username: 'haramura'
   }
 };
 
