@@ -15,3 +15,11 @@ export const Wrapper = styled('div')`
     }
   }
 `;
+
+export const ItemResult = styled('li')`
+  margin: 0 auto;
+
+  ${({ theme }) => theme.breakpoints.up('sm')} {
+    margin: none;
+  }
+`;

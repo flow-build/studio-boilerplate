@@ -7,6 +7,7 @@ import { InputPassword, InputText } from 'stories/components';
 import { Logo } from 'stories/components/Logo';
 import { getErrorsFormik, getHelperTextFormik } from 'utils';
 
+import { defaultValues } from '../../constants';
 import * as S from './styles';
 import { useLogin } from './useLogin';
 
@@ -17,7 +18,7 @@ export default function Login() {
     <S.Main>
       <S.Wrapper>
         <S.SideLeft>
-          <Logo />
+          <Logo urlImg={defaultValues.urlImgLogo} />
         </S.SideLeft>
         <S.Form onSubmit={formik.handleSubmit}>
           <h3>Acesse sua conta</h3>

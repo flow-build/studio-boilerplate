@@ -18,7 +18,7 @@ export function handleTransformErrors(errors: RJSFValidationError[]) {
     if (error.name === 'pattern') {
       return {
         ...error,
-        message: messages.emailRequired
+        message: messages.invalidEmail
       };
     }
     return error;

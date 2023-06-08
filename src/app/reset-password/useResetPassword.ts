@@ -14,7 +14,7 @@ import * as yup from 'yup';
 
 export const useResetPassword = () => {
   const dispatch = useDispatch();
-  const email = useSelector((state: RootState) => state.user.email);
+  const email = useSelector((state: RootState) => state.user.tempEmail);
   const router = useRouter();
 
   const INITIAL_VALUES = {

@@ -51,6 +51,7 @@ function WrapperSuggestions(args: InputSearchAutocompleteProps) {
       suggestions={suggestions}
       onInputChange={onInputChange}
       onChange={(_, newValue) => Logger.info({ newValue })}
+      onClickIconSearch={Logger.info}
     />
   );
 }
