@@ -12,7 +12,6 @@ export interface MenuProps {
   anchor?: MenuAnchorTypes;
   variant?: MenuVariantTypes;
   menuItems?: MenuItemProps[];
-  logo?: boolean;
-  email?: string;
+  urlImgLogo?: string;
   username?: string;
 }

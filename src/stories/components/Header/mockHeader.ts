@@ -42,10 +42,9 @@ export const menuItems = [
 ];
 
 export const links = [
-  { name: '[Início]', url: '/' },
-  { name: '[Sobre]', url: '/sobre' },
-  { name: '[Contato]', url: '/sobre' },
-  { name: '[FAQ]', url: '/faq' }
+  { name: 'Início', url: '/' },
+  { name: 'Anúncios', url: '/listings' },
+  { name: 'Cadastro', url: '/register' }
 ];
 
 export const button = {

@@ -6,6 +6,8 @@ import { useRouter } from 'next/navigation';
 import { setResettingPassword } from 'store/slices/user';
 import * as yup from 'yup';
 
+import { messages } from '../../constants';
+
 export const useForgotPassword = () => {
   const router = useRouter();
   const dispatch = useDispatch();
@@ -15,7 +17,7 @@ export const useForgotPassword = () => {
   };
 
   const validationSchema = yup.object().shape({
-    email: yup.string().required('Campo obrigatório').email('E-mail inválido')
+    email: yup.string().required(messages.fieldRequired).email(messages.invalidEmail)
   });
 
   const formik = useFormik({

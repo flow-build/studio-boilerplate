@@ -15,6 +15,7 @@ import { OTPInput } from 'stories/components/Forms/OTPInput';
 import { Logo } from 'stories/components/Logo';
 import { Logger } from 'utils';
 
+import { defaultValues } from '../../constants';
 import * as S from './styles';
 
 const TOKEN_LENGTH = 6;
@@ -22,9 +23,10 @@ const TOKEN_LENGTH = 6;
 export default function VerifyEmail() {
   const router = useRouter();
   const dispatch = useDispatch();
+  api.setBaseUrl('');
 
   const newPassword = useRef(decryptPassword(store.getState().user.newPassword));
-  const email = useSelector((state: RootState) => state.user.email);
+  const email = useSelector((state: RootState) => state.user.tempEmail);
   const resettingPassword = useSelector((state: RootState) => state.user.resettingPassword);
 
   const [token, setToken] = useState('');
@@ -103,7 +105,7 @@ export default function VerifyEmail() {
     <S.Main>
       <S.Wrapper>
         <S.SideLeft>
-          <Logo />
+          <Logo urlImg={defaultValues.urlImgLogo} />
         </S.SideLeft>
 
         <S.Form onSubmit={onSubmit}>

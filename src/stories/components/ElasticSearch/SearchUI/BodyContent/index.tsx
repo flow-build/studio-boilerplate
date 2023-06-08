@@ -10,7 +10,7 @@ import * as S from './styles';
 import { useBodyContent } from './useBodyContent';
 
 export const BodyContent = () => {
-  const { configFields } = useContext(SearchUICustonContext);
+  const { configFields, modeView } = useContext(SearchUICustonContext);
   const { getPropsCard } = useBodyContent(configFields?.fields);
 
   const resultView = useCallback(
@@ -20,12 +20,12 @@ export const BodyContent = () => {
       if (!propsCard) return null;
 
       return (
-        <li key={key}>
-          <Card {...propsCard} mode="vertical" />
-        </li>
+        <S.ItemResult key={key}>
+          <Card {...propsCard} mode={modeView} />
+        </S.ItemResult>
       );
     },
-    [getPropsCard]
+    [getPropsCard, modeView]
   );
 
   return (

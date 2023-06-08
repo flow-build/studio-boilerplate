@@ -1,13 +1,11 @@
-import { AvatarProps } from '@mui/material';
-
+import { InputSearchElasticProps } from '../ElasticSearch/InputSearchElastic/types';
 import { MenuProps } from '../Menu/types';
 
 export interface HeaderProps {
-  logo?: boolean;
+  urlImgLogo?: string;
   links?: Array<{ name: string; url: string }>;
   button: { name: string; onClick: () => void };
-  loggedIn?: boolean;
   menu?: MenuProps;
   username?: string;
-  avatar?: AvatarProps;
+  search?: InputSearchElasticProps;
 }

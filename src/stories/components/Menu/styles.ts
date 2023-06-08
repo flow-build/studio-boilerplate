@@ -7,7 +7,6 @@ import Grid from '@mui/material/Grid';
 import List from '@mui/material/List';
 import { styled } from '@mui/material/styles';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
-import Link from 'next/link';
 import { fontSizes } from 'theme/fontSizes.theme';
 import { spacing } from 'theme/spacing';
 
@@ -161,7 +160,7 @@ export const TitleCategory = styled(ListItemText)`
   }
 `;
 
-export const LinkIcon = styled(Link)`
+export const LinkIcon = styled('div')`
   color: black;
   display: flex;
   align-items: center;

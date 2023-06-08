@@ -8,6 +8,7 @@ import { OTPInput } from 'stories/components/Forms/OTPInput';
 import { Logo } from 'stories/components/Logo';
 import { Logger } from 'utils';
 
+import { defaultValues } from '../../constants';
 import * as S from './styles';
 
 const TOKEN_LENGTH = 5;
@@ -25,7 +26,7 @@ export default function Token() {
     <S.Main>
       <S.Wrapper>
         <S.SideLeft>
-          <Logo />
+          <Logo urlImg={defaultValues.urlImgLogo} />
         </S.SideLeft>
 
         <S.Form onSubmit={onSubmit}>

@@ -1,4 +1,4 @@
-import { SyntheticEvent } from 'react';
+import { KeyboardEventHandler, SyntheticEvent } from 'react';
 
 export interface InputSearchAutocompleteProps {
   placeholder: string;
@@ -8,6 +8,9 @@ export interface InputSearchAutocompleteProps {
   isLoading?: boolean;
   onInputChange: (e: SyntheticEvent<Element, Event>, newValue: string) => void;
   onChange: (e: SyntheticEvent<Element, Event>, newValue: Suggestions | null) => void;
+  onClickIconSearch: (e: SyntheticEvent<Element, Event>) => void;
+  onKeyUp: KeyboardEventHandler<HTMLInputElement>;
+  className?: string;
 }
 
 export interface Suggestions {

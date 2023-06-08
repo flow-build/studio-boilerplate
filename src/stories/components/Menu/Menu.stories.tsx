@@ -52,9 +52,8 @@ const meta: Meta<typeof Menu> = {
         }
       }
     ],
-    logo: true,
-    email: 'gustavo.haramura@fdte.io',
-    username: 'haramura'
+    urlImgLogo: 'https://img.logoipsum.com/263.svg',
+    username: 'gustavo.haramura@fdte.io'
   }
 };
 
