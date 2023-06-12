@@ -4,15 +4,11 @@ import { spacing } from 'theme/spacing';
 import { Button } from '../Forms/Button';
 import { Modal } from '../Modal';
 
-export const IconButton = styled(Button)`
-  color: ${({ theme }) => theme.palette.text.primary};
-  border-color: ${({ theme }) => theme.palette.grey[500]};
-  margin: 0.3rem;
-  &:hover {
-    border-color: ${({ theme }) => theme.palette.grey[700]};
-    background-color: ${({ theme }) => theme.palette.grey[700]};
-    color: ${({ theme }) => theme.palette.common.white};
-  }
+export const ConfirmButton = styled(Button)`
+  margin: ${spacing.S5};
+`;
+export const CancelButton = styled(Button)`
+  margin: ${spacing.S5};
 `;
 
 export const BoxConfirm = styled(Box)`
@@ -28,5 +24,5 @@ export const BoxModal = styled(Modal)`
 `;
 
 export const BoxButton = styled(Box)`
-  padding: 1rem;
+  padding: ${spacing.S1};
 `;
