@@ -1,3 +1,5 @@
+'use client';
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { useFormik } from 'formik';
@@ -8,12 +10,13 @@ import api from 'services/httpClient';
 import { CognitoSignIn } from 'shared/types/cognito';
 import { setIsLoading } from 'store/slices/loading';
 import { setBasicInfosUser, setTempEmail } from 'store/slices/user';
-import { Logger } from 'utils';
 import * as yup from 'yup';
 
 import { messages } from '../../constants';
 
 export const useLogin = () => {
+  const [loginError, setLoginError] = useState('');
+
   const router = useRouter();
   const dispatch = useDispatch();
 
@@ -53,7 +56,7 @@ export const useLogin = () => {
 
         router.push('/');
       } else {
-        throw new Error(result.message);
+        setLoginError(result.message ?? '');
       }
     } catch (error) {
       if (error instanceof Error) {
@@ -61,15 +64,17 @@ export const useLogin = () => {
           dispatch(setTempEmail(values.username));
           _delay(() => router.push('/verify-email'), 500);
         }
+      } else {
+        setLoginError((error as Error).message);
       }
-
-      Logger.error({ error });
     } finally {
       dispatch(setIsLoading(false));
     }
   }
 
   return {
-    formik
+    formik,
+    loginError,
+    setLoginError
   };
 };

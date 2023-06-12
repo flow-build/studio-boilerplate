@@ -1,16 +1,21 @@
+'use client';
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { useFormik } from 'formik';
 import _delay from 'lodash/delay';
 import { useRouter } from 'next/navigation';
 import { setTempEmail } from 'store/slices/user';
-import { Logger, validateCPF } from 'utils';
+import { validateCPF } from 'utils';
 import * as yup from 'yup';
 
 import { messages } from '../../constants';
 import api from '../../services/httpClient';
 
 export const useRegister = () => {
+  const [notification, setNotification] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
+
   const INITIAL_VALUES = {
     name: '',
     email: '',
@@ -48,17 +53,24 @@ export const useRegister = () => {
         const result = await api.post<{ status: number }>('/api/signUp', values);
         if (result?.status === 200) {
           dispatch(setTempEmail(values.email));
-          _delay(() => router.push('/verify-email'), 500);
+          setSuccessMessage('Cadastro bem-sucedido!');
+          setNotification(successMessage);
+          _delay(() => {
+            router.push('/verify-email');
+          }, 500);
         } else {
-          Logger.error('error creating user');
+          setNotification(result.message ?? '');
         }
       } catch (error) {
-        Logger.error({ error });
+        setNotification((error as Error).message);
       }
     }
   });
 
   return {
-    formik
+    formik,
+    notification,
+    setNotification,
+    successMessage
   };
 };

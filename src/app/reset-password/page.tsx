@@ -2,7 +2,7 @@
 
 import { Logo } from 'components';
 import { redirect } from 'next/navigation';
-import { Button, InputPassword } from 'stories/components';
+import { Button, InputPassword, SnackbarAlerts } from 'stories/components';
 import { getErrorsFormik, getHelperTextFormik } from 'utils';
 
 import { defaultValues } from '../../constants';
@@ -10,11 +10,21 @@ import * as S from './styles';
 import { useResetPassword } from './useResetPassword';
 
 export default function ResetPassword() {
-  const { formik, email } = useResetPassword();
+  const { formik, email, notification, setNotification, successMessage } = useResetPassword();
 
   if (!email) {
     redirect('/login');
   }
+
+  const getSeverity = () => {
+    if (notification) {
+      return 'error';
+    } else if (successMessage) {
+      return 'success';
+    } else {
+      return 'error';
+    }
+  };
 
   return (
     <S.Main>
@@ -55,6 +65,13 @@ export default function ResetPassword() {
             Enviar
           </Button>
         </S.Form>
+        <SnackbarAlerts
+          setOpen={() => setNotification('')}
+          open={!!notification || !!successMessage}
+          message={notification || successMessage}
+          severity={getSeverity()}
+          onClose={() => setNotification('')}
+        />
       </S.Wrapper>
     </S.Main>
   );
