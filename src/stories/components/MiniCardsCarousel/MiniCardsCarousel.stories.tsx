@@ -22,12 +22,12 @@ export const Primary: Story = {
         text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. '
       },
       {
-        name: 'Alameda Dourado',
+        name: 'Alameda Dourado 2',
         urlImg: 'https://bolsaimovel.com.br/uploads/104_1652364708_2375873.jpg',
         description: 'Jurerê internacional, Florianópolis'
       },
       {
-        name: 'Alameda Dourado',
+        name: 'Alameda Dourado 3',
         urlImg: 'https://bolsaimovel.com.br/uploads/104_1652364708_2375873.jpg',
         description: 'Jurerê internacional, Florianópolis'
       }
