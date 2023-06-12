@@ -45,7 +45,6 @@ export const useRegister = () => {
     validateOnBlur: true,
     onSubmit: async (values) => {
       try {
-        api.setBaseUrl('');
         const result = await api.post<{ status: number }>('/api/signUp', values);
         if (result?.status === 200) {
           dispatch(setTempEmail(values.email));

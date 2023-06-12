@@ -1,7 +1,8 @@
 'use client';
 import React from 'react';
 
-import { ImageComponent } from '../Image';
+import { ImageComponent } from 'stories/components';
+
 import { LogoProps } from './types';
 
 export const Logo: React.FC<LogoProps> = ({ urlImg, redirectLink }) => {

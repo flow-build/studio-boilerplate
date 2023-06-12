@@ -90,7 +90,7 @@ export default function Register() {
                 onChange={(e) => setOptIn(e.currentTarget.value === 'on')}
               />
               <span>
-                Li e aceito os <Link href="#">temos</Link> de uso
+                Li e aceito os <Link href="#">termos</Link> de uso
               </span>
             </span>
           </S.FooterForm>

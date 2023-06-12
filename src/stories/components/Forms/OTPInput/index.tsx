@@ -1,3 +1,4 @@
+'use client';
 import React, { useCallback, useEffect } from 'react';
 
 import { Input } from 'stories/components/Forms/OTPInput/components/Input';

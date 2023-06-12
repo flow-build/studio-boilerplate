@@ -44,5 +44,6 @@ export const FooterForm = styled('div')`
 
   a {
     font-size: ${fontSizes.F14};
+    color: ${({ theme }) => theme.palette.info.main};
   }
 `;
