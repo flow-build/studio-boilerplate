@@ -7,13 +7,14 @@ import Checkbox from '@mui/material/Checkbox';
 import CircularProgress from '@mui/material/CircularProgress';
 import Link from 'next/link';
 import { InputPassword, InputText } from 'stories/components';
+import { SnackbarAlerts } from 'stories/components/SnackbarAlert';
 import { getErrorsFormik, getHelperTextFormik, maskCPF, maskPhoneNumber } from 'utils';
 
 import * as S from './styles';
 import { useRegister } from './useRegister';
 
 export default function Register() {
-  const { formik } = useRegister();
+  const { formik, registerError, setRegisterError } = useRegister();
   const [optIn, setOptIn] = useState(false);
 
   return (
@@ -108,6 +109,14 @@ export default function Register() {
             </center>
           )}
         </S.Form>
+
+        <SnackbarAlerts
+          setOpen={() => setRegisterError('')}
+          open={!!registerError}
+          message={registerError}
+          severity={'error'}
+          onClose={() => setRegisterError('')}
+        />
       </S.Wrapper>
     </S.Main>
   );

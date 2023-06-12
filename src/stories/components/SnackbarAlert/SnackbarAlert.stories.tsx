@@ -18,20 +18,17 @@ export default meta;
 type Story = StoryObj<typeof SnackbarAlerts>;
 
 const SnackbarAlertsDemo = (args: SnackbarAlertsProps) => {
-  const [open, setOpen] = useState(args.open);
+  const [open, setOpen] = useState(true);
 
   const handleCloseModal = () => {
     setOpen(false);
   };
-  const handleOpenModal = () => {
-    setOpen(true);
-  };
   return (
     <div>
-      <button onClick={handleOpenModal}>Snackbar</button>
       <SnackbarAlerts
         {...args}
         onClose={handleCloseModal}
+        setOpen={setOpen}
         open={open}
         anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
       ></SnackbarAlerts>
