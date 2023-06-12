@@ -1,5 +1,6 @@
 'use client';
 
+import { Button } from 'stories/components/Forms/Button';
 import { Table } from 'stories/components/Table';
 import { ColumnProps } from 'stories/components/Table/types';
 import { Logger } from 'utils';
@@ -13,14 +14,56 @@ const column: ColumnProps[] = [
 ];
 
 const data = [
-  { name: 'Frozen yoghurt', calories: 159, fat: 6.0, carbs: 24, protein: <button>oi</button> },
-  { name: 'Ice cream sandwich', calories: 237, fat: 9.0, carbs: 37, protein: 4.3 },
-  { name: 'Eclair', calories: 262, fat: 16.0, carbs: 24, protein: 6.0 },
-  { name: 'Eclair 1', calories: 262, fat: 16.0, carbs: 24, protein: 6.0 },
-  { name: 'Eclair 2', calories: 262, fat: 16.0, carbs: 24, protein: 6.0 },
-  { name: 'Eclair 3', calories: 262, fat: 16.0, carbs: 24, protein: 6.0 }
+  {
+    name: 'Frozen yoghurt',
+    calories: 159,
+    fat: 6.0,
+    carbs: 24,
+    protein: <Button variant="outlined">Link</Button>
+  },
+  {
+    name: 'Ice cream sandwich',
+    calories: 237,
+    fat: 9.0,
+    carbs: 37,
+    protein: <Button variant="outlined">Link</Button>
+  },
+  {
+    name: 'Eclair',
+    calories: 262,
+    fat: 16.0,
+    carbs: 24,
+    protein: <Button variant="outlined">Link</Button>
+  },
+  {
+    name: 'Eclair 1',
+    calories: 262,
+    fat: 16.0,
+    carbs: 24,
+    protein: <Button variant="outlined">Link</Button>
+  },
+  {
+    name: 'Eclair 2',
+    calories: 262,
+    fat: 16.0,
+    carbs: 24,
+    protein: <Button variant="outlined">Link</Button>
+  },
+  {
+    name: 'Eclair 3',
+    calories: 262,
+    fat: 16.0,
+    carbs: 24,
+    protein: <Button variant="outlined">Link</Button>
+  }
 ];
 
 export default function Teste() {
-  return <Table column={column} rowData={data} sortable paginable onRowClick={Logger.info} />;
+  return (
+    <>
+      <h3>Tabela de coisas</h3>
+      <br />
+      <Table column={column} rowData={data} paginable onRowClick={Logger.info} />
+    </>
+  );
 }
