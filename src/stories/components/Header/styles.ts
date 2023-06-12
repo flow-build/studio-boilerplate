@@ -1,5 +1,4 @@
 import { Grid } from '@mui/material';
-import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Divider from '@mui/material/Divider';
 import { styled } from '@mui/material/styles';
@@ -8,6 +7,8 @@ import Typography from '@mui/material/Typography';
 import Link from 'next/link';
 import { fontSizes } from 'theme/fontSizes.theme';
 import { spacing } from 'theme/spacing';
+
+import { Button } from '../Forms/Button';
 
 export const ToolbarHeader = styled(Toolbar)`
   display: flex;

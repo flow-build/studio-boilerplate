@@ -1,8 +1,8 @@
 'use client';
 
-import Button from '@mui/material/Button';
 import { redirect } from 'next/navigation';
 import { InputPassword } from 'stories/components';
+import { Button } from 'stories/components/Forms/Button';
 import { Logo } from 'stories/components/Logo';
 import { getErrorsFormik, getHelperTextFormik } from 'utils';
 

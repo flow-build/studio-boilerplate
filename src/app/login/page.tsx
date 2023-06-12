@@ -1,9 +1,9 @@
 'use client';
 
-import Button from '@mui/material/Button';
 import Checkbox from '@mui/material/Checkbox';
 import Link from 'next/link';
 import { InputPassword, InputText } from 'stories/components';
+import { Button } from 'stories/components/Forms/Button';
 import { Logo } from 'stories/components/Logo';
 import { getErrorsFormik, getHelperTextFormik } from 'utils';
 
