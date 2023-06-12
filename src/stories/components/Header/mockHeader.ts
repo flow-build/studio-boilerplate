@@ -1,33 +1,59 @@
+import { AccessTime, Announcement, House, Message, TableRows } from '@mui/icons-material';
 import { Logger } from 'utils';
 
 export const menuItems = [
   {
     id: '1',
-    redirectLink: '/inicio',
-    title: 'Inicio'
+    redirectLink: '/listings',
+    title: 'Anuncios',
+    icon: {
+      redirectLink: '/listings',
+      icon: Announcement
+    }
   },
   {
     id: '2',
-    redirectLink: '/sobre',
-    title: 'Sobre'
+    redirectLink: '/locacoes',
+    title: 'Locações',
+    icon: {
+      redirectLink: '/locacoes',
+      icon: House
+    }
   },
   {
-    id: '2',
-    redirectLink: '/contato',
-    title: 'Contato'
+    id: '3',
+    redirectLink: '/mensagens',
+    title: 'Mensagens',
+    icon: {
+      redirectLink: '/mensagens',
+      icon: Message,
+      badge: 12
+    }
   },
   {
-    id: '2',
-    redirectLink: '/faq',
-    title: 'FAQ'
+    id: '4',
+    redirectLink: '/acessos',
+    title: 'Acessos',
+    icon: {
+      redirectLink: '/acessos',
+      icon: AccessTime
+    }
+  },
+  {
+    id: '5',
+    redirectLink: '/table',
+    title: 'Tabela',
+    icon: {
+      redirectLink: '/table',
+      icon: TableRows
+    }
   }
 ];
 
 export const links = [
-  { name: '[Início]', url: '/' },
-  { name: '[Sobre]', url: '/sobre' },
-  { name: '[Contato]', url: '/sobre' },
-  { name: '[FAQ]', url: '/faq' }
+  { name: 'Início', url: '/' },
+  { name: 'Anúncios', url: '/listings' },
+  { name: 'Cadastro', url: '/register' }
 ];
 
 export const button = {

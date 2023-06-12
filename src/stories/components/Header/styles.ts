@@ -1,4 +1,4 @@
-import Button from '@mui/material/Button';
+import { Grid } from '@mui/material';
 import Container from '@mui/material/Container';
 import Divider from '@mui/material/Divider';
 import { styled } from '@mui/material/styles';
@@ -8,21 +8,29 @@ import Link from 'next/link';
 import { fontSizes } from 'theme/fontSizes.theme';
 import { spacing } from 'theme/spacing';
 
+import { Button } from '../Forms/Button';
+
 export const ToolbarHeader = styled(Toolbar)`
   display: flex;
   justify-content: center;
 `;
 
 export const Content = styled('div')`
-  display: flex;
   width: 100%;
   max-width: 75rem;
-  justify-content: center;
+  display: grid;
+  grid-template-areas: 'menu logo search links button-avatar';
+  grid-template-columns: 5% 15% 50% 25% 5%;
   align-items: center;
 `;
 
-export const Wrapper = styled('div')`
+export const WrapperMenu = styled('div')`
   padding-right: ${spacing.S10};
+  grid-area: menu;
+`;
+
+export const WrapperLogo = styled('div')`
+  grid-area: logo;
 `;
 
 export const ContainerHeader = styled(Container, {
@@ -30,13 +38,22 @@ export const ContainerHeader = styled(Container, {
 })<{
   loggedIn: boolean;
 }>`
+  grid-area: links;
+  max-height: 4rem;
+
   display: flex;
   justify-content: ${({ loggedIn }) => (loggedIn ? 'center' : 'flex-end')};
   gap: ${({ loggedIn }) => (loggedIn ? 'initial' : spacing.S16)};
   ${({ theme }) => theme.breakpoints.up('lg')} {
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
   }
+`;
+
+export const IconWrapper = styled(Grid)`
+  display: flex;
+  justify-content: flex-end;
+  padding-right: ${spacing.S16};
 `;
 
 export const ContainerHeaderAvatar = styled(Container)`
@@ -68,4 +85,31 @@ export const LinkHeader = styled(Link)`
 
 export const DividerHeader = styled(Divider)`
   font-size: ${fontSizes.F20};
+`;
+
+export const WrapperInputSearch = styled(`div`)`
+  grid-area: search;
+
+  ${({ theme }) => theme.breakpoints.up('sm')} {
+    margin: 0 ${spacing.S20};
+
+    .MuiInputBase-root {
+      padding: 0 !important;
+    }
+
+    button {
+      padding-top: ${spacing.S16};
+    }
+  }
+`;
+
+export const ButtonAvatar = styled('div')`
+  grid-area: button-avatar;
+  max-height: 4rem;
+  justify-self: end;
+
+  div {
+    padding: 0;
+    margin: 0;
+  }
 `;

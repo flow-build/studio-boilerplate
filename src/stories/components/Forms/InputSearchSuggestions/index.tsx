@@ -16,11 +16,15 @@ export const InputSearchAutocomplete = ({
   suggestions,
   isLoading = false,
   onInputChange,
-  onChange
+  onChange,
+  onClickIconSearch,
+  onKeyUp,
+  className
 }: InputSearchAutocompleteProps) => {
   const [open, setOpen] = useState(false);
   return (
     <Autocomplete
+      className={className}
       open={open}
       onOpen={() => setOpen(true)}
       onClose={() => setOpen(false)}
@@ -32,6 +36,7 @@ export const InputSearchAutocomplete = ({
       loadingText={loadingText}
       onInputChange={onInputChange}
       onChange={onChange}
+      onKeyUp={onKeyUp}
       renderInput={(params) => (
         <TextField
           {...params}
@@ -43,7 +48,7 @@ export const InputSearchAutocomplete = ({
                 {isLoading ? (
                   <CircularProgress color="inherit" size={20} />
                 ) : (
-                  <IconButton type="button" aria-label="search">
+                  <IconButton type="button" aria-label="search" onClick={onClickIconSearch}>
                     <SearchIcon />
                   </IconButton>
                 )}

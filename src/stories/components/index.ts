@@ -14,3 +14,4 @@ export * from './MainContent';
 export * from './Modal';
 export * from './ProgressBar';
 export * from './SocialNetworks';
+export * from './Table';

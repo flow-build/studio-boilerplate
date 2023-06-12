@@ -1,5 +1,9 @@
+import { useDispatch } from 'react-redux';
+
 import { useFormik } from 'formik';
+import _delay from 'lodash/delay';
 import { useRouter } from 'next/navigation';
+import { setTempEmail } from 'store/slices/user';
 import { Logger, validateCPF } from 'utils';
 import * as yup from 'yup';
 
@@ -16,10 +20,11 @@ export const useRegister = () => {
     confirmPassword: ''
   };
   const router = useRouter();
+  const dispatch = useDispatch();
 
   const validations = {
     name: yup.string().required(messages.fieldRequired),
-    email: yup.string().required(messages.fieldRequired).email(messages.emailRequired),
+    email: yup.string().required(messages.fieldRequired).email(messages.invalidEmail),
     phone: yup.string(),
     fiscalId: yup.string().test('valid fiscalId', messages.invalidFiscalId, (value) => {
       if (!value) return true;
@@ -40,9 +45,11 @@ export const useRegister = () => {
     validateOnBlur: true,
     onSubmit: async (values) => {
       try {
+        api.setBaseUrl('');
         const result = await api.post<{ status: number }>('/api/signUp', values);
         if (result?.status === 200) {
-          router.push('/token');
+          dispatch(setTempEmail(values.email));
+          _delay(() => router.push('/verify-email'), 500);
         } else {
           Logger.error('error creating user');
         }

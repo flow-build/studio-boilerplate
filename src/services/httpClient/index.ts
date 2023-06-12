@@ -1,23 +1,26 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import Logger from 'utils/logger';
 
-interface Error {
-  message: string;
-  status: number;
-}
+import { BaseResponse } from './types';
 
 function API() {
   let BASE_URL = '';
-  let HEADER: HeadersInit;
+  let HEADER: HeadersInit = {
+    'Content-Type': 'application/json'
+  };
+
+  function isBaseResponse<T>(response: BaseResponse<T>): response is BaseResponse<T> {
+    return !!response.status;
+  }
 
   return {
     setBaseUrl(baseUrl: string) {
       BASE_URL = baseUrl;
     },
     setHeader(header: HeadersInit) {
-      HEADER = header;
+      HEADER = { ...HEADER, ...header };
     },
-    async get<T>(url: string, options?: RequestInit): Promise<T | Error> {
+    async get<T>(url: string, options?: RequestInit): Promise<BaseResponse<T>> {
       try {
         const response = await fetch(`${BASE_URL}${url}`, {
           ...options,
@@ -26,18 +29,23 @@ function API() {
             ...HEADER
           }
         });
-        const result = await response.json();
+        const result = (await response.json()) as T;
 
-        return result as T;
+        return {
+          status: 100,
+          ok: true,
+          data: result
+        };
       } catch (error) {
         Logger.error({ error });
         return {
           message: 'Error message',
-          status: 400
+          status: 400,
+          ok: false
         };
       }
     },
-    async post<T>(url: string, data?: any, options?: RequestInit): Promise<T | Error> {
+    async post<T>(url: string, data?: any, options?: RequestInit): Promise<BaseResponse<T>> {
       try {
         const body: string | undefined = data ? JSON.stringify(data) : undefined;
         const response = await fetch(`${BASE_URL}${url}`, {
@@ -49,15 +57,30 @@ function API() {
             ...HEADER
           }
         });
-        const result = await response.json();
 
-        return result as T;
+        const result = (await response.json()) as BaseResponse<T>;
+
+        if (isBaseResponse(result)) {
+          return result;
+        }
+
+        return {
+          status: 200,
+          ok: true,
+          data: result
+        };
       } catch (error) {
         Logger.error({ error });
-        return {
-          message: 'Error message',
-          status: 400
-        };
+
+        if (error instanceof Error) {
+          return {
+            message: error?.message,
+            ok: false,
+            status: 400
+          };
+        }
+
+        return { ok: false, status: 400 };
       }
     }
   };

@@ -1,4 +1,4 @@
-type ItemsBreadcrumb = {
+export type ItemsBreadcrumb = {
   text: string;
   redirectLink?: string;
 };

@@ -2,6 +2,7 @@ import CardMUI from '@mui/material/Card';
 import CardMediaMUI from '@mui/material/CardMedia';
 import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
+import { fontSizes } from 'theme/fontSizes.theme';
 import { spacing } from 'theme/spacing';
 
 import { Mode } from './types';
@@ -21,7 +22,7 @@ export const CardMedia = styled(CardMediaMUI, {
 })<{
   mode: Mode;
 }>`
-  height: ${({ mode }) => (mode === 'vertical' ? '8.75rem' : 'auto')};
+  height: ${({ mode }) => (mode === 'vertical' ? '12rem' : 'auto')};
   width: ${({ mode }) => (mode === 'horizontal' ? '33%' : 'auto')};
   margin: ${({ mode }) => (mode === 'horizontal' ? spacing.S10 : '0')};
 `;
@@ -32,6 +33,7 @@ export const Description = styled(Typography)`
 
 export const Price = styled(Typography)`
   color: ${({ theme }) => theme.palette.primary.main};
+  height: 2.5rem;
 `;
 
 export const WrapperAttributes = styled('div')`
@@ -41,6 +43,7 @@ export const WrapperAttributes = styled('div')`
 `;
 
 export const AttributeText = styled(Typography)`
+  font-size: ${fontSizes.F12};
   ::after {
     content: '|';
     margin-left: ${spacing.S4};
@@ -48,4 +51,8 @@ export const AttributeText = styled(Typography)`
   :last-child::after {
     content: '';
   }
+`;
+
+export const Title = styled(Typography)`
+  height: 4rem;
 `;

@@ -3,14 +3,17 @@ import React, { FC } from 'react';
 
 import Grid from '@mui/material/Grid';
 import Link from 'next/link';
+import { getAvatarURL } from 'utils';
 
+import { Avatar } from '../Avatar';
+import { IconLink } from '../IconLink';
 import { Logo } from '../Logo';
 import * as S from './styles';
 import { MenuProps } from './types';
 import { useMenu } from './useMenu';
 import { MenuVariant } from './utils';
 
-export const Menu: FC<MenuProps> = ({ menuItems = [], logo, anchor, variant }) => {
+export const Menu: FC<MenuProps> = ({ menuItems = [], urlImgLogo, anchor, variant, username }) => {
   const { isOpen, handleOpen, handleClose } = useMenu();
 
   return (
@@ -28,7 +31,9 @@ export const Menu: FC<MenuProps> = ({ menuItems = [], logo, anchor, variant }) =
       >
         <S.DrawerGrid>
           <S.ButtonWrapper>
-            <S.LogoWrapper hasLogo={!!logo}>{logo && <Logo />}</S.LogoWrapper>
+            <S.LogoWrapper hasLogo={!!urlImgLogo}>
+              {urlImgLogo && <Logo urlImg={urlImgLogo} />}
+            </S.LogoWrapper>
             {variant !== MenuVariant.permanent && (
               <S.CloseDrawerButton variant="outlined" onClick={handleClose}>
                 <S.CloseDrawerIcon fontSize="small" />
@@ -38,13 +43,17 @@ export const Menu: FC<MenuProps> = ({ menuItems = [], logo, anchor, variant }) =
           <Grid item xs={12}>
             <S.MenuList>
               {menuItems.map((item) => (
-                <Link href={item.redirectLink} key={item.id}>
+                <S.LinkIcon key={item.id} onClick={() => handleClose()}>
+                  {item.icon && <IconLink {...item.icon} />}
                   <S.MenuItem key={item.id} disablePadding>
-                    <S.TitleCategory primary={item.title} />
+                    <Link href={item.redirectLink}>
+                      <S.TitleCategory primary={item.title} />
+                    </Link>
                   </S.MenuItem>
-                </Link>
+                </S.LinkIcon>
               ))}
             </S.MenuList>
+            {username && <Avatar alt={username} src={getAvatarURL(username)} email={username} />}
           </Grid>
         </S.DrawerGrid>
       </S.MenuDrawer>

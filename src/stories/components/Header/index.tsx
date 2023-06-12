@@ -2,58 +2,61 @@
 import React from 'react';
 
 import { AppBar } from '@mui/material';
+import { getAvatarURL } from 'utils';
 
+import { Avatar } from '../Avatar';
+import { InputSearchElastic } from '../ElasticSearch';
 import { Logo } from '../Logo';
 import { Menu } from '../Menu';
 import * as S from './styles';
 import { HeaderProps } from './types';
 
 export const Header: React.FC<HeaderProps> = ({
-  logo,
+  urlImgLogo,
   links,
   button,
-  loggedIn,
   username,
-  menu
+  menu,
+  search
 }) => {
   return (
     <AppBar position="static" color="default">
       <S.ToolbarHeader>
         <S.Content>
           {menu && (
-            <S.Wrapper>
+            <S.WrapperMenu>
               <Menu {...menu} />
-            </S.Wrapper>
+            </S.WrapperMenu>
           )}
-          {logo && <Logo />}
-          <S.ContainerHeader loggedIn={loggedIn ?? false}>
+          {urlImgLogo && (
+            <S.WrapperLogo>
+              <Logo urlImg={urlImgLogo} />
+            </S.WrapperLogo>
+          )}
+          <S.WrapperInputSearch>
+            {search && <InputSearchElastic {...search} className="search-header" />}
+          </S.WrapperInputSearch>
+          <S.ContainerHeader loggedIn={!!username}>
             {links?.map((link) => (
-              <S.DividedLink loggedIn={loggedIn ?? false} key={link.name}>
+              <S.DividedLink loggedIn={!!username} key={link.name}>
                 <S.LinkHeader href={link.url}>{link.name}</S.LinkHeader>
               </S.DividedLink>
             ))}
           </S.ContainerHeader>
-          {loggedIn === true ? (
-            username != null && (
+          <S.ButtonAvatar>
+            {username ? (
+              <Avatar alt={username} src={getAvatarURL(username)} />
+            ) : (
               <S.ButtonHeader
                 color="inherit"
                 variant="outlined"
                 size="large"
                 onClick={button.onClick}
               >
-                {username}
+                {button.name}
               </S.ButtonHeader>
-            )
-          ) : (
-            <S.ButtonHeader
-              color="inherit"
-              variant="outlined"
-              size="large"
-              onClick={button.onClick}
-            >
-              {button.name}
-            </S.ButtonHeader>
-          )}
+            )}
+          </S.ButtonAvatar>
         </S.Content>
       </S.ToolbarHeader>
     </AppBar>

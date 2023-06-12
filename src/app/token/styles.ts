@@ -18,7 +18,7 @@ export const Wrapper = styled('div')`
   ${({ theme }) => theme.breakpoints.up('sm')} {
     max-width: none;
     width: 37.5rem;
-    height: ${spacing.S384};
+    height: 24rem;
   }
 `;
 
