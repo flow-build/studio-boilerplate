@@ -21,7 +21,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       res.status(200).json({ ok: true, status: 200 });
     } catch (error) {
       Logger.error({ error });
-      res.status(400).json({ message: 'Usuário ou senha inválidos', status: 400 });
+      res.status(400).json({ message: 'Erro ao realizar cadastro', status: 400 });
     }
   }
 }

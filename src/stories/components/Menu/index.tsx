@@ -2,12 +2,12 @@
 import React, { FC } from 'react';
 
 import Grid from '@mui/material/Grid';
+import { Logo } from 'components';
 import Link from 'next/link';
 import { getAvatarURL } from 'utils';
 
 import { Avatar } from '../Avatar';
 import { IconLink } from '../IconLink';
-import { Logo } from '../Logo';
 import * as S from './styles';
 import { MenuProps } from './types';
 import { useMenu } from './useMenu';

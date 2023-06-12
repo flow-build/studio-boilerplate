@@ -1,10 +1,9 @@
 'use client';
-
-import Button from '@mui/material/Button';
 import Checkbox from '@mui/material/Checkbox';
+import { Logo } from 'components';
 import Link from 'next/link';
-import { InputPassword, InputText } from 'stories/components';
-import { Logo } from 'stories/components/Logo';
+import { InputPassword, InputText, SnackbarAlerts } from 'stories/components';
+import { Button } from 'stories/components/Forms/Button';
 import { getErrorsFormik, getHelperTextFormik } from 'utils';
 
 import { defaultValues } from '../../constants';
@@ -12,7 +11,7 @@ import * as S from './styles';
 import { useLogin } from './useLogin';
 
 export default function Login() {
-  const { formik } = useLogin();
+  const { formik, loginError, setLoginError } = useLogin();
 
   return (
     <S.Main>
@@ -54,6 +53,14 @@ export default function Login() {
             Entrar
           </Button>
         </S.Form>
+
+        <SnackbarAlerts
+          setOpen={() => setLoginError('')}
+          open={!!loginError}
+          message={loginError}
+          severity={'error'}
+          onClose={() => setLoginError('')}
+        />
       </S.Wrapper>
     </S.Main>
   );

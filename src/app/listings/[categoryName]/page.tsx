@@ -8,7 +8,7 @@ import * as S from '../styles';
 
 export default function CategoryName() {
   const params = useParams();
-  const searchTerm = decodeURI(params?.term?.toString() ?? '');
+  const searchTerm = decodeURI(params?.categoryName?.toString() ?? '');
 
   const { data } = useListings(searchTerm ?? '', searchTerm, true);
   return (

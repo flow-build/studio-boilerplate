@@ -2,19 +2,29 @@
 
 import { useState } from 'react';
 
-import Button from '@mui/material/Button';
 import Checkbox from '@mui/material/Checkbox';
 import CircularProgress from '@mui/material/CircularProgress';
 import Link from 'next/link';
-import { InputPassword, InputText } from 'stories/components';
+import { InputPassword, InputText, SnackbarAlerts } from 'stories/components';
+import { Button } from 'stories/components/Forms/Button';
 import { getErrorsFormik, getHelperTextFormik, maskCPF, maskPhoneNumber } from 'utils';
 
 import * as S from './styles';
 import { useRegister } from './useRegister';
 
 export default function Register() {
-  const { formik } = useRegister();
+  const { formik, notification, setNotification, successMessage } = useRegister();
   const [optIn, setOptIn] = useState(false);
+
+  const getSeverity = () => {
+    if (notification) {
+      return 'error';
+    } else if (successMessage) {
+      return 'success';
+    } else {
+      return 'error';
+    }
+  };
 
   return (
     <S.Main>
@@ -90,7 +100,7 @@ export default function Register() {
                 onChange={(e) => setOptIn(e.currentTarget.value === 'on')}
               />
               <span>
-                Li e aceito os <Link href="#">temos</Link> de uso
+                Li e aceito os <Link href="#">termos</Link> de uso
               </span>
             </span>
           </S.FooterForm>
@@ -108,6 +118,14 @@ export default function Register() {
             </center>
           )}
         </S.Form>
+
+        <SnackbarAlerts
+          setOpen={() => setNotification('')}
+          open={!!notification || !!successMessage}
+          message={notification || successMessage}
+          severity={getSeverity()}
+          onClose={() => setNotification('')}
+        />
       </S.Wrapper>
     </S.Main>
   );

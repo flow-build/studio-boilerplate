@@ -2,10 +2,10 @@
 
 import { FormEvent, useState } from 'react';
 
+import { Logo } from 'components';
 import _isEqual from 'lodash/isEqual';
 import { Button } from 'stories/components/Forms/Button';
 import { OTPInput } from 'stories/components/Forms/OTPInput';
-import { Logo } from 'stories/components/Logo';
 import { Logger } from 'utils';
 
 import { defaultValues } from '../../constants';

@@ -2,11 +2,11 @@
 import React from 'react';
 
 import { AppBar } from '@mui/material';
+import { Logo } from 'components';
 import { getAvatarURL } from 'utils';
 
 import { Avatar } from '../Avatar';
 import { InputSearchElastic } from '../ElasticSearch';
-import { Logo } from '../Logo';
 import { Menu } from '../Menu';
 import * as S from './styles';
 import { HeaderProps } from './types';

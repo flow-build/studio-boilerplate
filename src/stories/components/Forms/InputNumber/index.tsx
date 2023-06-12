@@ -1,4 +1,5 @@
-import React, { useCallback, useState } from 'react';
+'use client';
+import { useCallback, useState } from 'react';
 
 import * as S from './styles';
 import { InputNumberProps } from './types';
