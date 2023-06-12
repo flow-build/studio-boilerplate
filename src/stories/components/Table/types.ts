@@ -1,6 +1,6 @@
 import { TableCellProps } from '@mui/material';
 
-export type Data = { [key: string]: string | number | React.ReactNode };
+export type Data = { [key: string]: string | number | React.JSX.Element };
 
 export type Order = 'asc' | 'desc';
 
@@ -20,7 +20,7 @@ export type PaginationConfig = {
 export type TableProps = {
   column: Array<ColumnProps>;
   rowData?: Array<Data>;
-  onRowClick?: (data: { [key: string]: string | number | React.ReactNode }) => void;
+  onRowClick?: (data: Data) => void;
   sortable?: boolean;
   paginable?: boolean;
   paginationConfig?: PaginationConfig;

@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { isValidElement, useCallback, useMemo } from 'react';
 
 import Paper from '@mui/material/Paper';
 import MuiTable from '@mui/material/Table';
@@ -41,6 +41,13 @@ export const Table: React.FC<TableProps> = ({
     return sortedData.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage);
   }, [rowData, paginable, stableSort, getComparator, order, orderBy, page, rowsPerPage]);
 
+  const hasReactNode = useCallback(
+    (field: string) => {
+      return rowData?.some((row) => isValidElement(row[field]));
+    },
+    [rowData]
+  );
+
   return (
     <S.Wrapper {...props}>
       <TableContainer component={Paper}>
@@ -49,9 +56,9 @@ export const Table: React.FC<TableProps> = ({
             <S.TableRow>
               {column.map((elem) => (
                 <TableCell key={elem.field} {...elem}>
-                  {!sortable && (elem.label ?? elem.field)}
+                  {(hasReactNode(elem.field) || !sortable) && (elem.label ?? elem.field)}
 
-                  {sortable && (
+                  {!hasReactNode(elem.field) && sortable && (
                     <SortLabel
                       label={elem.label ?? elem.field}
                       isActive={orderBy === elem.field}

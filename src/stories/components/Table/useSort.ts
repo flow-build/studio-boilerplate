@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { isValidElement, useState } from 'react';
 
 import { Data, Order } from 'stories/components/Table/types';
 
@@ -7,6 +7,10 @@ export function useSort() {
   const [orderBy, setOrderBy] = useState<string>();
 
   function descendingComparator(a: Data, b: Data, orderBy: string) {
+    if (isValidElement(a[orderBy])) {
+      return 0;
+    }
+
     if (b[orderBy] < a[orderBy]) {
       return -1;
     }
