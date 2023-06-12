@@ -14,13 +14,13 @@ export const BodyContent = () => {
   const { getPropsCard } = useBodyContent(configFields?.fields);
 
   const resultView = useCallback(
-    ({ result, key }: ResultViewProps) => {
+    ({ result }: ResultViewProps) => {
       const propsCard = getPropsCard<CardProps>(result);
 
       if (!propsCard) return null;
 
       return (
-        <S.ItemResult key={key}>
+        <S.ItemResult key={result.id.raw}>
           <Card {...propsCard} mode={modeView} />
         </S.ItemResult>
       );
