@@ -2,11 +2,11 @@
 
 import { useState } from 'react';
 
-import Button from '@mui/material/Button';
 import Checkbox from '@mui/material/Checkbox';
 import CircularProgress from '@mui/material/CircularProgress';
 import Link from 'next/link';
 import { InputPassword, InputText } from 'stories/components';
+import { Button } from 'stories/components/Forms/Button';
 import { getErrorsFormik, getHelperTextFormik, maskCPF, maskPhoneNumber } from 'utils';
 
 import * as S from './styles';
