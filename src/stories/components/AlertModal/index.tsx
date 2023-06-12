@@ -1,14 +1,23 @@
+import { Button } from '../Forms/Button';
 import * as S from './styles';
 import { AlertModalProps } from './types';
 
-export function AlertModal({ alertTitle, alertText, open, onClose, buttonText }: AlertModalProps) {
+export function AlertModal({
+  alertTitle,
+  alertText,
+  open,
+  onClose,
+  buttonText,
+  color = 'error',
+  variant = 'contained'
+}: AlertModalProps) {
   return (
     <S.BoxModal title={alertTitle} closeModal={onClose} open={open}>
       <S.BoxAlert>
         {alertText}
-        <S.IconButton onClick={onClose} variant="outlined">
+        <Button onClick={onClose} variant={variant} color={color}>
           {buttonText ?? 'OK'}
-        </S.IconButton>
+        </Button>
       </S.BoxAlert>
     </S.BoxModal>
   );
