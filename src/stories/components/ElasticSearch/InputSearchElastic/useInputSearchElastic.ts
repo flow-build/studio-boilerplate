@@ -9,7 +9,6 @@ export const useInputSearchElastic = ({
   endpointBase,
   countItemsResult = 3
 }: UseInputSearchElasticProps) => {
-  api.setBaseUrl(endpointBase);
   api.setHeader({
     'Content-Type': 'application/json',
     Authorization: `Bearer ${searchKey}`
@@ -22,7 +21,7 @@ export const useInputSearchElastic = ({
     };
 
     const response = await api.post<ResultSuggestions>(
-      `/api/as/v1/engines/${engineName}/query_suggestion`,
+      `${endpointBase}/api/as/v1/engines/${engineName}/query_suggestion`,
       body
     );
 

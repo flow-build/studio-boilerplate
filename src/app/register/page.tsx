@@ -5,9 +5,8 @@ import { useState } from 'react';
 import Checkbox from '@mui/material/Checkbox';
 import CircularProgress from '@mui/material/CircularProgress';
 import Link from 'next/link';
-import { InputPassword, InputText } from 'stories/components';
+import { InputPassword, InputText, SnackbarAlerts } from 'stories/components';
 import { Button } from 'stories/components/Forms/Button';
-import { SnackbarAlerts } from 'stories/components/SnackbarAlert';
 import { getErrorsFormik, getHelperTextFormik, maskCPF, maskPhoneNumber } from 'utils';
 
 import * as S from './styles';
@@ -101,7 +100,7 @@ export default function Register() {
                 onChange={(e) => setOptIn(e.currentTarget.value === 'on')}
               />
               <span>
-                Li e aceito os <Link href="#">temos</Link> de uso
+                Li e aceito os <Link href="#">termos</Link> de uso
               </span>
             </span>
           </S.FooterForm>

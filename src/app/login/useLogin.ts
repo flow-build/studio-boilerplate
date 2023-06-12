@@ -40,7 +40,6 @@ export const useLogin = () => {
   async function onSubmit(values: typeof INITIAL_VALUES) {
     try {
       dispatch(setIsLoading(true));
-      api.setBaseUrl('');
       const result = await api.post<CognitoSignIn>('/api/signIn', values);
 
       if (_isEqual(result?.status, 200)) {
