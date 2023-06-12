@@ -7,6 +7,9 @@ export function ConfirmModal({
   textButtonConfirm = 'Confirmar',
   textButtonCancel = 'Cancelar',
   open,
+  colorButtonConfirm = 'success',
+  colorButtonCancel = 'warning',
+  variant = 'contained',
   onConfirm
 }: ConfirmModalProps) {
   return (
@@ -14,12 +17,20 @@ export function ConfirmModal({
       <S.BoxConfirm>
         {text}
         <S.BoxButton>
-          <S.IconButton onClick={() => onConfirm(true)} variant="outlined">
+          <S.ConfirmButton
+            color={colorButtonConfirm}
+            variant={variant}
+            onClick={() => onConfirm(true)}
+          >
             {textButtonConfirm}
-          </S.IconButton>
-          <S.IconButton onClick={() => onConfirm(false)} variant="outlined">
+          </S.ConfirmButton>
+          <S.CancelButton
+            color={colorButtonCancel}
+            variant={variant}
+            onClick={() => onConfirm(false)}
+          >
             {textButtonCancel}
-          </S.IconButton>
+          </S.CancelButton>
         </S.BoxButton>
       </S.BoxConfirm>
     </S.BoxModal>

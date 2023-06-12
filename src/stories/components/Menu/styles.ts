@@ -1,7 +1,6 @@
 import { Menu } from '@mui/icons-material';
 import CloseIcon from '@mui/icons-material/Close';
 import { ListItem, ListItemText } from '@mui/material';
-import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid';
 import List from '@mui/material/List';
@@ -9,6 +8,8 @@ import { styled } from '@mui/material/styles';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import { fontSizes } from 'theme/fontSizes.theme';
 import { spacing } from 'theme/spacing';
+
+import { Button } from '../Forms/Button';
 
 export const GridHeader = styled(Grid)`
   display: flex;
