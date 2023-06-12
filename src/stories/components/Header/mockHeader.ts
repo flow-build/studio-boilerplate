@@ -5,7 +5,7 @@ export const menuItems = [
   {
     id: '1',
     redirectLink: '/listings',
-    title: 'Anuncios',
+    title: 'Anúncios',
     icon: {
       redirectLink: '/listings',
       icon: Announcement
@@ -13,30 +13,30 @@ export const menuItems = [
   },
   {
     id: '2',
-    redirectLink: '/locacoes',
-    title: 'Locações',
+    redirectLink: '/form',
+    title: 'Formulário de coisa',
     icon: {
-      redirectLink: '/locacoes',
+      redirectLink: '/form',
       icon: House
     }
   },
   {
     id: '3',
-    redirectLink: '/mensagens',
-    title: 'Mensagens',
+    redirectLink: '/static-page',
+    title: 'Página estática',
     icon: {
-      redirectLink: '/mensagens',
-      icon: Message,
-      badge: 12
+      redirectLink: '/static page',
+      icon: AccessTime
     }
   },
   {
     id: '4',
-    redirectLink: '/acessos',
-    title: 'Acessos',
+    redirectLink: '/',
+    title: 'Notificações',
     icon: {
-      redirectLink: '/acessos',
-      icon: AccessTime
+      redirectLink: '/',
+      icon: Message,
+      badge: 12
     }
   },
   {

@@ -3,6 +3,7 @@
 import { FormEvent, useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { Logo } from 'components';
 import { cryptoConfig } from 'config/crypto';
 import cryptoJs from 'crypto-js';
 import _isEqual from 'lodash/isEqual';
@@ -12,7 +13,6 @@ import { RootState, store } from 'store';
 import { reset, setNewPassword } from 'store/slices/user';
 import { Button } from 'stories/components/Forms/Button';
 import { OTPInput } from 'stories/components/Forms/OTPInput';
-import { Logo } from 'stories/components/Logo';
 import { Logger } from 'utils';
 
 import { defaultValues } from '../../constants';
@@ -23,7 +23,6 @@ const TOKEN_LENGTH = 6;
 export default function VerifyEmail() {
   const router = useRouter();
   const dispatch = useDispatch();
-  api.setBaseUrl('');
 
   const newPassword = useRef(decryptPassword(store.getState().user.newPassword));
   const email = useSelector((state: RootState) => state.user.tempEmail);

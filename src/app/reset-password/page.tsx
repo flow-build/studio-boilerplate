@@ -1,9 +1,8 @@
 'use client';
 
+import { Logo } from 'components';
 import { redirect } from 'next/navigation';
-import { InputPassword } from 'stories/components';
-import { Button } from 'stories/components/Forms/Button';
-import { Logo } from 'stories/components/Logo';
+import { Button, InputPassword } from 'stories/components';
 import { getErrorsFormik, getHelperTextFormik } from 'utils';
 
 import { defaultValues } from '../../constants';
