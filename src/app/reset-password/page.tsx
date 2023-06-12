@@ -4,6 +4,7 @@ import Button from '@mui/material/Button';
 import { redirect } from 'next/navigation';
 import { InputPassword } from 'stories/components';
 import { Logo } from 'stories/components/Logo';
+import { SnackbarAlerts } from 'stories/components/SnackbarAlert';
 import { getErrorsFormik, getHelperTextFormik } from 'utils';
 
 import { defaultValues } from '../../constants';
@@ -11,7 +12,7 @@ import * as S from './styles';
 import { useResetPassword } from './useResetPassword';
 
 export default function ResetPassword() {
-  const { formik, email } = useResetPassword();
+  const { formik, email, resetPasswordError, setResetPasswordError } = useResetPassword();
 
   if (!email) {
     redirect('/login');
@@ -56,6 +57,13 @@ export default function ResetPassword() {
             Enviar
           </Button>
         </S.Form>
+        <SnackbarAlerts
+          setOpen={() => setResetPasswordError('')}
+          open={!!resetPasswordError}
+          message={resetPasswordError}
+          severity={'error'}
+          onClose={() => setResetPasswordError('')}
+        />
       </S.Wrapper>
     </S.Main>
   );

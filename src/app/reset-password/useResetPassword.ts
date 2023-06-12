@@ -1,3 +1,5 @@
+'use client';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { cryptoConfig } from 'config/crypto';
@@ -9,10 +11,11 @@ import { useRouter } from 'next/navigation';
 import api from 'services/httpClient';
 import { RootState } from 'store';
 import { setNewPassword } from 'store/slices/user';
-import { Logger } from 'utils';
 import * as yup from 'yup';
 
 export const useResetPassword = () => {
+  const [resetPasswordError, setResetPasswordError] = useState('');
+
   const dispatch = useDispatch();
   const email = useSelector((state: RootState) => state.user.tempEmail);
   const router = useRouter();
@@ -50,12 +53,14 @@ export const useResetPassword = () => {
       dispatch(setNewPassword(hash));
       _delay(() => router.push('/verify-email'), 500);
     } else {
-      Logger.error('error resetting password');
+      setResetPasswordError(result.message ?? '');
     }
   }
 
   return {
     formik,
-    email
+    email,
+    resetPasswordError,
+    setResetPasswordError
   };
 };

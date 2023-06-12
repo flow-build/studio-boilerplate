@@ -14,8 +14,18 @@ import * as S from './styles';
 import { useRegister } from './useRegister';
 
 export default function Register() {
-  const { formik, registerError, setRegisterError } = useRegister();
+  const { formik, notification, setNotification, successMessage } = useRegister();
   const [optIn, setOptIn] = useState(false);
+
+  const getSeverity = () => {
+    if (notification) {
+      return 'error';
+    } else if (successMessage) {
+      return 'success';
+    } else {
+      return 'error';
+    }
+  };
 
   return (
     <S.Main>
@@ -111,11 +121,11 @@ export default function Register() {
         </S.Form>
 
         <SnackbarAlerts
-          setOpen={() => setRegisterError('')}
-          open={!!registerError}
-          message={registerError}
-          severity={'error'}
-          onClose={() => setRegisterError('')}
+          setOpen={() => setNotification('')}
+          open={!!notification || !!successMessage}
+          message={notification || successMessage}
+          severity={getSeverity()}
+          onClose={() => setNotification('')}
         />
       </S.Wrapper>
     </S.Main>

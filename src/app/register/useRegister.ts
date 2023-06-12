@@ -13,7 +13,8 @@ import { messages } from '../../constants';
 import api from '../../services/httpClient';
 
 export const useRegister = () => {
-  const [registerError, setRegisterError] = useState('');
+  const [notification, setNotification] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
 
   const INITIAL_VALUES = {
     name: '',
@@ -53,19 +54,24 @@ export const useRegister = () => {
         const result = await api.post<{ status: number }>('/api/signUp', values);
         if (result?.status === 200) {
           dispatch(setTempEmail(values.email));
-          _delay(() => router.push('/verify-email'), 500);
+          setSuccessMessage('Cadastro bem-sucedido!');
+          setNotification(successMessage);
+          _delay(() => {
+            router.push('/verify-email');
+          }, 500);
         } else {
-          setRegisterError(result.message ?? '');
+          setNotification(result.message ?? '');
         }
       } catch (error) {
-        setRegisterError((error as Error).message);
+        setNotification((error as Error).message);
       }
     }
   });
 
   return {
     formik,
-    registerError,
-    setRegisterError
+    notification,
+    setNotification,
+    successMessage
   };
 };
