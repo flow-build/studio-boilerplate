@@ -14,7 +14,8 @@ import { setNewPassword } from 'store/slices/user';
 import * as yup from 'yup';
 
 export const useResetPassword = () => {
-  const [resetPasswordError, setResetPasswordError] = useState('');
+  const [notification, setNotification] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
 
   const dispatch = useDispatch();
   const email = useSelector((state: RootState) => state.user.tempEmail);
@@ -51,16 +52,19 @@ export const useResetPassword = () => {
       ).toString();
 
       dispatch(setNewPassword(hash));
+      setSuccessMessage('Senha modificada com sucesso!');
+      setNotification(successMessage);
       _delay(() => router.push('/verify-email'), 500);
     } else {
-      setResetPasswordError(result.message ?? '');
+      setNotification(result.message ?? '');
     }
   }
 
   return {
     formik,
     email,
-    resetPasswordError,
-    setResetPasswordError
+    notification,
+    setNotification,
+    successMessage
   };
 };

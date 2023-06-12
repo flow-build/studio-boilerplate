@@ -12,11 +12,21 @@ import * as S from './styles';
 import { useResetPassword } from './useResetPassword';
 
 export default function ResetPassword() {
-  const { formik, email, resetPasswordError, setResetPasswordError } = useResetPassword();
+  const { formik, email, notification, setNotification, successMessage } = useResetPassword();
 
   if (!email) {
     redirect('/login');
   }
+
+  const getSeverity = () => {
+    if (notification) {
+      return 'error';
+    } else if (successMessage) {
+      return 'success';
+    } else {
+      return 'error';
+    }
+  };
 
   return (
     <S.Main>
@@ -58,11 +68,11 @@ export default function ResetPassword() {
           </Button>
         </S.Form>
         <SnackbarAlerts
-          setOpen={() => setResetPasswordError('')}
-          open={!!resetPasswordError}
-          message={resetPasswordError}
-          severity={'error'}
-          onClose={() => setResetPasswordError('')}
+          setOpen={() => setNotification('')}
+          open={!!notification || !!successMessage}
+          message={notification || successMessage}
+          severity={getSeverity()}
+          onClose={() => setNotification('')}
         />
       </S.Wrapper>
     </S.Main>
