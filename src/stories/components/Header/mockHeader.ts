@@ -1,4 +1,4 @@
-import { AccessTime, Announcement, House, Message } from '@mui/icons-material';
+import { AccessTime, Announcement, House, Message, TableRows } from '@mui/icons-material';
 import { Logger } from 'utils';
 
 export const menuItems = [
@@ -37,6 +37,15 @@ export const menuItems = [
     icon: {
       redirectLink: '/acessos',
       icon: AccessTime
+    }
+  },
+  {
+    id: '5',
+    redirectLink: '/table',
+    title: 'Tabela',
+    icon: {
+      redirectLink: '/table',
+      icon: TableRows
     }
   }
 ];
