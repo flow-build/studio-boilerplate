@@ -4,6 +4,7 @@ import { Provider as ReduxProvider } from 'react-redux';
 
 import { elasticSearch } from 'config';
 import { useRouter } from 'next/navigation';
+import { project } from 'shared/enum';
 import { store } from 'store';
 import { Header, Footer, MainContent } from 'stories/components';
 import { InputSearchElasticProps } from 'stories/components/ElasticSearch/InputSearchElastic/types';
@@ -13,8 +14,6 @@ import { Loading } from 'stories/components/Loading';
 import { MenuProps } from 'stories/components/Menu/types';
 import { MenuAnchor } from 'stories/components/Menu/utils';
 import { GlobalStyles } from 'theme/Globalstyles';
-
-import { defaultValues } from '../constants';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const router = useRouter();
@@ -32,7 +31,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const menu: MenuProps = {
     anchor: MenuAnchor.left,
     menuItems: menuItems,
-    urlImgLogo: defaultValues.urlImgLogo,
+    urlImgLogo: project.urlImgLogo,
     username: store.getState()?.user?.email
   };
 
@@ -41,7 +40,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <ReduxProvider store={store}>
           <Header
-            urlImgLogo={defaultValues.urlImgLogo}
+            urlImgLogo={project.urlImgLogo}
             menu={menu}
             links={links}
             username={store.getState()?.user?.email}

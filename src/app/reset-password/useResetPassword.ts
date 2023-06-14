@@ -3,12 +3,12 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { cryptoConfig } from 'config/crypto';
-import { messages } from 'constants/index';
 import cryptoJs from 'crypto-js';
 import { useFormik } from 'formik';
 import _delay from 'lodash/delay';
 import { useRouter } from 'next/navigation';
 import api from 'services/httpClient';
+import { messages } from 'shared/enum';
 import { RootState } from 'store';
 import { setNewPassword } from 'store/slices/user';
 import * as yup from 'yup';

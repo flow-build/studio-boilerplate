@@ -2,10 +2,10 @@
 
 import { Logo } from 'components';
 import { redirect } from 'next/navigation';
+import { project } from 'shared/enum';
 import { Button, InputPassword, SnackbarAlerts } from 'stories/components';
 import { getErrorsFormik, getHelperTextFormik } from 'utils';
 
-import { defaultValues } from '../../constants';
 import * as S from './styles';
 import { useResetPassword } from './useResetPassword';
 
@@ -30,7 +30,7 @@ export default function ResetPassword() {
     <S.Main>
       <S.Wrapper>
         <S.SideLeft>
-          <Logo urlImg={defaultValues.urlImgLogo} />
+          <Logo urlImg={project.urlImgLogo} />
         </S.SideLeft>
         <S.Form onSubmit={formik.handleSubmit}>
           <h3>Reset sua senha</h3>

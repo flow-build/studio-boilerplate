@@ -5,11 +5,11 @@ import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
 import _delay from 'lodash/delay';
 import { useRouter } from 'next/navigation';
+import { messages } from 'shared/enum';
 import { setTempEmail } from 'store/slices/user';
 import { validateCPF } from 'utils';
 import * as yup from 'yup';
 
-import { messages } from '../../constants';
 import api from '../../services/httpClient';
 
 export const useRegister = () => {

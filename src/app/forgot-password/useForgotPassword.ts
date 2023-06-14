@@ -3,10 +3,9 @@ import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
 import _delay from 'lodash/delay';
 import { useRouter } from 'next/navigation';
+import { messages } from 'shared/enum';
 import { setResettingPassword } from 'store/slices/user';
 import * as yup from 'yup';
-
-import { messages } from '../../constants';
 
 export const useForgotPassword = () => {
   const router = useRouter();
