@@ -1,6 +1,6 @@
 import { FormValidation, RJSFValidationError } from '@rjsf/utils';
+import { messages } from 'shared/enum';
 
-import { messages } from '../../constants';
 import { FormData } from './types';
 
 export function handleCustomValidate(formData: FormData, errors: FormValidation) {
