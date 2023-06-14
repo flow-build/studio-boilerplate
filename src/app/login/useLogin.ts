@@ -7,12 +7,11 @@ import _delay from 'lodash/delay';
 import _isEqual from 'lodash/isEqual';
 import { useRouter } from 'next/navigation';
 import api from 'services/httpClient';
+import { messages } from 'shared/enum';
 import { CognitoSignIn } from 'shared/types/cognito';
 import { setIsLoading } from 'store/slices/loading';
 import { setBasicInfosUser, setTempEmail } from 'store/slices/user';
 import * as yup from 'yup';
-
-import { messages } from '../../constants';
 
 export const useLogin = () => {
   const [loginError, setLoginError] = useState('');

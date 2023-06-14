@@ -9,13 +9,13 @@ import cryptoJs from 'crypto-js';
 import _isEqual from 'lodash/isEqual';
 import { redirect, useRouter } from 'next/navigation';
 import api from 'services/httpClient';
+import { project } from 'shared/enum';
 import { RootState, store } from 'store';
 import { reset, setNewPassword } from 'store/slices/user';
 import { Button } from 'stories/components/Forms/Button';
 import { OTPInput } from 'stories/components/Forms/OTPInput';
 import { Logger } from 'utils';
 
-import { defaultValues } from '../../constants';
 import * as S from './styles';
 
 const TOKEN_LENGTH = 6;
@@ -104,7 +104,7 @@ export default function VerifyEmail() {
     <S.Main>
       <S.Wrapper>
         <S.SideLeft>
-          <Logo urlImg={defaultValues.urlImgLogo} />
+          <Logo urlImg={project.urlImgLogo} />
         </S.SideLeft>
 
         <S.Form onSubmit={onSubmit}>

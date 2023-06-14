@@ -2,11 +2,11 @@
 import Checkbox from '@mui/material/Checkbox';
 import { Logo } from 'components';
 import Link from 'next/link';
+import { project } from 'shared/enum';
 import { InputPassword, InputText, SnackbarAlerts } from 'stories/components';
 import { Button } from 'stories/components/Forms/Button';
 import { getErrorsFormik, getHelperTextFormik } from 'utils';
 
-import { defaultValues } from '../../constants';
 import * as S from './styles';
 import { useLogin } from './useLogin';
 
@@ -17,7 +17,7 @@ export default function Login() {
     <S.Main>
       <S.Wrapper>
         <S.SideLeft>
-          <Logo urlImg={defaultValues.urlImgLogo} />
+          <Logo urlImg={project.urlImgLogo} />
         </S.SideLeft>
         <S.Form onSubmit={formik.handleSubmit}>
           <h3>Acesse sua conta</h3>
