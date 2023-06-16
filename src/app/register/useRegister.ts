@@ -1,11 +1,13 @@
 'use client';
-import { useState } from 'react';
+
 import { useDispatch } from 'react-redux';
 
+import { AxiosError } from 'axios';
 import { useFormik } from 'formik';
 import _delay from 'lodash/delay';
 import { useRouter } from 'next/navigation';
 import { messages } from 'shared/enum';
+import { showSnackbar } from 'store/slices/snackbar';
 import { setTempEmail } from 'store/slices/user';
 import { validateCPF } from 'utils';
 import * as yup from 'yup';
@@ -13,9 +15,6 @@ import * as yup from 'yup';
 import api from '../../services/httpClient';
 
 export const useRegister = () => {
-  const [notification, setNotification] = useState('');
-  const [successMessage, setSuccessMessage] = useState('');
-
   const INITIAL_VALUES = {
     name: '',
     email: '',
@@ -53,24 +52,18 @@ export const useRegister = () => {
         const result = await api.post<{ status: number }>('/api/signUp', values);
         if (result?.status === 200) {
           dispatch(setTempEmail(values.email));
-          setSuccessMessage('Cadastro bem-sucedido!');
-          setNotification(successMessage);
+          dispatch(showSnackbar({ message: 'Cadastro bem-sucedido!', severity: 'success' }));
+
           _delay(() => {
             router.push('/verify-email');
           }, 500);
-        } else {
-          setNotification(result.message ?? '');
         }
       } catch (error) {
-        setNotification((error as Error).message);
+        const axiosError = error as AxiosError;
+        dispatch(showSnackbar({ message: axiosError.message, severity: 'error' }));
       }
     }
   });
 
-  return {
-    formik,
-    notification,
-    setNotification,
-    successMessage
-  };
+  return { formik };
 };

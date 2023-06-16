@@ -1,87 +1,55 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import Logger from 'utils/logger';
+import axios from 'axios';
+import { store } from 'store';
+import { setIsLoading } from 'store/slices/loading';
 
-import { BaseResponse } from './types';
+const initialHeader = {
+  'Content-Type': 'application/json'
+} as const;
+
+const api = axios.create({
+  baseURL: '',
+  headers: initialHeader
+});
+
+api.interceptors.request.use(
+  (config) => {
+    store.dispatch(setIsLoading(true));
+    return config;
+  },
+  (error) => {
+    store.dispatch(setIsLoading(false));
+    return Promise.reject(error);
+  }
+);
+
+api.interceptors.response.use(
+  (response) => {
+    store.dispatch(setIsLoading(false));
+    return response;
+  },
+  (error) => {
+    store.dispatch(setIsLoading(false));
+
+    return Promise.reject({
+      ...error,
+      message: error?.response?.data?.message ?? error?.message
+    });
+  }
+);
 
 function API() {
-  let BASE_URL = '';
-  let HEADER: HeadersInit = {
-    'Content-Type': 'application/json'
-  };
-
-  function isBaseResponse<T>(response: BaseResponse<T>): response is BaseResponse<T> {
-    return !!response.status;
-  }
-
   return {
+    ...api,
+    post: api.post,
+    get: api.get,
+    put: api.put,
+    patch: api.patch,
+    delete: api.delete,
+    setHeader(header: { [key: string]: string }) {
+      api.defaults.headers.common = { ...initialHeader, ...header };
+    },
     setBaseUrl(baseUrl: string) {
-      BASE_URL = baseUrl;
-    },
-    setHeader(header: HeadersInit) {
-      HEADER = { ...HEADER, ...header };
-    },
-    async get<T>(url: string, options?: RequestInit): Promise<BaseResponse<T>> {
-      try {
-        const response = await fetch(`${BASE_URL}${url}`, {
-          ...options,
-          headers: {
-            ...options?.headers,
-            ...HEADER
-          }
-        });
-        const result = (await response.json()) as T;
-
-        return {
-          status: 100,
-          ok: true,
-          data: result
-        };
-      } catch (error) {
-        Logger.error({ error });
-        return {
-          message: 'Error message',
-          status: 400,
-          ok: false
-        };
-      }
-    },
-    async post<T>(url: string, data?: any, options?: RequestInit): Promise<BaseResponse<T>> {
-      try {
-        const body: string | undefined = data ? JSON.stringify(data) : undefined;
-        const response = await fetch(`${BASE_URL}${url}`, {
-          method: 'POST',
-          ...options,
-          body,
-          headers: {
-            ...options?.headers,
-            ...HEADER
-          }
-        });
-
-        const result = (await response.json()) as BaseResponse<T>;
-
-        if (isBaseResponse(result)) {
-          return result;
-        }
-
-        return {
-          status: 200,
-          ok: true,
-          data: result
-        };
-      } catch (error) {
-        Logger.error({ error });
-
-        if (error instanceof Error) {
-          return {
-            message: error?.message,
-            ok: false,
-            status: 400
-          };
-        }
-
-        return { ok: false, status: 400 };
-      }
+      api.defaults.baseURL = baseUrl;
     }
   };
 }

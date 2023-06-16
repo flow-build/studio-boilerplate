@@ -57,8 +57,6 @@ export default function VerifyEmail() {
       if (_isEqual(result.status, 200)) {
         router.replace('/login');
       }
-
-      throw new Error(result.message);
     } catch (error) {
       if (error instanceof Error) {
         if (_isEqual(error.message, 'CodeMismatchException')) {
