@@ -1,7 +1,9 @@
 'use client';
 import { useState, useCallback } from 'react';
+import { useSelector } from 'react-redux';
 
 import { debounce } from 'lodash';
+import { RootState } from 'store';
 import { Logger } from 'utils';
 
 import { InputSearchAutocomplete } from '../../Forms/InputSearchSuggestions';
@@ -19,7 +21,8 @@ export const InputSearchElastic = ({
 }: InputSearchElasticProps) => {
   const [valueInput, setValueInput] = useState('');
   const [suggestions, setSuggestions] = useState<Suggestions[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
+
+  const isLoading = useSelector((store: RootState) => store.loading.isLoading);
 
   const { getData } = useInputSearchElastic({ searchKey, engineName, endpointBase });
 
@@ -38,16 +41,12 @@ export const InputSearchElastic = ({
     (_: unknown, value: string) => {
       setValueInput(value);
       if (value.length >= 3) {
-        setIsLoading(true);
         getData(value)
           .then((result: Suggestions[]) => {
             setSuggestions(result);
           })
           .catch((error) => {
             Logger.error('Error on getData InputSearchElastic', error);
-          })
-          .finally(() => {
-            setIsLoading(false);
           });
       } else {
         setSuggestions([]);

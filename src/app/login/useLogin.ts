@@ -1,7 +1,8 @@
 'use client';
-import { useState } from 'react';
+
 import { useDispatch } from 'react-redux';
 
+import { AxiosError } from 'axios';
 import { useFormik } from 'formik';
 import _delay from 'lodash/delay';
 import _isEqual from 'lodash/isEqual';
@@ -9,13 +10,11 @@ import { useRouter } from 'next/navigation';
 import api from 'services/httpClient';
 import { messages } from 'shared/enum';
 import { CognitoSignIn } from 'shared/types/cognito';
-import { setIsLoading } from 'store/slices/loading';
+import { showSnackbar } from 'store/slices/snackbar';
 import { setBasicInfosUser, setTempEmail } from 'store/slices/user';
 import * as yup from 'yup';
 
 export const useLogin = () => {
-  const [loginError, setLoginError] = useState('');
-
   const router = useRouter();
   const dispatch = useDispatch();
 
@@ -38,42 +37,36 @@ export const useLogin = () => {
 
   async function onSubmit(values: typeof INITIAL_VALUES) {
     try {
-      dispatch(setIsLoading(true));
       const result = await api.post<CognitoSignIn>('/api/signIn', values);
+      const hasAttributes = result.data?.attributes;
 
-      if (_isEqual(result?.status, 200)) {
-        if (result.data?.attributes) {
-          const { attributes } = result.data;
-          dispatch(
-            setBasicInfosUser({
-              email: attributes.email,
-              name: attributes.name,
-              sub: attributes.sub
-            })
-          );
-        }
+      if (hasAttributes) {
+        const { attributes } = result.data;
+
+        dispatch(
+          setBasicInfosUser({
+            email: attributes.email,
+            name: attributes.name,
+            sub: attributes.sub
+          })
+        );
 
         router.push('/');
-      } else {
-        setLoginError(result.message ?? '');
+        return;
       }
     } catch (error) {
-      if (error instanceof Error) {
-        if (_isEqual(error.message, 'UserNotConfirmedException')) {
+      const axiosError = error as AxiosError;
+
+      if (axiosError?.message) {
+        if (_isEqual(axiosError.message, 'UserNotConfirmedException')) {
           dispatch(setTempEmail(values.username));
           _delay(() => router.push('/verify-email'), 500);
+        } else {
+          dispatch(showSnackbar({ severity: 'error', message: (error as Error).message }));
         }
-      } else {
-        setLoginError((error as Error).message);
       }
-    } finally {
-      dispatch(setIsLoading(false));
     }
   }
 
-  return {
-    formik,
-    loginError,
-    setLoginError
-  };
+  return { formik };
 };
