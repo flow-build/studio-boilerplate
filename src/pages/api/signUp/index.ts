@@ -18,7 +18,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         }
       });
 
-      res.status(200).json({ ok: true, status: 200 });
+      res.status(200).json({});
     } catch (error) {
       Logger.error({ error });
       res.status(400).json({ message: 'Erro ao realizar cadastro', status: 400 });

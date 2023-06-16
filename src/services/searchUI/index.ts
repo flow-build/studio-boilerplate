@@ -1,4 +1,5 @@
 import type { RequestState, QueryConfig } from '@elastic/search-ui';
+import api from 'services/httpClient';
 import { Logger } from 'utils';
 
 class SearchUIConnector {
@@ -12,15 +13,9 @@ class SearchUIConnector {
       queryConfig
     };
 
-    const response = await fetch('/api/searchUI', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(body)
-    });
+    const response = await api.post('/api/searchUI', body);
 
-    return response.json();
+    return response.data;
   }
 }
 
