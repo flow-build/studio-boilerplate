@@ -5,7 +5,7 @@ import { SnackbarAlertsProps } from './types';
 
 export const SnackbarAlerts = ({
   message,
-  severity,
+  severity = 'info',
   variant = 'filled',
   onClose,
   ...props

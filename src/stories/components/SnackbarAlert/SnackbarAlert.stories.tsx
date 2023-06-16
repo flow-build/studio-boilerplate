@@ -23,15 +23,15 @@ const SnackbarAlertsDemo = (args: SnackbarAlertsProps) => {
   const handleCloseModal = () => {
     setOpen(false);
   };
+
   return (
     <div>
       <SnackbarAlerts
         {...args}
         onClose={handleCloseModal}
-        setOpen={setOpen}
         open={open}
         anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-      ></SnackbarAlerts>
+      />
     </div>
   );
 };
