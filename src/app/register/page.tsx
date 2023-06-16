@@ -5,7 +5,7 @@ import { useState } from 'react';
 import Checkbox from '@mui/material/Checkbox';
 import CircularProgress from '@mui/material/CircularProgress';
 import Link from 'next/link';
-import { InputPassword, InputText, SnackbarAlerts } from 'stories/components';
+import { InputPassword, InputText } from 'stories/components';
 import { Button } from 'stories/components/Forms/Button';
 import { getErrorsFormik, getHelperTextFormik, maskCPF, maskPhoneNumber } from 'utils';
 
@@ -13,18 +13,8 @@ import * as S from './styles';
 import { useRegister } from './useRegister';
 
 export default function Register() {
-  const { formik, notification, setNotification, successMessage } = useRegister();
+  const { formik } = useRegister();
   const [optIn, setOptIn] = useState(false);
-
-  const getSeverity = () => {
-    if (notification) {
-      return 'error';
-    } else if (successMessage) {
-      return 'success';
-    } else {
-      return 'error';
-    }
-  };
 
   return (
     <S.Main>
@@ -118,14 +108,6 @@ export default function Register() {
             </center>
           )}
         </S.Form>
-
-        <SnackbarAlerts
-          setOpen={() => setNotification('')}
-          open={!!notification || !!successMessage}
-          message={notification || successMessage}
-          severity={getSeverity()}
-          onClose={() => setNotification('')}
-        />
       </S.Wrapper>
     </S.Main>
   );
