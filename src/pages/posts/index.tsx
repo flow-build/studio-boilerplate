@@ -1,13 +1,12 @@
 'use client';
 
+import { breadcrumbItems, descriptionMock, miniCards } from '__mocks__/postsPage';
 import { Breadcrumbs, ImageComponent } from 'stories/components';
 import { Markdown } from 'stories/components/Markdown';
 import { MiniCardsCarousel } from 'stories/components/MiniCardsCarousel';
 import { RecentPosts } from 'stories/components/RecentPosts';
+import * as S from 'styles/postsPageStyles';
 import { getCurrencyIntegerValue } from 'utils';
-
-import { breadcrumbItems, descriptionMock, miniCards } from './postsMock';
-import * as S from './styles';
 
 export default function Posts() {
   return (
