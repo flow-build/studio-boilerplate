@@ -1,17 +1,22 @@
+import { useEffect } from 'react';
+
 import { Logo } from 'components';
 import { useResetPassword } from 'hooks/useResetPasswordPage';
-import { redirect } from 'next/navigation';
+import { useRouter } from 'next/router';
 import { project } from 'shared/enum';
 import { Button, InputPassword } from 'stories/components';
 import * as S from 'styles/resetPasswordPageStyles';
 import { getErrorsFormik, getHelperTextFormik } from 'utils';
 
 export default function ResetPassword() {
+  const router = useRouter();
   const { formik, email } = useResetPassword();
 
-  if (!email) {
-    redirect('/login');
-  }
+  useEffect(() => {
+    if (!email) {
+      router.push('/login');
+    }
+  }, [email, router]);
 
   return (
     <S.Main>

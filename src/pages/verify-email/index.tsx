@@ -5,7 +5,7 @@ import { Logo } from 'components';
 import { cryptoConfig } from 'config/crypto';
 import cryptoJs from 'crypto-js';
 import _isEqual from 'lodash/isEqual';
-import { redirect, useRouter } from 'next/navigation';
+import { useRouter } from 'next/router';
 import api from 'services/httpClient';
 import { project } from 'shared/enum';
 import { RootState, store } from 'store';
@@ -91,9 +91,11 @@ export default function VerifyEmail() {
     };
   }, [dispatch]);
 
-  if (!email) {
-    redirect('/login');
-  }
+  useEffect(() => {
+    if (!email) {
+      router.push('/login');
+    }
+  }, [email, router]);
 
   return (
     <S.Main>
