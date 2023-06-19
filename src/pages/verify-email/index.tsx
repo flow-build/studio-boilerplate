@@ -14,9 +14,8 @@ import { RootState, store } from 'store';
 import { reset, setNewPassword } from 'store/slices/user';
 import { Button } from 'stories/components/Forms/Button';
 import { OTPInput } from 'stories/components/Forms/OTPInput';
+import * as S from 'styles/verifyEmailPageStyles';
 import { Logger } from 'utils';
-
-import * as S from './styles';
 
 const TOKEN_LENGTH = 6;
 
