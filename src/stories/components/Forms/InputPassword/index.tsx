@@ -1,5 +1,3 @@
-'use client';
-
 import { FC, useCallback, useMemo, useState } from 'react';
 
 import IconButton from '@mui/material/IconButton';
