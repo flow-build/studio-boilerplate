@@ -1,6 +1,6 @@
 'use client';
 
-import { useForgotPassword } from 'app/forgot-password/useForgotPassword';
+import { useForgotPassword } from '_app/forgot-password/useForgotPassword';
 import { ImageComponent, InputText } from 'stories/components';
 import { Button } from 'stories/components/Forms/Button';
 import { getErrorsFormik, getHelperTextFormik } from 'utils';
