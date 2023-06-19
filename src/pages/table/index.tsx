@@ -1,5 +1,3 @@
-'use client';
-
 import { Button } from 'stories/components/Forms/Button';
 import { Table } from 'stories/components/Table';
 import { ColumnProps } from 'stories/components/Table/types';

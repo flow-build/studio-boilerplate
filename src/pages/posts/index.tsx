@@ -1,5 +1,3 @@
-'use client';
-
 import { breadcrumbItems, descriptionMock, miniCards } from '__mocks__/postsPage';
 import { Breadcrumbs, ImageComponent } from 'stories/components';
 import { Markdown } from 'stories/components/Markdown';

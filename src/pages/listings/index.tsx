@@ -1,5 +1,3 @@
-'use client';
-
 import { useListings } from 'hooks';
 import { SearchUI } from 'stories/components';
 import * as S from 'styles/listingsPageStyles';

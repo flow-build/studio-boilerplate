@@ -1,5 +1,3 @@
-'use client';
-
 import { useListings } from 'hooks';
 import { useSearchParams } from 'next/navigation';
 import { SearchUI } from 'stories/components';

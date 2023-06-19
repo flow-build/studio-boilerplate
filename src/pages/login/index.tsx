@@ -1,4 +1,3 @@
-'use client';
 import Checkbox from '@mui/material/Checkbox';
 import { Logo } from 'components';
 import { useLogin } from 'hooks/useLoginPage';

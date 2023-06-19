@@ -1,5 +1,3 @@
-'use client';
-
 import { FormEvent, useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 

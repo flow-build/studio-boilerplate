@@ -1,5 +1,3 @@
-'use client';
-
 import { useForgotPassword } from 'hooks/useForgotPasswordPage';
 import { ImageComponent, InputText } from 'stories/components';
 import { Button } from 'stories/components/Forms/Button';

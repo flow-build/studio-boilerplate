@@ -1,5 +1,3 @@
-'use client';
-
 import { FormEvent, useState } from 'react';
 
 import { Logo } from 'components';

@@ -1,5 +1,3 @@
-'use client';
-
 import { Markdown } from 'stories/components/Markdown';
 import { mdx } from 'stories/components/Markdown/mockResult';
 

@@ -1,5 +1,3 @@
-'use client';
-
 import { Logo } from 'components';
 import { useResetPassword } from 'hooks/useResetPasswordPage';
 import { redirect } from 'next/navigation';
