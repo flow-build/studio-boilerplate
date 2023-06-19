@@ -1,11 +1,10 @@
 'use client';
 
-import { useForgotPassword } from '_app/forgot-password/useForgotPassword';
+import { useForgotPassword } from 'hooks/useForgotPasswordPage';
 import { ImageComponent, InputText } from 'stories/components';
 import { Button } from 'stories/components/Forms/Button';
+import * as S from 'styles/forgotPasswordStyles';
 import { getErrorsFormik, getHelperTextFormik } from 'utils';
-
-import * as S from './styles';
 
 export default function ForgotPassword() {
   const { formik } = useForgotPassword();
