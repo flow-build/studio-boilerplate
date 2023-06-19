@@ -1,14 +1,13 @@
 'use client';
 import Checkbox from '@mui/material/Checkbox';
 import { Logo } from 'components';
+import { useLogin } from 'hooks/useLoginPage';
 import Link from 'next/link';
 import { project } from 'shared/enum';
 import { InputPassword, InputText } from 'stories/components';
 import { Button } from 'stories/components/Forms/Button';
+import * as S from 'styles/loginPage.styles';
 import { getErrorsFormik, getHelperTextFormik } from 'utils';
-
-import * as S from './styles';
-import { useLogin } from './useLogin';
 
 export default function Login() {
   const { formik } = useLogin();
