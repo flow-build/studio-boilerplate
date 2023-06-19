@@ -3,8 +3,7 @@
 import { useListings } from 'hooks';
 import { useParams } from 'next/navigation';
 import { SearchUI } from 'stories/components';
-
-import * as S from './styles';
+import * as S from 'styles/searchTermPageStyles';
 
 export default function CategoryName() {
   const params = useParams();
