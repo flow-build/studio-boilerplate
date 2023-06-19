@@ -1,4 +1,3 @@
-'use client';
 import { memo } from 'react';
 
 import { Paging, SearchProvider, WithSearch } from '@elastic/react-search-ui';
