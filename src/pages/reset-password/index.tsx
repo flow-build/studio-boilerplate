@@ -1,13 +1,12 @@
 'use client';
 
 import { Logo } from 'components';
+import { useResetPassword } from 'hooks/useResetPasswordPage';
 import { redirect } from 'next/navigation';
 import { project } from 'shared/enum';
 import { Button, InputPassword } from 'stories/components';
+import * as S from 'styles/resetPasswordPageStyles';
 import { getErrorsFormik, getHelperTextFormik } from 'utils';
-
-import * as S from './styles';
-import { useResetPassword } from './useResetPassword';
 
 export default function ResetPassword() {
   const { formik, email } = useResetPassword();
