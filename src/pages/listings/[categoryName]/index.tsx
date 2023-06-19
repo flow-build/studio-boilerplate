@@ -1,14 +1,13 @@
 'use client';
 
 import { useListings } from 'hooks';
-import { useParams } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 import { SearchUI } from 'stories/components';
-
-import * as S from '../styles';
+import * as S from 'styles/listingsPageStyles';
 
 export default function CategoryName() {
-  const params = useParams();
-  const searchTerm = decodeURI(params?.categoryName?.toString() ?? '');
+  const searchParams = useSearchParams();
+  const searchTerm = decodeURI(searchParams.get('categoryName')?.toString() ?? '');
 
   const { data } = useListings(searchTerm ?? '', searchTerm, true);
   return (
