@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { project } from 'shared/enum';
 import { InputPassword, InputText } from 'stories/components';
 import { Button } from 'stories/components/Forms/Button';
-import * as S from 'styles/loginPage.styles';
+import * as S from 'styles/loginPageStyles';
 import { getErrorsFormik, getHelperTextFormik } from 'utils';
 
 export default function Login() {

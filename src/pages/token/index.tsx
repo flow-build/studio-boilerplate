@@ -7,9 +7,8 @@ import _isEqual from 'lodash/isEqual';
 import { project } from 'shared/enum';
 import { Button } from 'stories/components/Forms/Button';
 import { OTPInput } from 'stories/components/Forms/OTPInput';
+import * as S from 'styles/tokenPageStyles';
 import { Logger } from 'utils';
-
-import * as S from './styles';
 
 const TOKEN_LENGTH = 5;
 
