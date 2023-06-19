@@ -4,13 +4,12 @@ import { useState } from 'react';
 
 import Checkbox from '@mui/material/Checkbox';
 import CircularProgress from '@mui/material/CircularProgress';
+import { useRegister } from 'hooks/useRegisterPage';
 import Link from 'next/link';
 import { InputPassword, InputText } from 'stories/components';
 import { Button } from 'stories/components/Forms/Button';
+import * as S from 'styles/registerPageStyles';
 import { getErrorsFormik, getHelperTextFormik, maskCPF, maskPhoneNumber } from 'utils';
-
-import * as S from './styles';
-import { useRegister } from './useRegister';
 
 export default function Register() {
   const { formik } = useRegister();

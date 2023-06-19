@@ -1,5 +1,3 @@
-'use client';
-
 import { useDispatch } from 'react-redux';
 
 import { AxiosError } from 'axios';
