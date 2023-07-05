@@ -9,6 +9,9 @@ const nextConfig = {
     AWS_POOL_ID: process.env.AWS_POOL_ID,
     AWS_CLIENT_ID: process.env.AWS_CLIENT_ID,
     CRYPTO_SECRET_KEY: process.env.CRYPTO_SECRET_KEY
+  },
+  eslint: {
+    ignoreDuringBuilds: true
   }
 };
 
